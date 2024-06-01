@@ -12,26 +12,27 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
-          <i class="nav-icon fas fa-th"></i>
+        <a href="pages/calendar.html" class="nav-link">
+          <i class="nav-icon far fa-calendar-alt"></i>
           <p>
-            test1
+            Calendar
+            <span class="badge badge-info right">2</span>
           </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
-          <i class="nav-icon fas fa-th"></i>
+        <a href="pages/gallery.html" class="nav-link">
+          <i class="nav-icon far fa-image"></i>
           <p>
-            test2
+            Gallery
           </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
-          <i class="nav-icon fas fa-th"></i>
+        <a href="pages/kanban.html" class="nav-link">
+          <i class="nav-icon fas fa-columns"></i>
           <p>
-            test3
+            Kanban Board
           </p>
         </a>
       </li>

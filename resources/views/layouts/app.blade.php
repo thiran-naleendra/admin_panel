@@ -23,7 +23,7 @@
     <!-- <link href="path/to/component-chosen.min.css" rel="stylesheet"> -->
     <!-- Table search and file export css -->
     <link rel="stylesheet" type="text/css" href="dist/css/buttons.dataTables.min.css">
-   
+
 
 
     <!-- @stack('third_party_stylesheets')
@@ -42,9 +42,75 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="index3.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div class="navbar-search-block">
+                        <form class="form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
+                        href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ url('image/profile.png') }}" class="user-image img-circle elevation-2"
@@ -54,7 +120,8 @@
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
                         <li class="user-header bg-primary">
-                            <img src="{{ url('image/profile.png') }}" class="img-circle elevation-2" alt="User Image">
+                            <img src="{{ url('image/profile.png') }}" class="img-circle elevation-2"
+                                alt="User Image">
                             <p>
                                 Thiran
                                 <small>Member since 2020</small>
@@ -89,7 +156,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.0.5
             </div>
-            <strong>Copyright &copy; 2023 <a >Rabbit Solutions</a>.</strong> All rights
+            <strong>Copyright &copy; 2024 <a>Thiran Naleendra</a>.</strong> All rights
             reserved.
         </footer>
     </div>
@@ -112,7 +179,7 @@
     <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
     <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <script src="dist/js/pages/dashboard2.js"></script>
-    
+
 
     {{-- select2 search box cdn --}}
     <script src="dist/js/select2.min.js"></script>
@@ -123,7 +190,7 @@
 
     <!-- Table search and export files js -->
 
-    
+
     <script src="dist/js/jquery.dataTables.min.js"></script>
     <script src="dist/js/dataTables.buttons.min.js"></script>
     <script src="dist/js/jszip.min.js"></script>
@@ -134,37 +201,36 @@
 
     <!-- file export script -->
     <script>
-$(document).ready(function() {
-        $('#dataTable').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'excel',
-                    text: 'Excel'
-                },
-                {
-                    extend: 'csv',
-                    text: 'CSV'
-                },
-                {
-                    extend: 'pdf',
-                    text: 'PDF',
-                    customize: function (doc) {
-                        doc.pageMargins = [1, 1, 1, 1];
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [{
+                        extend: 'excel',
+                        text: 'Excel'
+                    },
+                    {
+                        extend: 'csv',
+                        text: 'CSV'
+                    },
+                    {
+                        extend: 'pdf',
+                        text: 'PDF',
+                        customize: function(doc) {
+                            doc.pageMargins = [1, 1, 1, 1];
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: 'Print',
+                        customize: function(win) {
+                            // Set styles or modify the print window here
+                            // For example, you can set margins to fit the printable area
+                            $(win.document.body).css('margin', '10mm');
+                        }
                     }
-                },
-                {
-                    extend: 'print',
-                    text: 'Print',
-                    customize: function (win) {
-                        // Set styles or modify the print window here
-                        // For example, you can set margins to fit the printable area
-                        $(win.document.body).css('margin', '10mm');
-                    }
-                }
-            ]
+                ]
+            });
         });
-    });
 
         $(document).ready(function() {
             $('#dataTableNoPagination').DataTable({
