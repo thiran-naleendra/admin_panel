@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Login | Ludiflex</title>
+    <title>Login </title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
@@ -140,39 +140,43 @@
 </head>
 
 <body>
-    
+
 
     <div class="login-box">
-        
-        {{-- temp --}}
-        <div class="input-submit">
-            <a href="{{ route('genaral') }}"><button class="submit-btn" id="submit"></button>
-            <label for="submit">Dashboard</label></a>
-        </div>
-        {{-- temp --}}
 
-        <div class="login-header">
-            <header>Login</header>
-        </div>
-        <div class="input-box">
-            <input type="text" class="input-field" placeholder="Email" autocomplete="off" required>
-        </div>
-        <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password" autocomplete="off" required>
-        </div>
-        <div class="forgot">
-            <section>
-                <input type="checkbox" id="check">
-                <label for="check">Remember me</label>
-            </section>
-            <section>
-                <a href="#">Forgot password</a>
-            </section>
-        </div>
-        <div class="input-submit">
-            <button class="submit-btn" id="submit"></button>
-            <label for="submit">Sign In</label>
-        </div>
+        
+        <form method="POST" action="{{ route('login') }}">
+            <div class="login-header">
+                <header>Login</header>
+            </div>
+
+
+            @csrf
+
+
+            <!-- Email input -->
+            <div class="input-box">
+
+                <input name="name" id="form3Example3" class="input-field" placeholder="Enter a valid Name"
+                    required />
+
+            </div>
+
+            <!-- Password input -->
+            <div class="input-box">
+
+                <input type="password" name="password" id="password" class="input-field" placeholder="Enter password"
+                    required />
+
+            </div>
+
+
+            <div class="input-submit">
+                <button type="submit" class="submit-btn"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem; color:#fff">Login</button>
+
+            </div>
+        </form>
         <div class="sign-up-link">
             <p>Don't have account? <a href="{{ route('signup') }}">Sign Up</a></p>
         </div>
