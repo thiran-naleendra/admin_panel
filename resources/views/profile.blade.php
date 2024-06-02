@@ -63,7 +63,7 @@
                             <button class="btn btn-primary tablinks" onclick="openCity(event, 'edit')">Edit Profile</button>
                         </div>
                         <div id="view" class="tabcontent">
-                        <div class="row mt-3">
+                            <div class="row mt-3">
                                 <div class="col-md-3"><label>Name</label></div>
                                 <div class="col-md-9">John Doe</div>
                             </div>
