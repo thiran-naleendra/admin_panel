@@ -140,7 +140,17 @@
 </head>
 
 <body>
+    
+
     <div class="login-box">
+        
+        {{-- temp --}}
+        <div class="input-submit">
+            <a href="{{ route('genaral') }}"><button class="submit-btn" id="submit"></button>
+            <label for="submit">Dashboard</label></a>
+        </div>
+        {{-- temp --}}
+
         <div class="login-header">
             <header>Login</header>
         </div>

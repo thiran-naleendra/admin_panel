@@ -14,6 +14,7 @@ use App\Http\Controllers\CallController;
 
 
 Route::get('/' , [MainController::class,'index'])->name('main');
+Route::get('genaral' , [MainController::class,'genaral'])->name('genaral');
 Route::get('signup' , [MainController::class,'signup'])->name('signup');
 
 Route::get('/profile' , [ProfileController::class,'index'])->name('profile');

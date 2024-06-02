@@ -14,4 +14,9 @@ class MainController extends Controller
         // return view('genaral');
         return view('signup');
     }
+    public function genaral()
+    {   
+         return view('genaral');
+        
+    }
 }
