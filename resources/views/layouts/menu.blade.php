@@ -42,7 +42,7 @@
 
       <li class="nav-item">
         <a href="{{ route('create_report') }}" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
+          <i class="nav-icon far fa-plus-square"></i>
           <p>
             Make A Reports
           </p>
@@ -51,9 +51,9 @@
 
       <li class="nav-item">
         <a href="{{ route('create_request') }}" class="nav-link">
-          <i class="nav-icon fas fa-columns"></i>
+          <i class="nav-icon fas fa-book"></i>
           <p>
-            Make A Request
+            Make Requests
           </p>
         </a>
       </li>
