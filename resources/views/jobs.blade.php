@@ -3,12 +3,21 @@
     <section class="content">
         <br>
         <div class="container rounded  mt-5">
+            <div class="card card-primary">                
+                <div class="card-body">                
+                    <label>Active Issues</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="nav-icon fas fa-search"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search Job Id..">
+                    </div>
+                </div>
+            </div>
             <div class="">
                 <div class="card">
                     <div class="card-header" style="background-color: #ffffff;">
                         <h2 style="color: #ea7831;">Jobs</h2>
-
-
                     </div>
                     <br>
                     <!-- /.card-header -->
@@ -51,9 +60,6 @@
                     </div>
                     <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
-
-
             </div>
         </div>
     </section>
