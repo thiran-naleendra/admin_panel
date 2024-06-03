@@ -115,7 +115,7 @@
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ url('image/profile.png') }}" class="user-image img-circle elevation-2"
                             alt="User Image">
-                        <span class="d-none d-md-inline">Thiran</span>
+                        <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
@@ -123,8 +123,8 @@
                             <img src="{{ url('image/profile.png') }}" class="img-circle elevation-2"
                                 alt="User Image">
                             <p>
-                                Thiran
-                                <small>Member since 2020</small>
+                                {{ Auth::user()->name }}
+                                <small>{{ Auth::user()->created_at }}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
