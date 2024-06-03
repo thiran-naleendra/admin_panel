@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Login | Ludiflex</title>
+    <title>Sign Up | Ludiflex</title>
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
@@ -30,7 +32,7 @@
             justify-content: center;
             flex-direction: column;
             width: 640px;
-            height: 480px;
+            height: 540px;
             padding: 30px;
         }
 
@@ -137,62 +139,134 @@
             font-weight: 600;
         }
 
-
-
         .form-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
+
         .input-box {
             display: flex;
             flex-direction: column;
         }
+
         .input-field {
             padding: 10px;
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class="login-box">
+        <div class="image-container">
+            <img src="{{ url('image/geo.png') }}" width="400px" height="auto" alt="User Image">
+        </div>
         <div class="login-header">
+
             <header>Sign Up</header>
         </div>
-        <div class="form-container">
-            <div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Email" autocomplete="off" required>
+        <form id="sign-up-form" method="POST" action="{{ route('create_user') }}" enctype="multipart/form-data">
+            @csrf
+            
+
+            <div class="form-container">
+                <div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Email" name="email" autocomplete="off" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Name" name="name" autocomplete="off" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Position" name="position" autocomplete="off" required>
+                    </div>
                 </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Name" autocomplete="off" required>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Position" autocomplete="off" required>
+                <div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Mobile Number" name="mobile_no" autocomplete="off" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="password" class="input-field" placeholder="Password" name="password" autocomplete="off" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="password_confirmation" class="input-field" placeholder="Confirm Password" name="password_confirmation" autocomplete="off" required>
+                        <span id="password-error" class="error" style="display: none;">Passwords do not match.</span>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Mobile Number" autocomplete="off" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" class="input-field" placeholder="Password" autocomplete="off" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" class="input-field" placeholder="Confirm Password" autocomplete="off" required>
-                </div>
+            <br><br>
+            <div class="input-submit">
+                <button type="submit" class="submit-btn" style="padding-left: 2.5rem; padding-right: 2.5rem; color:#fff">Sign Up</button>
             </div>
-        </div>
-        <br><br>
-        <div class="input-submit">
-            <button class="submit-btn" id="submit"></button>
-            <label for="submit">Sign Up</label>
-        </div>
-        
+            @if ($errors->any())
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        html: '{!! implode('<br>', $errors->all()) !!}'
+                    });
+                </script>
+            @endif
+
+            @if (session('success'))
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: '{{ session('success') }}'
+                    });
+                </script>
+            @endif
+        </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('password').addEventListener('input', validatePassword);
+        document.getElementById('password_confirmation').addEventListener('input', validatePassword);
+
+        function validatePassword() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('password_confirmation').value;
+            var errorSpan = document.getElementById('password-error');
+
+            if (password !== confirmPassword) {
+                errorSpan.style.display = 'inline';
+            } else {
+                errorSpan.style.display = 'none';
+            }
+        }
+
+        document.getElementById('sign-up-form').addEventListener('submit', function(event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('password_confirmation').value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault(); // Prevent form submission
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Passwords do not match',
+                    text: 'Please make sure that the password and confirm password fields match.'
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -10,6 +10,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\CallController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -19,7 +20,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout'); // lo
 
 Route::get('/' , [MainController::class,'index'])->name('main');
 Route::get('genaral' , [MainController::class,'genaral'])->name('genaral');
-Route::get('signup' , [MainController::class,'signup'])->name('signup');
+
+Route::get('signup' , [MainController::class,'signup'])->name('signup'); 
+Route::post('/create_user', [UserController::class, 'create_user'])->name('create_user');
 
 Route::get('/profile' , [ProfileController::class,'index'])->name('profile');
 
