@@ -129,12 +129,12 @@
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <a href="{{ route('profile') }}" class="btn btn-default btn-flat">Profile</a>
-                            <a href="#" class="btn btn-default btn-flat float-right"
+                            <a href="{{ route('profile') }}" class="btn btn-default btn-flat">Profile</a>
+                            <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-right"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Sign out
                             </a>
-                            <form id="logout-form" action="" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </li>
@@ -173,7 +173,7 @@
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script src="dist/js/adminlte.min.js"></script>
-    <script src="dist/js/demo.js"></script>
+    
     <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script src="plugins/raphael/raphael.min.js"></script>
     <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
