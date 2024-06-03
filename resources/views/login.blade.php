@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Login </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
@@ -136,6 +137,13 @@
             color: #000;
             font-weight: 600;
         }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -144,7 +152,10 @@
 
     <div class="login-box">
 
-        
+        <div class="image-container">
+            <img src="{{ url('image/geo.png') }}" width="400px" height="auto" alt="User Image">
+        </div>
+
         <form method="POST" action="{{ route('login') }}">
             <div class="login-header">
                 <header>Login</header>
@@ -170,6 +181,16 @@
 
             </div>
 
+            @if ($errors->has('name'))
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '{{ $errors->first('name') }}'
+                    });
+                </script>
+            @endif
 
             <div class="input-submit">
                 <button type="submit" class="submit-btn"
