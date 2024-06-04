@@ -168,7 +168,7 @@
             <!-- Email input -->
             <div class="input-box">
 
-                <input name="name" id="form3Example3" class="input-field" placeholder="Enter a valid Name"
+                <input name="name" id="form3Example3" class="input-field" placeholder="Enter User Name"
                     required />
 
             </div>

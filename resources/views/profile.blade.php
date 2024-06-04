@@ -50,9 +50,9 @@
                 <div class="col-md-4 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                         <img class="rounded-circle mt-5" src="https://i.imgur.com/0eg0aG0.jpg" width="90">
-                        <span class="font-weight-bold">John Doe</span>
-                        <span class="text-black-50">john_doe12@bbb.com</span>
-                        <span>United States</span>
+                        <span class="font-weight-bold">{{ Auth::user()->name }}</span>
+                        <span class="text-black-50">{{ Auth::user()->email }}</span>
+                        
                     </div>
                 </div>
                 
@@ -65,15 +65,15 @@
                         <div id="view" class="tabcontent">
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Name</label></div>
-                                <div class="col-md-9">John Doe</div>
+                                <div class="col-md-9">{{ Auth::user()->name }}</div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Username</label></div>
-                                <div class="col-md-9">John Doe</div>
+                                <div class="col-md-9">{{ Auth::user()->name }}</div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Email</label></div>
-                                <div class="col-md-9">john_doe12@bbb.com</div>
+                                <div class="col-md-9">{{ Auth::user()->email }}</div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Links</label></div>
@@ -88,19 +88,19 @@
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Name</label></div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="Name" >
+                                    <input type="text" class="form-control" placeholder="{{ Auth::user()->name }}" >
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Username</label></div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="Username">
+                                    <input type="text" class="form-control" placeholder="{{ Auth::user()->name }}">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Email</label></div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" placeholder="{{ Auth::user()->email }}">
                                 </div>
                             </div>
                             <div class="row mt-3">

@@ -24,7 +24,7 @@
     <!-- Table search and file export css -->
     <link rel="stylesheet" type="text/css" href="dist/css/buttons.dataTables.min.css">
 
-
+    
 
     <!-- @stack('third_party_stylesheets')
 
@@ -156,7 +156,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.0.5
             </div>
-            <strong>Copyright &copy; 2024 <a>Thiran Naleendra</a>.</strong> All rights
+            <strong>Copyright &copy; 2024 <a>WEB X</a>.</strong> All rights
             reserved.
         </footer>
     </div>
@@ -183,6 +183,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    
 
 
     {{-- select2 search box cdn --}}
