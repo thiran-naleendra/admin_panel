@@ -39,7 +39,27 @@
         cursor: pointer;
     }
 
-    .tabcontent {
+    #soil_test_div {
+        display: none;
+    }
+
+    #survey_div {
+        display: none;
+    }
+
+    #other_jobs_div {
+        display: none;
+    }
+
+    #demolished_test_div {
+        display: none;
+    }
+
+    #feature_survey_div {
+        display: none;
+    }
+
+    #ahd_ffl_div {
         display: none;
     }
 </style>
@@ -98,33 +118,77 @@
                         <div class="col-md-6 form-group">
                             <label></label>
                             <select class="custom-select form-control-border" id="job" placeholder="Select Job">
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
+                                @foreach ($job_types as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
                             </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Add filed base on selected item</label>
-                            <input type="text" class="form-control" id="job_item" placeholder="">
-                        </div>           
+                        </div>          
                     </div>
-                    <div class="row mt-3">
+
+                    <div class="row mt-3 soil_test" id="soil_test_div">
                         <div class="col-md-6 form-group">
                             <label></label>
-                            <select class="custom-select form-control-border" id="soil" placeholder="Soil Test">
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
+                            <select class="custom-select form-control-border" id="soil_test" placeholder="Soil Test">
+                                @foreach ($soil_test as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <label>Add filed base on selected item</label>
-                            <input type="text" class="form-control" id="soil_item" placeholder="">
-                        </div> 
-                    </div>                    
+                    </div>
+
+                    <div class="row mt-3" id="survey_div">
+                        <div class="col-md-6 form-group">
+                            <label></label>
+                            <select class="custom-select form-control-border" id="surveys" placeholder="Select Job">
+                                @foreach ($surveys as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>          
+                    </div>              
+
+                    <div class="row mt-3" id="other_jobs_div">
+                        <div class="col-md-6 form-group">
+                            <label></label>
+                            <select class="custom-select form-control-border" id="other_jobs" placeholder="Select Job">
+                                @foreach ($other_jobs as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>          
+                    </div>              
+
+                    <div id="feature_survey_div">                        
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <select class="custom-select form-control-border" id="feature_surveys" placeholder="Select Job">
+                                    @foreach ($feature_surveys as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
+                                <label for="customCheckbox1" class="custom-control-label">Required AHD</label>
+                            </div>              
+                        </div>        
+                    </div>
+
+                    <div class="row mt-3" id="ahd_ffl_div">
+                        <div class="col-md-6 form-group">
+                            <label></label>
+                            <select class="custom-select form-control-border" id="ahd_ffl" placeholder="Select Job">
+                                @foreach ($ahd_ffl as $key => $value)
+                                    <option value="{{ $key }}">{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>          
+                    </div> 
+
                 </div>
                 
-                <div class="card-body">
+                <div class="card-body" id="demolished_test_div">
                     <div class="row mt-3">
                         <div class="col-md-2"><label>FOOTING PROBE</label></div>
                         <div class="col-md-2">
@@ -216,6 +280,12 @@
                 </div>
 
                 <div class="card-body">
+                    <div class="form-group">
+                        <label></label>
+                        <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <div class="card-body">
                     <h4>Upload Documents</h4>
                     <div class="row mt-3">
                         <label for="exampleInputFile">File input</label>
@@ -236,5 +306,91 @@
             </form>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const jobSelect = document.getElementById('job');
+            const soilTestSelect = document.getElementById('soil_test');
+            const surveysSelect = document.getElementById('surveys');
+            const soilTestDiv = document.getElementById('soil_test_div');
+            const surveyDiv = document.getElementById('survey_div');
+            const otherJobsDiv = document.getElementById('other_jobs_div');
+            const preDemolishedDiv = document.getElementById('demolished_test_div');
+            const featureSurveyDiv = document.getElementById('feature_survey_div');
+            const ahdFflDiv = document.getElementById('ahd_ffl_div');
+
+            jobSelect.addEventListener('change', function () {
+                switch (jobSelect.value) {
+                    case 'ST':
+                        soilTestDiv.style.display = 'block';
+                        surveyDiv.style.display = 'none';
+                        break;
+                    case 'SU':
+                        soilTestDiv.style.display = 'none';
+                        surveyDiv.style.display = 'block';
+                        break;
+                    case 'OJ':
+                        soilTestDiv.style.display = 'none';
+                        surveyDiv.style.display = 'none';
+                        otherJobsDiv.style.display = 'block';
+                        break;
+                    case 'IN':
+                        soilTestDiv.style.display = 'none';
+                        surveyDiv.style.display = 'none';
+                        otherJobsDiv.style.display = 'none';
+                        break;
+                    default:
+                        soilTestDiv.style.display = 'none';
+                        surveyDiv.style.display = 'none';
+                        otherJobsDiv.style.display = 'none';
+                        ahdFflDiv.style.display = 'none';
+                        break;
+                }
+            });
+
+            soilTestSelect.addEventListener('change', function () {
+                switch (soilTestSelect.value) {
+                    case 'PRDT':
+                    case 'PODT':
+                        preDemolishedDiv.style.display = 'block';
+                        break;
+                    case 'FP':
+                        preDemolishedDiv.style.display = 'none';
+                        break;
+                    case 'OJ':
+                        preDemolishedDiv.style.display = 'none';
+                        break;
+                    default:
+                        preDemolishedDiv.style.display = 'none';
+                        ahdFflDiv.style.display = 'none';
+                        break;
+                }
+            });
+
+            surveysSelect.addEventListener('change', function () {
+                switch (surveysSelect.value) {
+                    case 'FS':
+                        featureSurveyDiv.style.display = 'block';
+                        otherJobsDiv.style.display = 'none';
+                        ahdFflDiv.style.display = 'none';
+                        break;
+                    case 'AHD':
+                        featureSurveyDiv.style.display = 'none';
+                        otherJobsDiv.style.display = 'none';
+                        ahdFflDiv.style.display = 'block';
+                        break;
+                    case 'RE':
+                        featureSurveyDiv.style.display = 'none';
+                        otherJobsDiv.style.display = 'none';
+                        ahdFflDiv.style.display = 'none';
+                        break;
+                    default:
+                        featureSurveyDiv.style.display = 'none';
+                        otherJobsDiv.style.display = 'none';
+                        ahdFflDiv.style.display = 'none';
+                        break;
+                }
+            });
+        });
+    </script>
 </section>
 @endsection
