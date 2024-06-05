@@ -41,6 +41,15 @@
       </li>
 
       <li class="nav-item">
+        <a href="{{ route('signup') }}" class="nav-link">
+          <i class="nav-icon far fa-calendar-alt"></i>
+          <p>
+            User Register
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a href="{{ route('create_report') }}" class="nav-link">
           <i class="nav-icon far fa-plus-square"></i>
           <p>
