@@ -24,7 +24,7 @@ class AuthController extends Controller
             // Authentication passed...
 
 
-            return redirect()->intended('/genaral');
+            return redirect()->intended('/jobs');
         }
 
         return back()->withErrors(['name' => 'Invalid credentials']);

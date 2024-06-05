@@ -87,7 +87,7 @@
                     <!-- /.card-header -->
                     <div class="card-body p-0">
                         <table class="table">
-                            <thead style="background-color: #ea7831;">
+                            <thead style="background-color: #EA7831;">
                                 <tr>
                                     <th style="width: 10px">Job ID</th>
                                     <th>Status</th>

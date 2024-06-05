@@ -20,10 +20,12 @@
 
         body {
             display: flex;
-            justify-content: center;
+            justify-content: right;
+            padding-right: 10%;
             align-items: center;
             min-height: 100vh;
-            background: #ececec;
+            background: url('https://images.pexels.com/photos/9330906/pexels-photo-9330906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+            background-size: cover;
         }
 
         .login-box {
@@ -52,7 +54,7 @@
             font-size: 17px;
             padding: 0 25px;
             margin-bottom: 15px;
-            border-radius: 30px;
+            border-radius: 10px;
             border: none;
             box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.05);
             outline: none;
@@ -64,9 +66,6 @@
             color: #222;
         }
 
-        .input-field:focus {
-            width: 105%;
-        }
 
         .forgot {
             display: flex;
@@ -144,39 +143,40 @@
             align-items: center;
             margin-bottom: 20px;
         }
+
+        .top-left-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 20px;
+            /* Optional: Adjust margin to move the image inward */
+        }
     </style>
 </head>
 
 <body>
 
 
-    <div class="login-box">
+    <img src="image/geo.png" alt="" width="200px" height="auto" class="top-left-image">
 
-        <div class="image-container">
-            <img src="{{ url('image/geo.png') }}" width="400px" height="auto" alt="User Image">
-        </div>
+    <div class="login-box" style="background-color: #e6e6e6; border-radius: 10px;">
 
         <form method="POST" action="{{ route('login') }}">
             <div class="login-header">
-                <header>Login</header>
+                <header style="color: #000000">Login</header>
             </div>
-
-
             @csrf
-
-
             <!-- Email input -->
             <div class="input-box">
 
-                <input name="name" id="form3Example3" class="input-field" placeholder="Enter User Name"
-                    required />
+                <input name="name" id="form3Example3" class="input-field" placeholder="User Name" required />
 
             </div>
 
             <!-- Password input -->
             <div class="input-box">
 
-                <input type="password" name="password" id="password" class="input-field" placeholder="Enter password"
+                <input type="password" name="password" id="password" class="input-field" placeholder="password"
                     required />
 
             </div>
@@ -198,9 +198,9 @@
 
             </div>
         </form>
-        <div class="sign-up-link">
+        {{-- <div class="sign-up-link">
             <p>Don't have account? <a href="{{ route('signup') }}">Sign Up</a></p>
-        </div>
+        </div> --}}
     </div>
 </body>
 

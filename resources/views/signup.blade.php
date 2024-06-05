@@ -1,32 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Sign Up | Ludiflex</title>
-    <!-- SweetAlert2 CSS -->
+@extends('layouts.app')
+@section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #ececec;
-        }
-
         .login-box {
             display: flex;
             justify-content: center;
@@ -53,7 +28,7 @@
             font-size: 17px;
             padding: 0 25px;
             margin-bottom: 15px;
-            border-radius: 30px;
+            border-radius: 10px;
             border: none;
             box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.05);
             outline: none;
@@ -65,9 +40,7 @@
             color: #222;
         }
 
-        .input-field:focus {
-            width: 105%;
-        }
+
 
         .forgot {
             display: flex;
@@ -169,73 +142,164 @@
             margin-bottom: 20px;
         }
     </style>
-</head>
 
-<body>
-    <div class="login-box">
-        <div class="image-container">
-            <img src="{{ url('image/geo.png') }}" width="400px" height="auto" alt="User Image">
-        </div>
-        <div class="login-header">
 
-            <header>Sign Up</header>
-        </div>
-        <form id="sign-up-form" method="POST" action="{{ route('create_user') }}" enctype="multipart/form-data">
-            @csrf
-            
 
-            <div class="form-container">
-                <div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Email" name="email" autocomplete="off" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Name" name="name" autocomplete="off" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Position" name="position" autocomplete="off" required>
-                    </div>
-                </div>
-                <div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Mobile Number" name="mobile_no" autocomplete="off" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" id="password" class="input-field" placeholder="Password" name="password" autocomplete="off" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" id="password_confirmation" class="input-field" placeholder="Confirm Password" name="password_confirmation" autocomplete="off" required>
-                        <span id="password-error" class="error" style="display: none;">Passwords do not match.</span>
-                    </div>
+    <section class="content">
+        <div class="container rounded bg-white mt-5">
+            <div class="card card-primary">
+                <div class="card-header" style="background-color: #262D59">
+                    <h3 class="card-title">Register User</h3>
                 </div>
             </div>
-            <br><br>
-            <div class="input-submit">
-                <button type="submit" class="submit-btn" style="padding-left: 2.5rem; padding-right: 2.5rem; color:#fff">Sign Up</button>
-            </div>
-            @if ($errors->any())
-                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                <script>
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        html: '{!! implode('<br>', $errors->all()) !!}'
-                    });
-                </script>
-            @endif
+            <br>
+            {{-- <div class=""
+                style="display: flex; justify-content: center; align-items: center; height: auto; background-color: #f0f0f0; ">
 
-            @if (session('success'))
-                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                <script>
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success',
-                        text: '{{ session('success') }}'
-                    });
-                </script>
-            @endif
-        </form>
-    </div>
+
+                <form id="sign-up-form" method="POST" action="{{ route('create_user') }}" enctype="multipart/form-data">
+                    @csrf
+
+
+                    <div class="form-container">
+                        <div>
+                            <div class="input-box">
+                                <input type="text" class="input-field" placeholder="Email" name="email"
+                                    autocomplete="off" required>
+                            </div>
+                            <div class="input-box">
+                                <input type="text" class="input-field" placeholder="User Name" name="name"
+                                    autocomplete="off" required>
+                            </div>
+                            <div class="input-box">
+                                <input type="text" class="input-field" placeholder="Position" name="position"
+                                    autocomplete="off" required>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-box">
+                                <input type="text" class="input-field" placeholder="Mobile Number" name="mobile_no"
+                                    autocomplete="off" required>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" id="password" class="input-field" placeholder="Password"
+                                    name="password" autocomplete="off" required>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" id="password_confirmation" class="input-field"
+                                    placeholder="Confirm Password" name="password_confirmation" autocomplete="off" required>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <select id="" class="input-field" name="password_confirmation" required>
+                            <option value="">Select Company</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+
+                    </div>
+                    <br><br>
+                    <div class="input-submit">
+                        <button type="submit" class="submit-btn"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem; color:#fff">Register User</button>
+                    </div>
+                    @if ($errors->any())
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                html: '{!! implode('<br>', $errors->all()) !!}'
+                            });
+                        </script>
+                    @endif
+
+                    @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: '{{ session('success') }}'
+                            });
+                        </script>
+                    @endif
+                </form>
+            </div> --}}
+            <form id="sign-up-form" method="POST" action="{{ route('create_user') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="name">User Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="User Name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="position">Position</label>
+                        <input type="text" class="form-control" id="position" name="position" placeholder="Position" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="mobile_no">Mobile Number</label>
+                        <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password_confirmation">Confirm Password</label>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required>
+                        <span id="password-error" class="error" style="display: none; color: red;">Passwords do not match.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password_confirmation">Select Company</label>
+                    <select id="" class="form-control" name="password_confirmation" required>
+                        <option value="">  Select  </option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+
+                </div>
+                <br>
+                <div class="input-submit">
+                    <button type="submit" class="submit-btn" style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:#262D59; color:#fff;">Register User</button>
+                </div>
+                @if ($errors->any())
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                html: '{!! implode('<br>', $errors->all()) !!}'
+                            });
+                        </script>
+                    @endif
+
+                    @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: '{{ session('success') }}'
+                            });
+                        </script>
+                    @endif
+            </form>
+
+        </div>
+    </section>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.getElementById('password').addEventListener('input', validatePassword);
@@ -267,6 +331,4 @@
             }
         });
     </script>
-</body>
-
-</html>
+@endsection
