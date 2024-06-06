@@ -131,12 +131,12 @@
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <a href="{{ route('profile') }}" class="btn btn-default btn-flat">Profile</a>
-                            <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-right"
+                            <a href="" class="btn btn-default btn-flat">Profile</a>
+                            <a href="{{ route('admin_logout') }}" class="btn btn-default btn-flat float-right"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Sign out
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('admin_logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </li>
@@ -146,7 +146,7 @@
         </nav>
 
         <!-- Left side column. contains the logo and sidebar -->
-        @include('layouts.sidebar')
+        @include('admin.layouts.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

@@ -37,3 +37,17 @@ Route::get('/create_request' , [RequestController::class,'index'])->name('create
 Route::get('/view_request' , [RequestController::class,'view_request'])->name('view_request');
 
 Route::get('/shedule_call' , [CallController::class,'index'])->name('shedule_call');
+
+
+
+
+// admin routs
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminHomeController;
+
+Route::get('/admin_login' , [AdminController::class,'index'])->name('admin_login'); 
+Route::post('/admin_login', [AdminController::class, 'admin_login']);
+Route::post('/admin_logout', [AdminController::class, 'admin_logout'])->name('admin_logout');
+
+Route::get('/admin_home' , [AdminHomeController::class,'index'])->name('admin_home'); 

@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Support\Facades\Auth; // Move this line here
 use Illuminate\Http\Request;
-// ...
 
-
-class AuthController extends Controller
+class AdminController extends Controller
 {
-    public function showLoginForm()
+    public function index()
     {
-        return view('login');
+        return view('admin.admin_login');
     }
+
+
+    
 
     public function admin_login(Request $request)
     {
@@ -24,15 +24,15 @@ class AuthController extends Controller
             // Authentication passed...
 
 
-            return redirect()->intended('/jobs');
+            return redirect()->intended('/admin_home');
         }
 
         return back()->withErrors(['name' => 'Invalid credentials']);
     }
-    public function logout()
+    public function admin_logout()
     {
         Auth::logout(); // Log the user out
 
-        return redirect('/login'); // Redirect to the login page or any other desired page
+        return redirect('/admin_login'); // Redirect to the login page or any other desired page
     }
 }
