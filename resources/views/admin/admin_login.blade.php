@@ -161,9 +161,9 @@
 
     <div class="login-box" style="background-color: #e6e6e6; border-radius: 10px;">
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('admin_login') }}">
             <div class="login-header">
-                <header style="color: #000000">Login</header>
+                <header style="color: #000000">Admin Login</header>
             </div>
             @csrf
             <!-- Email input -->
@@ -198,9 +198,9 @@
 
             </div>
         </form>
-        <div class="sign-up-link">
-            <p>Are You Admin? <a href="{{ route('admin_login') }}">Login</a></p>
-        </div>
+        {{-- <div class="sign-up-link">
+            <p>Don't have account? <a href="{{ route('signup') }}">Sign Up</a></p>
+        </div> --}}
     </div>
 </body>
 
