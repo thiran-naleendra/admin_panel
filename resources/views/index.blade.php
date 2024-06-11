@@ -1,369 +1,526 @@
 <!DOCTYPE html>
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" class="no-js"> <!--<![endif]-->
-
-<!-- Mirrored from www.indonez.com/html-demo/keid/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jun 2024 01:44:07 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Keid - Modern HTML Template">
-    <meta name="author" content="indonez.com">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <title>Keid - Modern HTML Template</title>
+    <title>GEO Technical</title>
 
-    <!-- retina Bookmark Icon -->
-    <link rel="apple-touch-icon-precomposed" href="apple-icon.png">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-    <!-- CSS -->
-    <link href="landing_page/css/foundstrap.css" rel="stylesheet">
+        :root {
+            --primary-color: #f3eae5;
+            --text-dark: #2c2724;
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
 
-    
-    <!-- CSS Plugin -->
-    <link href="landing_page/js/rs-plugin/css/settings.css" rel="stylesheet" media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- theme Stylesheet -->
-    <link href="landing_page/css/style.css" rel="stylesheet">
-    <link href="css/theme-responsive.css" rel="stylesheet">
+        .btn {
+            outline: none;
+            border: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
 
-    <!-- theme Option -->
+        img {
+            display: flex;
+            width: 100%;
+        }
 
-    <link href="landing_page/css/theme/default.css" id="theme" rel="stylesheet">
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-    <!-- favicon -->
-    <link rel="shortcut icon" href="landing_page/img/favicon.ico">
+        body {
+            font-family: "Montserrat", sans-serif;
+        }
 
-    <!-- modernizr -->
-    <script src="landing_page/js/modernizr.js"></script>
+        nav {
+            position: fixed;
+            isolation: isolate;
+            width: 100%;
+            z-index: 9;
+        }
 
+        .nav__header {
+            padding: 1rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--text-dark);
+        }
+
+        .nav__logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav__menu__btn {
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .nav__links {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+            background-color: var(--text-dark);
+            transition: 0.5s;
+            z-index: -1;
+            transform: translateY(-100%);
+        }
+
+        .nav__links.open {
+            transform: translateY(0);
+        }
+
+        .nav__links a {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .nav__links a:hover {
+            color: var(--white);
+        }
+
+        .nav__btns {
+            display: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 5rem 0;
+            position: relative;
+            isolation: isolate;
+            display: grid;
+            gap: 2rem;
+            overflow: hidden;
+        }
+
+        .container__left {
+            padding-inline: 1rem;
+            text-align: center;
+        }
+
+        .container__left h1 {
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 4.5rem;
+            color: var(--text-dark);
+        }
+
+        .container__left .btn {
+            padding: 1rem 2rem;
+            letter-spacing: 2px;
+            color: var(--white);
+            background-color: var(--text-dark);
+            border-radius: 5rem;
+        }
+
+        .container__left .btn:hover {
+            color: var(--text-dark);
+            background-color: var(--primary-color);
+        }
+
+        .container__right {
+            position: relative;
+            isolation: isolate;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .container__right::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            transform-origin: left;
+            height: 80%;
+            background-color: var(--primary-color);
+            border-radius: 1rem;
+            z-index: -1;
+
+            animation: show 0.75s 1.25s ease-in-out forwards;
+        }
+
+        @keyframes show {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: calc(100% - 2rem);
+            }
+        }
+
+        .images {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tent-1 {
+            max-width: 300px;
+            transform: translateX(1rem);
+            border-radius: 1rem;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tent-2 {
+            max-width: 180px;
+            transform: translateX(-1rem);
+            border-radius: 1rem;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding-block: 0 5rem;
+            padding-inline: 2rem;
+            text-align: center;
+        }
+
+        .content h4 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .content h2 {
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+        }
+
+        .content h3 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .content p {
+            line-height: 1.75rem;
+            color: var(--text-dark);
+        }
+
+        .location {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            padding: 1rem 2rem 1rem 1rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            background-color: var(--primary-color);
+            border: 10px solid var(--white);
+            border-bottom: none;
+        }
+
+        .location span {
+            padding: 5px 10px;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            background-color: var(--white);
+            border-radius: 10px;
+        }
+
+        .socials {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .socials a {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+        }
+
+        @media (width > 768px) {
+            nav {
+                position: static;
+                padding: 2rem 1rem;
+                max-width: var(--max-width);
+                margin-inline: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+            }
+
+            .nav__header {
+                flex: 1;
+                padding: 0;
+                background-color: transparent;
+            }
+
+            .nav__logo a {
+                color: var(--text-dark);
+            }
+
+            .nav__menu__btn {
+                display: none;
+            }
+
+            .nav__links {
+                position: static;
+                padding: 0;
+                flex-direction: row;
+                background-color: transparent;
+                transform: none;
+            }
+
+            .nav__links a,
+            .nav__links a:hover {
+                color: var(--text-dark);
+            }
+
+            .nav__btns {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .nav__btns .btn {
+                font-size: 1.5rem;
+                color: var(--text-dark);
+                background-color: transparent;
+            }
+
+            .container {
+                grid-template-columns: 2fr 3fr;
+                align-items: center;
+                padding: 2rem 0;
+            }
+
+            .container__left {
+                text-align: left;
+            }
+        }
+
+        @media (width > 1024px) {
+            .container__right {
+                grid-template-columns: 1fr 2fr;
+                align-items: center;
+            }
+
+            .container__right::before {
+                bottom: unset;
+                top: 0;
+                height: 90%;
+            }
+
+            .images {
+                flex-direction: column;
+            }
+
+            .tent-1 {
+                width: calc(100% + 10rem);
+                max-width: 325px;
+                transform: translate(-2rem, 2rem);
+            }
+
+            .tent-2 {
+                max-width: 200px;
+                transform: translate(4rem, -1rem);
+            }
+
+            .content {
+                padding-block: 5rem;
+                text-align: left;
+                max-width: 400px;
+                margin-inline-start: unset;
+            }
+
+            .nav-button {
+                background-color: #EA7831;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            .nav-button:hover {
+                background-color:  #E3A02C;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- main-container -->
-    <div id="main-container">
-
-        <!-- headaer -->
-        <header id="me-header" class="header-transparent">
-            <div class="row">
-                <div class="large-12 column">
-
-                    <!-- logo container -->
-                    <div class="logo-container">
-                        <a href="index.html">
-                            <img class="retina" src="image/geo.png" alt="Logo">
-                        </a>
-                    </div>
-                    <!-- logo container end here -->
-
-                    <!-- header information  -->
-                    <div class="header-info-container">
-                        <ul class="social-header">
-                            <li><a class="facebook-bgcolor" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="twitter-bgcolor" href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a class="instagram-bgcolor" href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a class="linkedin-bgcolor" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- header infomration end here -->
-
-                    <!-- menu navigation -->
-                    <nav class="menu-container">
-                        <ul id="menu" class="sm me-menu">
-                            <li class="active"><a href="index.html"><i class="fa fa-home"></i></a> </li>
-                            <li><a href="#">Pages</a></li>
-                            <li class="mega-menu"><a href="#">Mega Menu</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="{{ route('login') }}">User</a> </li>
-                            <li><a href="{{ route('admin_login') }}">Admin</a></li>
-                        </ul>
-                    </nav>
-                    <!-- menu navigation end here -->
-
-                </div>
+    <nav>
+        <div class="nav__header">
+            <div class="nav__logo">
+                <a href="#">GEO Technical</a>
             </div>
-        </header>
-        <!-- header end here -->
-
-        <!-- slideshow here -->
-        <section class="container no-padding" id="slideshow-container">
-            <div class="slideshow">
-                <ul>
-                    <li data-transition="fade" data-masterspeed="1500">
-                        <img src="landing_page/img/slideshow/slide1-bg.png" alt="slider background"
-                            style="background:#85867b;">
-
-                        <!-- heading caption slider 1 -->
-                        <div class="tp-caption lft ltt slider1-caption1" data-x="0" data-y="340" data-speed="900"
-                            data-endspeed="900" data-start="1500" data-end="8500" data-easing="easeOutExpo"
-                            data-endeasing="easeInExpo">
-                            Something Beautiful.
-                        </div>
-
-                        <div class="tp-caption lfb ltb slider1-caption2" data-x="0" data-y="395" data-speed="900"
-                            data-endspeed="900" data-start="1500" data-end="8500" data-easing="easeOutExpo"
-                            data-endeasing="easeInExpo">
-                            We improve your web presence by carefully designing and coding high-quality websites.
-                        </div>
-
-                        <div class="tp-caption lfb ltb slider1-separator" data-x="0" data-y="433" data-speed="900"
-                            data-endspeed="900" data-start="1500" data-end="8500" data-easing="easeOutExpo"
-                            data-endeasing="easeInExpo">
-                        </div>
-                    </li>
-
-                    <li data-transition="fade" data-masterspeed="1500">
-                        <img src="img/slideshow/slide2-bg.png" alt="slider background" style="background:#85867b;">
-
-                        <div class="tp-caption lfb ltt customin slider2-img1" data-x="479" data-y="178"
-                            data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                            data-speed="1000" data-start="1500" data-end="8500" data-easing="Power3.easeIn"
-                            data-endeasing="easeInExpo">
-                            <img src="img/slideshow/slide2-img1.png" alt="image slideshow">
-                        </div>
-
-                        <!-- heading caption slider 2 -->
-                        <div class="tp-caption lft ltt slider2-caption1" data-x="154" data-y="328"
-                            data-speed="1000" data-endspeed="1000" data-start="1500" data-end="8500"
-                            data-easing="easeOutExpo" data-endeasing="easeInExpo">
-                            Being good in business is the most fascinating kind of art. <br>
-                            Making money is art and working is art and good business is the best art.
-                        </div>
-
-                        <div class="tp-caption lfb ltb slider2-caption2" data-x="450" data-y="500"
-                            data-speed="1000" data-endspeed="1000" data-start="2000" data-end="8500"
-                            data-easing="easeOutExpo" data-endeasing="easeInExpo">
-                            <a class="button-slider" href="#">Purchase This Template</a>
-                        </div>
-                    </li>
-
-                    <li data-transition="fade" data-masterspeed="1500">
-                        <img src="img/slideshow/slide3-bg.png" alt="slider background" style="background:#85867b;">
-
-                        <!-- heading caption slider 3 -->
-                        <div class="tp-caption lft ltt slider3-caption1" data-x="540" data-y="345"
-                            data-speed="900" data-endspeed="900" data-start="1500" data-end="8500"
-                            data-easing="easeOutExpo" data-endeasing="easeInExpo">
-                            Feel the Difference.
-                        </div>
-
-                        <div class="tp-caption lft ltt slider3-caption2" data-x="540" data-y="405"
-                            data-speed="1000" data-endspeed="1000" data-start="1500" data-end="8500"
-                            data-easing="easeOutExpo" data-endeasing="easeInExpo">
-                            Simple and Beauty HTML5 template with latest<br>
-                            technology, works perfect for any kind business.
-                        </div>
-                    </li>
-                </ul>
+            <div class="nav__menu__btn" id="menu-btn">
+                <i class="ri-menu-line"></i>
             </div>
-        </section>
-        <!-- slideshow end here -->
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Request Job</a></li>
+            <li><a href="#">Request Estimation</a></li>
+            <li><a href="#">Aboute Us</a></li>
+            <li><button class="nav-button" onclick="location.href='{{ route('login') }}'">User</button></li>
+            <li><button class="nav-button" onclick="location.href='{{ route('admin_login') }}'">Admin</button></li>
+        </ul>
 
-        <!-- container -->
-        <section class="container no-padding very-dark-section">
-            <div class="row">
-                <div class="large-12 column">
-                    <ul class="promo-logo-list large-block-grid-5 medium-block-grid-5 medium-portrait-block-grid-4 small-block-grid-2 small-portrait-block-grid-1 me-animate"
-                        data-animate="fadeIn">
-                        <li><a href="#"><img src="landing_page/img/promo-logo/logo1.png" alt="logo 1"></a></li>
-                        <li><a href="#"><img src="landing_page/img/promo-logo/logo2.png" alt="logo 2"></a></li>
-                        <li><a href="#"><img src="landing_page/img/promo-logo/logo3.png" alt="logo 3"></a></li>
-                        <li><a href="#"><img src="landing_page/img/promo-logo/logo4.png" alt="logo 4"></a></li>
-                        <li><a href="#"><img src="landing_page/img/promo-logo/logo5.png" alt="logo 5"></a></li>
-                    </ul>
-                </div>
+    </nav>
+    <div class="container">
+        <div class="container__left">
+            <h1>Lorem Ipsum is simply dummy text</h1>
+            <div class="container__btn">
+                <button class="btn">Lorem Ipsum </button>
             </div>
-        </section>
-        <!-- container end here -->
-
-
-
-
-
-        <!-- container -->
-        <section class="container doddle-home-container">
-            <div class="row">
-                <div class="large-7 medium-7 medium-portrait-12 column me-animate" data-animate="fadeIn">
-                    <h3>Design, Develop and Optimize.</h3>
-                    <p>Quis autem vel eum iure reprehenderit quin ea voluptate velit essequa nihil molestiae
-                        consequatur, vel illum qui dolorem eum fugiat quo perferendis voluptas.</p>
-                    <ul class="list-circle-check list-color gap" data-gap-bottom="30">
-                        <li>Voluptatibus maiores alias consequatur aut perferendis doloribus</li>
-                        <li>Temporibus autem quibusdam et aut officiis debitis rerum necessitatibus</li>
-                        <li>Reprehenderit qui in ea voluptate velit esse quam nihil molestiae</li>
-                    </ul>
-
-                    <a href="#" class="button">More Details</a>
-                    <a href="#" class="button button-border black">Get Quote</a>
-                </div>
-                <div class="large-5 medium-5 medium-portrait-12 text-center column">
-                    <div class="doddle-home1 me-animate" data-animate="fadeInUp">
-                        <img src="img/doddle.png" alt="ipad iphone">
-                    </div>
-                </div>
+        </div>
+        <div class="container__right">
+            <div class="images">
+                <img src="https://img.freepik.com/free-photo/sand-dry-desert_1204-406.jpg?t=st=1718074477~exp=1718078077~hmac=e38a78b287d0a8555f9cf7be734e9c851b19b45f65e01eb738609f19d55215f5&w=740"
+                    alt="tent-1" class="tent-1" />
+                <img src="https://img.freepik.com/free-psd/desert-landscape-with-sandstorm-generative-ai_587448-2020.jpg?t=st=1718074546~exp=1718078146~hmac=70cf2d69a8a90a44ae45904774f7698aa9a994322e722018a3bfc6fddfac679d&w=1380"
+                    alt="tent-2" class="tent-2" />
             </div>
-        </section>
-        <!-- container end here -->
-
-        <!-- container -->
-        <section class="container home-counter-container">
-            <div class="row">
-                <div class="large-12 text-center column">
-                    <div class="heading-title me-animate" data-animate="fadeInDown">
-                        <h3>Number of KEID</h3>
-                    </div>
-                </div>
-                <div class="large-10 large-push-1 column">
-                    <ul
-                        class="counter-container large-block-grid-4 medium-block-grid-4 small-block-grid-2 small-portrait-block-grid-1 counter-trigger">
-                        <li class="me-animate" data-animate="fadeInDown">
-                            <div class="circle-counter">
-                                <h2 class="count-me timer" data-to="220" data-speed="2500">220</h2>
-                                <p>professionals</p>
-                            </div>
-                        </li>
-                        <li class="me-animate" data-animate="fadeInDown">
-                            <div class="circle-counter">
-                                <h2 class="count-me timer" data-to="9" data-speed="2500">9</h2>
-                                <p>Creative Offices</p>
-                            </div>
-                        </li>
-                        <li class="me-animate" data-animate="fadeInDown">
-                            <div class="circle-counter">
-                                <h2 class="count-me timer" data-to="720" data-speed="2500">720</h2>
-                                <p>Projects Done</p>
-                            </div>
-                        </li>
-                        <li class="me-animate" data-animate="fadeInDown">
-                            <div class="circle-counter">
-                                <h2 class="count-me timer" data-to="8492" data-speed="2500">8492</h2>
-                                <p>Coffees drink</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="large-6 medium-6 column me-animate" data-animate="fadeInDown">
-                    <h3>We have More than 800,000+ Visitor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip commodo.</p>
-                </div>
-
-                <div class="large-6 medium-6 column me-animate" data-animate="fadeInDown">
-                    <h3>Trusted by Client Over the World</h3>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eulla fugiat nulla
-                        pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                        mollit anim est laborum.</p>
-                </div>
+            <div class="content">
+                <h4>Lorem Ipsum is simply dummy</h4>
+                <h2>Lorem Ipsum is simply dummy</h2>
+                <h3>Lorem Ipsum is simply dummy</h3>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s
+                </p>
             </div>
-        </section>
-        <!-- container end here -->
-
-        <!-- footer -->
-        <footer id="me-footer">
-            <div class="row">
-                <div class="large-12 column">
-                    <ul class="large-block-grid-5 medium-block-grid-5 small-block-grid-5 social-footer">
-                        <li><a class="facebook-color" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter-color" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="googleplus-color" href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a class="linkedin-color" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="dribbble-color" href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-
-
-
-
-
-                <div class="large-12 column">
-                    <div class="footer-info-container">
-                        <p>&copy; All rights reserved 2024. WEBX.</p>
-
-                        <div class="logo-footer-container">
-                            <a href="index.html">
-                                <img src="image/geo.png" class="retina" alt="Logo Footer">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer end here -->
-
+        </div>
+        <div class="location">
+            <span><i class="ri-map-pin-2-fill"></i></span>
+            OUR LOCATION
+        </div>
+        <div class="socials">
+            <span>
+                <a href="#"><i class="ri-facebook-fill"></i></a>
+            </span>
+            <span>
+                <a href="#"><i class="ri-instagram-line"></i></a>
+            </span>
+            <span>
+                <a href="#"><i class="ri-twitter-fill"></i></a>
+            </span>
+        </div>
     </div>
-    <!-- main-container end here -->
 
-    <!-- javascript -->
-    <script src="landing_page/js/jquery.min.js"></script>
-    <script src="landing_page/js/foundstrap.js"></script>
-    <script src="landing_page/js/owl.carousel.min.js"></script>
-    <script src="landing_page/js/jquery.sscr.js"></script>
-    <script src="landing_page/js/jquery.fancybox.js"></script>
-    <script src="landing_page/js/jquery.fancybox-media.js"></script>
-    <script src="landing_page/js/jquery.waypoints.min.js"></script>
-    <script src="landing_page/js/jquery.smartmenus.min.js"></script>
-    <script src="landing_page/js/jquery.scrollUp.js"></script>
-    <script src="landing_page/js/jquery.retina.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+        const menuBtnIcon = menuBtn.querySelector("i");
 
-    <!-- javascript plugin -->
-    <script src="landing_page/js/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script src="landing_page/js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="landing_page/js/masonry.pkgd.min.js"></script>
-    <script src="landing_page/js/jquery.countTo.js"></script>
+        menuBtn.addEventListener("click", (e) => {
+            navLinks.classList.toggle("open");
 
-    <!-- javascript core -->
-    <script src="landing_page/js/theme-script.js"></script>
-    <script src="landing_page/js/jquery.cookie.js"></script>
+            const isOpen = navLinks.classList.contains("open");
+            menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+        });
 
+        navLinks.addEventListener("click", (e) => {
+            navLinks.classList.remove("open");
+            menuBtnIcon.setAttribute("class", "ri-menu-line");
+        });
 
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            // your javascript here
+        const scrollRevealOption = {
+            distance: "50px",
+            origin: "bottom",
+            duration: 1000,
+        };
 
-            // revolution slider configuration here
-            $('.slideshow').revolution({
-                delay: 8000,
-                startwidth: 1080,
-                startheight: 778,
-                hideThumbs: 1,
-                navigationType: "none", // bullet, thumb, none
-                navigationArrows: "solo", // nexttobullets, solo (old name verticalcentered), none
-                navigationStyle: "square", // round,square,navbar,round-old,square-old,navbar-old, or any from the list in the docu (choose between 50+ different item), custom
-                navigationHAlign: "center", // Vertical Align top,center,bottom
-                navigationVAlign: "bottom", // Horizontal Align left,center,right
-                navigationHOffset: 0,
-                navigationVOffset: 0,
-                soloArrowLeftHalign: "left",
-                soloArrowLeftValign: "center",
-                soloArrowLeftHOffset: 0,
-                soloArrowLeftVOffset: 0,
-                soloArrowRightHalign: "right",
-                soloArrowRightValign: "center",
-                soloArrowRightHOffset: 0,
-                soloArrowRightVOffset: 0,
-                touchenabled: "on", // Enable Swipe Function : on/off
-                onHoverStop: "on", // Stop Banner Timet at Hover on Slide on/off
-                stopAtSlide: -
-                    1, // Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
-                stopAfterLoops: -
-                    1, // Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
-                hideCaptionAtLimit: 0, // It Defines if a caption should be shown under a Screen Resolution ( Basod on The Width of Browser)
-                hideAllCaptionAtLilmit: 0, // Hide all The Captions if Width of Browser is less then this value
-                hideSliderAtLimit: 0, // Hide the whole slider, and stop also functions if Width of Browser is less than this value
-                shadow: 0, // 0 = no Shadow, 1,2,3 = 3 Different Art of Shadows  (No Shadow in Fullwidth Version !)
-                fullWidth: "off", // Turns On or Off the Fullwidth Image Centering in FullWidth Modus
-                fullScreen: "on"
-            });
+        ScrollReveal().reveal(".container__left h1", {
+            ...scrollRevealOption,
+        });
+        ScrollReveal().reveal(".container__left .container__btn", {
+            ...scrollRevealOption,
+            delay: 500,
+        });
+
+        ScrollReveal().reveal(".container__right h4", {
+            ...scrollRevealOption,
+            delay: 2000,
+        });
+        ScrollReveal().reveal(".container__right h2", {
+            ...scrollRevealOption,
+            delay: 2500,
+        });
+        ScrollReveal().reveal(".container__right h3", {
+            ...scrollRevealOption,
+            delay: 3000,
+        });
+        ScrollReveal().reveal(".container__right p", {
+            ...scrollRevealOption,
+            delay: 3500,
+        });
+
+        ScrollReveal().reveal(".container__right .tent-1", {
+            duration: 1000,
+            delay: 4000,
+        });
+        ScrollReveal().reveal(".container__right .tent-2", {
+            duration: 1000,
+            delay: 4500,
+        });
+
+        ScrollReveal().reveal(".location", {
+            ...scrollRevealOption,
+            origin: "left",
+            delay: 5000,
+        });
+
+        ScrollReveal().reveal(".socials span", {
+            ...scrollRevealOption,
+            origin: "top",
+            delay: 5500,
+            interval: 500,
         });
     </script>
 </body>
-
-<!-- Mirrored from www.indonez.com/html-demo/keid/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jun 2024 01:44:38 GMT -->
 
 </html>

@@ -35,6 +35,7 @@
             width: 440px;
             height: 480px;
             padding: 30px;
+            box-shadow: 0px 5px 10px 1px rgba(245, 184, 54, 0.3);
         }
 
         .login-header {
@@ -103,7 +104,7 @@
         .submit-btn {
             width: 100%;
             height: 60px;
-            background: #222;
+            background: #EA7831;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -122,7 +123,7 @@
         }
 
         .submit-btn:hover {
-            background: #000;
+            background:  #E3A02C;
             transform: scale(1.05, 1);
         }
 
