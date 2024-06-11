@@ -116,9 +116,9 @@
                 <div class="card-body">
                     <div class="row mt-3">
                         <div class="col-md-6 form-group">
-                            <label></label>
+                            <label>Select Request Type</label>
                             <select class="custom-select form-control-border" id="job" placeholder="Select Job">
-                                @foreach ($job_types as $key => $value)
+                                @foreach ($request_types as $key => $value)
                                     <option value="{{ $key }}">{{ $value }}</option>
                                 @endforeach
                             </select>
@@ -127,7 +127,7 @@
 
                     <div class="row mt-3 soil_test" id="soil_test_div">
                         <div class="col-md-6 form-group">
-                            <label></label>
+                            <label>Select Sub Category</label>
                             <select class="custom-select form-control-border" id="soil_test" placeholder="Soil Test">
                                 @foreach ($soil_test as $key => $value)
                                     <option value="{{ $key }}">{{ $value }}</option>
@@ -138,7 +138,7 @@
 
                     <div class="row mt-3" id="survey_div">
                         <div class="col-md-6 form-group">
-                            <label></label>
+                            <label>Select Job Type</label>
                             <select class="custom-select form-control-border" id="surveys" placeholder="Select Job">
                                 @foreach ($surveys as $key => $value)
                                     <option value="{{ $key }}">{{ $value }}</option>
@@ -149,7 +149,7 @@
 
                     <div class="row mt-3" id="other_jobs_div">
                         <div class="col-md-6 form-group">
-                            <label></label>
+                            <label>Other Jobs</label>
                             <select class="custom-select form-control-border" id="other_jobs" placeholder="Select Job">
                                 @foreach ($other_jobs as $key => $value)
                                     <option value="{{ $key }}">{{ $value }}</option>
@@ -161,6 +161,7 @@
                     <div id="feature_survey_div">                        
                         <div class="row mt-3">
                             <div class="col-md-6">
+                                <label>Select Feature Survey</label>
                                 <select class="custom-select form-control-border" id="feature_surveys" placeholder="Select Job">
                                     @foreach ($feature_surveys as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
@@ -177,7 +178,7 @@
 
                     <div class="row mt-3" id="ahd_ffl_div">
                         <div class="col-md-6 form-group">
-                            <label></label>
+                            <label>Select AHD - FFL indicator level to Plumbing riser</label>
                             <select class="custom-select form-control-border" id="ahd_ffl" placeholder="Select Job">
                                 @foreach ($ahd_ffl as $key => $value)
                                     <option value="{{ $key }}">{{ $value }}</option>
@@ -283,6 +284,12 @@
                     <div class="form-group">
                         <label></label>
                         <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Reference</label>
+                        <input type="text" class="form-control" id="reference" placeholder="">
                     </div>
                 </div>
                 <div class="card-body">

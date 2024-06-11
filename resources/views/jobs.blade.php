@@ -51,6 +51,14 @@
         .tabcontent.active {
             display: block;
         }
+
+        .dt-length {
+            margin-left: 2em !important;
+        }
+
+        .dt-info {
+            margin-left: 2em !important;
+        }
     </style>
     <section class="content">
         <br>
@@ -76,7 +84,7 @@
                 </div>
                 <br>
                 
-                <table id="example" class="ui celled table" style="width:100%">
+                <table id="example" class="ui celled table" style="width:95%; margin-left: 2em">
                     <thead>
                         <tr>
                             <th style="width: 10px">Job ID</th>

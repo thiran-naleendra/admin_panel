@@ -14,7 +14,7 @@ class AuthController extends Controller
         return view('login');
     }
 
-    public function admin_login(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->only('name', 'password');
 

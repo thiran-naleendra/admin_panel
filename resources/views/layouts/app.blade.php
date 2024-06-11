@@ -134,7 +134,7 @@
                             <a href="{{ route('profile') }}" class="btn btn-default btn-flat">Profile</a>
                             <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-right"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Sign out
+                                Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

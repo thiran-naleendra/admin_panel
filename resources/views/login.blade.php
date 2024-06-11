@@ -20,11 +20,13 @@
 
         body {
             display: flex;
-            justify-content: center;  /* right */
-            /* padding-right: 10%; */
+            justify-content: right;  
+            /* justify-content: center;  */
+            padding-right: 10%;
             align-items: center;
             min-height: 100vh;
-            background: url('https://images.pexels.com/photos/9330906/pexels-photo-9330906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+            /* background: url('https://images.pexels.com/photos/9330906/pexels-photo-9330906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed; */
+            background-image: url('./image/Fb-Cover_5.jpg');
             background-size: cover;
         }
 
@@ -157,9 +159,9 @@
 <body>
 
 
-    <img src="image/geo.png" alt="" width="200px" height="auto" class="top-left-image">
+    <!-- <img src="image/geo.png" alt="" width="200px" height="auto" class="top-left-image"> -->
 
-    <div class="login-box" style="background-color: #e6e6e6; border-radius: 10px;">
+    <div class="login-box" style="background-color: #e6e6e68c; border-radius: 10px;">
 
         <form method="POST" action="{{ route('login') }}">
             <div class="login-header">

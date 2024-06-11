@@ -31,14 +31,14 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="{{ route('shedule_call') }}" class="nav-link">
           <i class="nav-icon far fa-calendar-alt"></i>
           <p>
             Shedule a Call 
           </p>
         </a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <a href="{{ route('signup') }}" class="nav-link">
@@ -49,14 +49,14 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="{{ route('create_report') }}" class="nav-link">
           <i class="nav-icon far fa-plus-square"></i>
           <p>
             Make A Reports
           </p>
         </a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <a href="{{ route('create_request') }}" class="nav-link">
@@ -67,14 +67,14 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="{{ route('view_request') }}" class="nav-link">
           <i class="nav-icon fas fa-columns"></i>
           <p>
             View Request
           </p>
         </a>
-      </li>
+      </li> -->
       
       {{-- <li class="nav-item">
         <a href="pages/kanban.html" class="nav-link">
