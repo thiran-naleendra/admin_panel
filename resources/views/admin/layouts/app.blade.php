@@ -126,7 +126,7 @@
                                 alt="User Image">
                             <p>
                                 {{ Auth::user()->name }}
-                                <small>{{ Auth::user()->created_at }}</small>
+                                <small>{{ Auth::user()->position }}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
