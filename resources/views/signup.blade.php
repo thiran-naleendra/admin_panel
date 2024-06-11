@@ -153,83 +153,8 @@
                 </div>
             </div>
             <br>
-            {{-- <div class=""
-                style="display: flex; justify-content: center; align-items: center; height: auto; background-color: #f0f0f0; ">
-
-
-                <form id="sign-up-form" method="POST" action="{{ route('create_user') }}" enctype="multipart/form-data">
-                    @csrf
-
-
-                    <div class="form-container">
-                        <div>
-                            <div class="input-box">
-                                <input type="text" class="input-field" placeholder="Email" name="email"
-                                    autocomplete="off" required>
-                            </div>
-                            <div class="input-box">
-                                <input type="text" class="input-field" placeholder="User Name" name="name"
-                                    autocomplete="off" required>
-                            </div>
-                            <div class="input-box">
-                                <input type="text" class="input-field" placeholder="Position" name="position"
-                                    autocomplete="off" required>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="input-box">
-                                <input type="text" class="input-field" placeholder="Mobile Number" name="mobile_no"
-                                    autocomplete="off" required>
-                            </div>
-                            <div class="input-box">
-                                <input type="password" id="password" class="input-field" placeholder="Password"
-                                    name="password" autocomplete="off" required>
-                            </div>
-                            <div class="input-box">
-                                <input type="password" id="password_confirmation" class="input-field"
-                                    placeholder="Confirm Password" name="password_confirmation" autocomplete="off" required>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-box">
-                        <select id="" class="input-field" name="password_confirmation" required>
-                            <option value="">Select Company</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-
-                    </div>
-                    <br><br>
-                    <div class="input-submit">
-                        <button type="submit" class="submit-btn"
-                            style="padding-left: 2.5rem; padding-right: 2.5rem; color:#fff">Register User</button>
-                    </div>
-                    @if ($errors->any())
-                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                        <script>
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                html: '{!! implode('<br>', $errors->all()) !!}'
-                            });
-                        </script>
-                    @endif
-
-                    @if (session('success'))
-                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                        <script>
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success',
-                                text: '{{ session('success') }}'
-                            });
-                        </script>
-                    @endif
-                </form>
-            </div> --}}
-            <form id="sign-up-form" method="POST" action="{{ route('create_user') }}" enctype="multipart/form-data">
+            
+            {{-- <form id="sign-up-form" method="POST" action="{{ route('create_user') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -293,6 +218,35 @@
                             });
                         </script>
                     @endif
+            </form> --}}
+
+            <form method="POST" action="">
+                <div class="login-header">
+                    <header style="color: #000000">Login</header>
+                </div>
+                @csrf
+                <!-- Email input -->
+                <div class="input-box">
+    
+                    <input name="name" id="form3Example3" class="input-field" placeholder="User Name" required />
+    
+                </div>
+    
+                <!-- Password input -->
+                <div class="input-box">
+    
+                    <input type="password" name="password" id="password" class="input-field" placeholder="password"
+                        required />
+    
+                </div>
+    
+                
+    
+                <div class="input-submit">
+                    <button type="submit" class="submit-btn"
+                        style="padding-left: 2.5rem; padding-right: 2.5rem; color:#fff">Login</button>
+    
+                </div>
             </form>
 
         </div>
@@ -301,34 +255,5 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.getElementById('password').addEventListener('input', validatePassword);
-        document.getElementById('password_confirmation').addEventListener('input', validatePassword);
-
-        function validatePassword() {
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('password_confirmation').value;
-            var errorSpan = document.getElementById('password-error');
-
-            if (password !== confirmPassword) {
-                errorSpan.style.display = 'inline';
-            } else {
-                errorSpan.style.display = 'none';
-            }
-        }
-
-        document.getElementById('sign-up-form').addEventListener('submit', function(event) {
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('password_confirmation').value;
-
-            if (password !== confirmPassword) {
-                event.preventDefault(); // Prevent form submission
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Passwords do not match',
-                    text: 'Please make sure that the password and confirm password fields match.'
-                });
-            }
-        });
-    </script>
+    
 @endsection
