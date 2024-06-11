@@ -126,7 +126,7 @@
                                 alt="User Image">
                             <p>
                                 {{ Auth::user()->name }}
-                                <small>{{ Auth::user()->created_at }}</small>
+                                <small>{{ Auth::user()->position }}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
@@ -134,7 +134,7 @@
                             <a href="" class="btn btn-default btn-flat">Profile</a>
                             <a href="{{ route('admin_logout') }}" class="btn btn-default btn-flat float-right"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Sign out
+                                Logout
                             </a>
                             <form id="logout-form" action="{{ route('admin_logout') }}" method="POST" class="d-none">
                                 @csrf

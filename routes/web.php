@@ -18,6 +18,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout'); // log out
 
 
+Route::get('/landing' , [MainController::class,'landing'])->name('landing');
+
 Route::get('/' , [MainController::class,'index'])->name('main');
 Route::get('genaral' , [MainController::class,'genaral'])->name('genaral');
 

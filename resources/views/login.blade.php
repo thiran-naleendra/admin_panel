@@ -20,11 +20,13 @@
 
         body {
             display: flex;
-            justify-content: center;  /* right */
-            /* padding-right: 10%; */
+            justify-content: right;  
+            /* justify-content: center;  */
+            padding-right: 10%;
             align-items: center;
             min-height: 100vh;
-            background: url('https://images.pexels.com/photos/9330906/pexels-photo-9330906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+            /* background: url('https://images.pexels.com/photos/9330906/pexels-photo-9330906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed; */
+            background-image: url('./image/Fb-Cover_5.jpg');
             background-size: cover;
         }
 
@@ -35,6 +37,8 @@
             width: 440px;
             height: 480px;
             padding: 30px;
+            box-shadow: 0px 5px 10px 1px rgba(245, 184, 54, 0.3);
+            
         }
 
         .login-header {
@@ -59,6 +63,7 @@
             box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.05);
             outline: none;
             transition: .3s;
+            
         }
 
         ::placeholder {
@@ -103,7 +108,7 @@
         .submit-btn {
             width: 100%;
             height: 60px;
-            background: #222;
+            background: #EA7831;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -122,7 +127,7 @@
         }
 
         .submit-btn:hover {
-            background: #000;
+            background:  #E3A02C;
             transform: scale(1.05, 1);
         }
 
@@ -157,9 +162,9 @@
 <body>
 
 
-    <img src="image/geo.png" alt="" width="200px" height="auto" class="top-left-image">
+    <!-- <img src="image/geo.png" alt="" width="200px" height="auto" class="top-left-image"> -->
 
-    <div class="login-box" style="background-color: #e6e6e6; border-radius: 10px;">
+    <div class="login-box" style="background-color: #e6e6e68c; border-radius: 10px;">
 
         <form method="POST" action="{{ route('login') }}">
             <div class="login-header">

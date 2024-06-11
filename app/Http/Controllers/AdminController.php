@@ -33,6 +33,6 @@ class AdminController extends Controller
     {
         Auth::logout(); // Log the user out
 
-        return redirect('/admin_login'); // Redirect to the login page or any other desired page
+        return redirect('/landing'); // Redirect to the login page or any other desired page
     }
 }

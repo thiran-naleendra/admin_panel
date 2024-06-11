@@ -2,7 +2,7 @@
 // config/select_options.php
 
 return [
-    'job_types' => [
+    'request_types' => [
         '' => '',
         'ST' => 'Soil test',
         'SU' => 'Survey',

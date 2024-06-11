@@ -14,7 +14,7 @@ class AuthController extends Controller
         return view('login');
     }
 
-    public function admin_login(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->only('name', 'password');
 
@@ -33,6 +33,6 @@ class AuthController extends Controller
     {
         Auth::logout(); // Log the user out
 
-        return redirect('/login'); // Redirect to the login page or any other desired page
+        return redirect('/landing'); // Redirect to the login page or any other desired page
     }
 }
