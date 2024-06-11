@@ -62,22 +62,47 @@
     </style>
     <section class="content">
         <br>
-        <div class="container rounded  mt-5">
-            <div class="card card-primary">
-                <div class="card-body">
-                    <label>Active Issues</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="nav-icon fas fa-search"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Search Job Id..">
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        
 
         <div class="container rounded bg-white mt-6">
+            <div class="container rounded  mt-5">
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <label>Active Issues</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="nav-icon fas fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search Job Id..">
+                            &ensp;
+                            <select class="form-control" aria-label="Default select example">
+                                <option selected>All Status</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            &ensp;
+                            <select class="form-control" aria-label="Default select example">
+                                <option selected>Job Type</option>
+                                <option value="1">Survey</option>
+                                <option value="2">Soil Test</option>
+                                <option value="3">Footing Probe</option>
+                            </select>
+                            &ensp;
+                            <div class="row">
+                                <div class="col">
+                                  <input type="text" class="form-control" placeholder="Date">
+                                </div>
+                                <label  for="inputEmail4">To</label>
+                                <div class="col">
+                                  <input type="text" class="form-control" placeholder="Date">
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
             <div class="card card-primary">
                 <div class="card-header" style="background-color:  #262D59">
                     <h3 class="card-title">Make Request</h3>

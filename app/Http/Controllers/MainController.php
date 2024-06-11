@@ -7,7 +7,8 @@ class MainController extends Controller
     public function index()
     {   
         // return view('genaral');
-        return view('login');
+        // return view('login');
+        return view('index');
     }
     public function signup()
     {   
@@ -17,6 +18,11 @@ class MainController extends Controller
     public function genaral()
     {   
          return view('genaral');
+        
+    }
+    public function landing()
+    {   
+         return view('index');
         
     }
 }
