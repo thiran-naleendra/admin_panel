@@ -168,7 +168,7 @@
 
         <form method="POST" action="{{ route('login') }}">
             <div class="login-header">
-                <header style="color: #000000">Login</header>
+                <header style="color: #000000">Client Login</header>
             </div>
             @csrf
             <!-- Email input -->
