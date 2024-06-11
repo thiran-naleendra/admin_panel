@@ -62,7 +62,7 @@
     </style>
     <section class="content">
         <br>
-        
+
 
         <div class="container rounded bg-white mt-6">
             <div class="container rounded  mt-5">
@@ -91,19 +91,19 @@
                             &ensp;
                             <div class="row">
                                 <div class="col">
-                                  <input type="text" class="form-control" placeholder="Date">
+                                    <input type="text" class="form-control" placeholder="Date">
                                 </div>
-                                <label  for="inputEmail4">To</label>
+                                <label for="inputEmail4">To</label>
                                 <div class="col">
-                                  <input type="text" class="form-control" placeholder="Date">
+                                    <input type="text" class="form-control" placeholder="Date">
                                 </div>
-                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-    
+
             </div>
-            <div class="card card-primary">
+            {{-- <div class="card card-primary">
                 <div class="card-header" style="background-color:  #262D59">
                     <h3 class="card-title">Make Request</h3>
                 </div>
@@ -590,6 +590,75 @@
                     </tfoot>
                 </table>
 
+            </div> --}}
+            <div class="page-content page-container" id="page-content">
+                <div class="padding">
+                    <div class="row container d-flex justify-content-center">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead style="background-color: #EA7831; border-radius: 30px !important;">
+                                                <tr>
+                                                    <th>User</th>
+                                                    <th>Product</th>
+                                                    <th>Sale</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Hitesh Chauhan</td>
+                                                    <td>Engine</td>
+                                                    <td class="text-danger"> 18.76% <i class="fa fa-arrow-down"></i></td>
+                                                    <td><label class="badge badge-danger">Pending</label></td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td>Samso Palto</td>
+                                                    <td>Brakes</td>
+                                                    <td class="text-danger"> 11.06% <i class="fa fa-arrow-down"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td>Tiplis mang</td>
+                                                    <td>Window</td>
+                                                    <td class="text-danger"> 35.00% <i class="fa fa-arrow-down"></i></td>
+                                                    <td><label class="badge badge-info">Fixed</label></td>
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td>Pter parker</td>
+                                                    <td>Head light</td>
+                                                    <td class="text-success"> 22.00% <i class="fa fa-arrow-up"></i></td>
+                                                    <td><label class="badge badge-success">Completed</label></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ankit Dave</td>
+                                                    <td>Back light</td>
+                                                    <td class="text-success"> 28.05% <i class="fa fa-arrow-up"></i></td>
+                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <nav aria-label="Page navigation example" style="">
+                                            <ul class="pagination">
+                                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                            </ul>
+                                          </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
