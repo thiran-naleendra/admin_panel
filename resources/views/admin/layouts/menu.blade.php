@@ -6,7 +6,52 @@
         <a href="{{ route('admin_home') }}" class="nav-link">
           <i class="nav-icon far fa-image"></i>
           <p>
-           Home
+           Job List
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="nav-icon far fa-image"></i>
+          <p>
+           Meeting Request
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin_signup') }}" class="nav-link">
+          <i class="nav-icon far fa-image"></i>
+          <p>
+           Customers
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="nav-icon far fa-image"></i>
+          <p>
+           Services
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="nav-icon far fa-image"></i>
+          <p>
+           Employees
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="nav-icon far fa-image"></i>
+          <p>
+           Estimations
           </p>
         </a>
       </li>

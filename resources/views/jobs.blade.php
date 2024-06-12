@@ -60,15 +60,27 @@
             margin-left: 2em !important;
         }
     </style>
+    <br>
     <section class="content">
-        <br>
+        
 
 
         <div class="container rounded bg-white mt-6">
+            <br>
             <div class="container rounded  mt-5">
                 <div class="card card-primary">
                     <div class="card-body">
-                        <label>Active Issues</label>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <label class="badge"
+                                style="font-size: 24px;  color: #EA7831;">Jobs</label>
+                                <a href="{{ route('create_request') }}" class="btn" style="font-size: 20px; color: white; background-color: #262D59;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="auto" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                                    </svg>
+                                    Add New
+                                </a>
+                        </div>
+                        <br>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="nav-icon fas fa-search"></i></span>
@@ -91,11 +103,12 @@
                             &ensp;
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Date">
+                                   
+                                    <input type="date" class="form-control" id="datepicker">
                                 </div>
                                 <label for="inputEmail4">To</label>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Date">
+                                    <input type="date" class="form-control" id="datepicker">
                                 </div>
                             </div>
                         </div>
@@ -600,59 +613,77 @@
 
                                     <div class="table-responsive">
                                         <table class="table table-hover">
-                                            <thead style="background-color: #EA7831; border-radius: 30px !important;">
+                                            <thead
+                                                style="background-color: #EA7831; color: white; ">
                                                 <tr>
-                                                    <th>User</th>
-                                                    <th>Product</th>
-                                                    <th>Sale</th>
-                                                    <th>Status</th>
+                                                    <th style="padding-bottom: 20px; ">Job ID</th>
+                                                    <th style="padding-bottom: 20px;">Status</th>
+                                                    <th style="padding-bottom: 20px;">Address</th>
+                                                    <th style="padding-bottom: 20px;">Schedule Date</th>
+                                                    <th style="padding-bottom: 20px;">Visit Date</th>
+                                                    <th style="padding-bottom: 20px;">Report ETA</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Hitesh Chauhan</td>
-                                                    <td>Engine</td>
-                                                    <td class="text-danger"> 18.76% <i class="fa fa-arrow-down"></i></td>
-                                                    <td><label class="badge badge-danger">Pending</label></td>
+                                                <tr style="">
+                                                    <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
+                                                    <td style="color: rgb(0, 0, 0);">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="auto" viewBox="0 0 24 24">
+                                                            <path fill="black" d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M15.293,16.707L11,12.414V6h2v5.586l3.707,3.707L15.293,16.707z"></path>
+                                                        </svg>&ensp;Ongoing
+                                                    </td>
+                                                    
+                                                    <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">Sri Lanka</td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
+                                                    <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
                                                 </tr>
-                                                
-                                                <tr>
-                                                    <td>Samso Palto</td>
-                                                    <td>Brakes</td>
-                                                    <td class="text-danger"> 11.06% <i class="fa fa-arrow-down"></i></td>
-                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                <tr style="background-color: rgb(243, 243, 243);">
+                                                    <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
+                                                    <td style="color: green;">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="auto" viewBox="0 0 24 24">
+                                                            <path fill="green" d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M15.293,16.707L11,12.414V6h2v5.586l3.707,3.707L15.293,16.707z"></path>
+                                                        </svg>&ensp;Completed
+                                                    </td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px;">Sri Lanka</td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
+                                                    <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
                                                 </tr>
-                                               
-                                                <tr>
-                                                    <td>Tiplis mang</td>
-                                                    <td>Window</td>
-                                                    <td class="text-danger"> 35.00% <i class="fa fa-arrow-down"></i></td>
-                                                    <td><label class="badge badge-info">Fixed</label></td>
-                                                </tr>
-                                               
-                                                <tr>
-                                                    <td>Pter parker</td>
-                                                    <td>Head light</td>
-                                                    <td class="text-success"> 22.00% <i class="fa fa-arrow-up"></i></td>
-                                                    <td><label class="badge badge-success">Completed</label></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ankit Dave</td>
-                                                    <td>Back light</td>
-                                                    <td class="text-success"> 28.05% <i class="fa fa-arrow-up"></i></td>
-                                                    <td><label class="badge badge-warning">In progress</label></td>
+                                                <tr style="">
+                                                    <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
+                                                    <td style="color: rgb(255, 0, 0);">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="auto" viewBox="0 0 24 24">
+                                                            <path fill="black" d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M15.293,16.707L11,12.414V6h2v5.586l3.707,3.707L15.293,16.707z"></path>
+                                                        </svg>&ensp;Confirmed
+                                                    </td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px;">Sri Lanka</td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
+                                                    <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
+                                                    <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <nav aria-label="Page navigation example" style="">
+
+                                        <span>Show 1 to 10 of 20 results</span>
+                                        <nav aria-label="Page navigation example" class="d-flex justify-content-end">
                                             <ul class="pagination">
-                                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                        style="color: #262D59;">Previous</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                        style="color: #262D59;">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                        style="color: #262D59;">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                        style="color: #262D59;">.....</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                        style="color: #262D59;">8</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                        style="color: #262D59;">9</a></li>
+                                                <li class="page-item"><a class="page-link" href="#"
+                                                        style="color: #262D59;">Next</a></li>
                                             </ul>
-                                          </nav>
+                                        </nav>
                                     </div>
                                 </div>
                             </div>

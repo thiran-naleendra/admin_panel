@@ -40,14 +40,14 @@
         </a>
       </li> -->
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a href="{{ route('signup') }}" class="nav-link">
           <i class="nav-icon far fa-calendar-alt"></i>
           <p>
             User Register
           </p>
         </a>
-      </li>
+      </li> --}}
 
       <!-- <li class="nav-item">
         <a href="{{ route('create_report') }}" class="nav-link">
@@ -58,14 +58,23 @@
         </a>
       </li> -->
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a href="{{ route('create_request') }}" class="nav-link">
           <i class="nav-icon fas fa-book"></i>
           <p>
             Make Requests
           </p>
         </a>
-      </li>
+      </li> --}}
+
+      {{-- <li class="nav-item">
+        <a href="{{ route('signup') }}" class="nav-link">
+          <i class="nav-icon fas fa-user"></i>
+          <p>
+            Customer
+          </p>
+        </a>
+      </li> --}}
 
       <!-- <li class="nav-item">
         <a href="{{ route('view_request') }}" class="nav-link">

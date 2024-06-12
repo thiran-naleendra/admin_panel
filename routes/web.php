@@ -13,6 +13,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
 
+
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout'); // log out
@@ -23,7 +24,7 @@ Route::get('/landing' , [MainController::class,'landing'])->name('landing');
 Route::get('/' , [MainController::class,'index'])->name('main');
 Route::get('genaral' , [MainController::class,'genaral'])->name('genaral');
 
-Route::get('signup' , [MainController::class,'signup'])->name('signup'); 
+
 Route::post('/create_user', [UserController::class, 'create_user'])->name('create_user');
 
 Route::get('/profile' , [ProfileController::class,'index'])->name('profile');
@@ -53,3 +54,7 @@ Route::post('/admin_login', [AdminController::class, 'admin_login']);
 Route::post('/admin_logout', [AdminController::class, 'admin_logout'])->name('admin_logout');
 
 Route::get('/admin_home' , [AdminHomeController::class,'index'])->name('admin_home'); 
+
+Route::get('admin_signup' , [AdminController::class,'admin_signup'])->name('admin_signup'); 
+
+Route::get('admin_view_request' , [AdminController::class,'admin_view_request'])->name('admin_view_request'); 

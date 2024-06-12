@@ -199,9 +199,7 @@
 
             </div>
         </form>
-        {{-- <div class="sign-up-link">
-            <p>Don't have account? <a href="{{ route('signup') }}">Sign Up</a></p>
-        </div> --}}
+        
     </div>
 </body>
 
