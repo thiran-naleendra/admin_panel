@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="dist/css/all.min.css"
         integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
         crossorigin="anonymous" />
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    
     <link rel="stylesheet" href="dist/css/css.css?ver=0.1">
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
@@ -163,12 +163,7 @@
         </footer>
     </div>
 
-    <!-- @vite(['resources/css/app.css'])
-    @vite(['resources/js/app.js'])
-
-    @stack('third_party_scripts')
-
-    @stack('page_scripts') -->
+    
 
 
     <script src="plugins/jquery/jquery.min.js"></script>

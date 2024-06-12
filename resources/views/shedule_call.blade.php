@@ -226,14 +226,26 @@
                     <button type="button" class="btn btn-outline-warning">01.30 pm</button> <br>
                     <button type="button" class="btn btn-outline-warning">02.00 pm</button> <br>
                 </div>
+                
+            </div>
 
+           
+            <div class="col-sm-10">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
 
         </div>
 
+        
 
-
-
+        
+            
 
     </section>
 

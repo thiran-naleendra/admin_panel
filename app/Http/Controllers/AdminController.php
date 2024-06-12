@@ -11,7 +11,11 @@ class AdminController extends Controller
         return view('admin.admin_login');
     }
 
-
+    public function admin_signup()
+    {   
+        // return view('genaral');
+        return view('admin.admin_signup');
+    }
     
 
     public function admin_login(Request $request)
@@ -34,5 +38,10 @@ class AdminController extends Controller
         Auth::logout(); // Log the user out
 
         return redirect('/landing'); // Redirect to the login page or any other desired page
+    }
+
+    public function admin_view_request()
+    {
+        return view('admin.admin_view_request');
     }
 }
