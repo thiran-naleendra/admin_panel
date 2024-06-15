@@ -42,6 +42,8 @@
         .tabcontent {
             display: none;
         }
+
+        
     </style>
     <br>
     <section class="content">
@@ -76,56 +78,7 @@
                         </div>
                     </div>
 
-                    {{-- <div class="card-body">
-                    <h4>Contact Details</h4>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <label>Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Phone Number</label>
-                            <input type="text" class="form-control" id="phone_no" placeholder="">
-                        </div>              
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <label>Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="">
-                        </div>
-                    </div>                    
-                </div> --}}
-
-                    {{-- <div class="card-body">
-                    <div class="row mt-3">
-                        <div class="col-md-6 form-group">
-                            <label></label>
-                            <select class="custom-select form-control-border" id="job" placeholder="Select Job">
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Add filed base on selected item</label>
-                            <input type="text" class="form-control" id="job_item" placeholder="">
-                        </div>           
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6 form-group">
-                            <label></label>
-                            <select class="custom-select form-control-border" id="soil" placeholder="Soil Test">
-                                <option>Value 1</option>
-                                <option>Value 2</option>
-                                <option>Value 3</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Add filed base on selected item</label>
-                            <input type="text" class="form-control" id="soil_item" placeholder="">
-                        </div> 
-                    </div>                    
-                </div> --}}
+                    
 
                     <div class="card-body">
                         <h4>Additional Information</h4>
@@ -182,7 +135,7 @@
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio" id="house_on_site1"
-                                        name="house_on_site">
+                                        name="house_on_site" >
                                     <label for="house_on_site1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
@@ -190,13 +143,13 @@
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio" id="house_on_site2"
                                         name="house_on_site" checked>
-                                    <label for="house_on_site2" class="custom-control-label">N</label>
+                                    <label for="house_on_site2" class="custom-control-label" >N</label>
                                 </div>
                             </div>
 
                             <div class="col-md-2"><label>LOCKED GATES</label></div>
                             <div class="col-md-2">
-                                <div class="custom-control custom-radio">
+                                <div class="custom-control ">
                                     <input class="custom-control-input" type="radio" id="locked_gates1"
                                         name="locked_gates">
                                     <label for="locked_gates1" class="custom-control-label">Y</label>
@@ -204,9 +157,9 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="locked_gates2"
-                                        name="locked_gates" checked>
-                                    <label for="locked_gates2" class="custom-control-label">N</label>
+                                    <input class="custom-control-input custom-radio"  type="radio" id="locked_gates2" name="locked_gates" checked>
+
+                                    <label for="locked_gates2" class="custom-control-label" >N</label>
                                 </div>
                             </div>
                         </div>
@@ -221,9 +174,9 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="sub_un_con2"
+                                    <input class="custom-control-input" type="radio" id="sub_un_con2" 
                                         name="sub_un_con" checked>
-                                    <label for="sub_un_con2" class="custom-control-label">N</label>
+                                    <label for="sub_un_con2" class="custom-control-label" >N</label>
                                 </div>
                             </div>
                         </div>

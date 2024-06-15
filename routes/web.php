@@ -11,6 +11,8 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\CallController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
+
 
 
 
@@ -40,6 +42,10 @@ Route::get('/create_request' , [RequestController::class,'index'])->name('create
 Route::get('/view_request' , [RequestController::class,'view_request'])->name('view_request');
 
 Route::get('/shedule_call' , [CallController::class,'index'])->name('shedule_call');
+
+Route::get('/contact' , [ContactController::class,'index'])->name('contact');
+
+
 
 
 
