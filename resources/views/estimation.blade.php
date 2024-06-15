@@ -373,6 +373,7 @@
             }
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -395,98 +396,51 @@
         </ul>
 
     </nav>
-    {{-- <div>
-        <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-    </div> --}}
+   
     <div class="container">
         
         <div class="container__left">
             <h1>Estimate</h1>
-            <form>
+            <form action="{{ route('save_estimation') }}" method="POST">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">First Name</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Last Name">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Last Name</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputAddress">Email Address</label>
-                    <input type="email" class="form-control" id="inputAddress" placeholder="Email">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Select Job Type</label>
-                        <select name="" id="" class="form-control">
-                            <option value="">A</option>
-                            <option value="">B</option>
+                        <label for="jobType">Select Job Type</label>
+                        <select name="job_type" id="jobType" class="form-control" required>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Where its Located</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Your Messege</label>
-                        <textarea type="text" class="form-control" id="inputAddress2" placeholder="" rows="4" cols="50"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Your Messege</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <label for="location">Where it's Located</label>
+                        <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
                     </div>
                 </div>
-
-
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea class="form-control" id="message" name="message" placeholder="Your message" rows="4" cols="50" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="file">Upload File</label>
+                    <input class="form-control" type="file" id="file" name="file" required>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            
         </div>
         <div class="container__right">
 
@@ -494,6 +448,30 @@
         </div>
 
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
+
+    <!-- SweetAlert2 Error Message -->
+    @if(session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
