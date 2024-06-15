@@ -84,9 +84,9 @@
                         <div>
                             <div class="input-group mb-4">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    <span class="input-group-text" style="border-radius: 8px 0 0 8px;"><i class="fas fa-search"></i></span>
                                 </div>
-                                <input type="text" class="form-control col-lg-12" placeholder="Search Job Id..">
+                                <input type="text" class="form-control col-lg-12" placeholder="Search Job Id.." style="border-radius:0 8px 8px 0;">
                                 
                             </div>
                             <div class="input-group-prepend">
@@ -94,14 +94,14 @@
                                 <div class="input-group mb-2">
 
                                     &ensp;
-                                    <select class="form-control " aria-label="Default select example">
+                                    <select class="form-control " aria-label="Default select example" style="border-radius: 8px;">
                                         <option selected>All Status</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
                                     &ensp;
-                                    <select class="form-control" aria-label="Default select example">
+                                    <select class="form-control" aria-label="Default select example" style="border-radius: 8px;">
                                         <option selected>Job Type</option>
                                         <option value="1">Survey</option>
                                         <option value="2">Soil Test</option>
@@ -110,11 +110,11 @@
                                     &ensp;
                                     <div class="row">
                                         <div class="col">
-                                            <input type="date" class="form-control" id="datepicker">
+                                            <input type="date" class="form-control" id="datepicker" style="border-radius: 8px;">
                                         </div>
-                                        <label for="inputEmail4">To</label>
+                                        <label for="inputEmail4" style="padding-top: 8px;">To</label>
                                         <div class="col">
-                                            <input type="date" class="form-control" id="datepicker">
+                                            <input type="date" class="form-control" id="datepicker" style="border-radius: 8px;">
                                         </div>
                                     </div>
                                 </div>
