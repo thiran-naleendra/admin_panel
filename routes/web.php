@@ -46,6 +46,7 @@ Route::get('/contact' , [ContactController::class,'index'])->name('contact');
 Route::get('/about' , [ContactController::class,'about'])->name('about');
 
 Route::get('/estimation' , [EstimationController::class,'index'])->name('estimation');
+Route::post('/save_estimation' , [EstimationController::class,'save_estimation'])->name('save_estimation');
 
 
 
@@ -55,6 +56,7 @@ Route::get('/estimation' , [EstimationController::class,'index'])->name('estimat
 // admin routs
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminEstimationController;
 use App\Http\Controllers\AdminHomeController;
 
 Route::get('/admin_login' , [AdminController::class,'index'])->name('admin_login'); 
@@ -66,3 +68,7 @@ Route::get('/admin_home' , [AdminHomeController::class,'index'])->name('admin_ho
 Route::get('admin_signup' , [AdminController::class,'admin_signup'])->name('admin_signup'); 
 
 Route::get('admin_view_request' , [AdminController::class,'admin_view_request'])->name('admin_view_request'); 
+
+Route::get('estimation_view' , [AdminEstimationController::class,'index'])->name('estimation_view'); 
+
+

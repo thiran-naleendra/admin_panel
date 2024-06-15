@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\User;
 use Illuminate\Support\Facades\Auth; // Move this line here
 use Illuminate\Http\Request;
 
@@ -14,7 +16,8 @@ class AdminController extends Controller
     public function admin_signup()
     {   
         // return view('genaral');
-        return view('admin.admin_signup');
+        $user = User::get();
+        return view('admin.admin_signup')->with(['user'=>$user]);
     }
     
 
