@@ -12,9 +12,7 @@ use App\Http\Controllers\CallController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
-
-
-
+use App\Http\Controllers\EstimationController;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -44,6 +42,10 @@ Route::get('/view_request' , [RequestController::class,'view_request'])->name('v
 Route::get('/shedule_call' , [CallController::class,'index'])->name('shedule_call');
 
 Route::get('/contact' , [ContactController::class,'index'])->name('contact');
+
+Route::get('/about' , [ContactController::class,'about'])->name('about');
+
+Route::get('/estimation' , [EstimationController::class,'index'])->name('estimation');
 
 
 
