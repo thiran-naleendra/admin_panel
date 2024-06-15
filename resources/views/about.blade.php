@@ -7,7 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 
     <title>GEO Technical</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -152,21 +153,7 @@
             gap: 2rem;
         }
 
-        .container__right::before {
-            position: absolute;
-            content: "";
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            transform-origin: left;
-            height: 80%;
-            background-color: var(--primary-color);
-            border-radius: 1rem;
-            z-index: -1;
 
-            animation: show 0.75s 1.25s ease-in-out forwards;
-        }
 
         @keyframes show {
             0% {
@@ -382,7 +369,7 @@
             }
 
             .nav-button:hover {
-                background-color:  #E3A02C;
+                background-color: #E3A02C;
             }
         }
     </style>
@@ -408,118 +395,35 @@
         </ul>
 
     </nav>
+   
     <div class="container">
         <div class="container__left">
-            <h1>Lorem Ipsum is simply dummy text</h1>
-            <div class="container__btn">
-                <button class="btn">Lorem Ipsum </button>
-            </div>
+            <h1>about</h1>
+            <p>What is Lorem Ipsum?
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                It has survived not only five centuries, but also the leap into electronic typesetting, 
+                remaining essentially unchanged. 
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>
         <div class="container__right">
-            <div class="images">
-                <img src="https://img.freepik.com/free-photo/sand-dry-desert_1204-406.jpg?t=st=1718074477~exp=1718078077~hmac=e38a78b287d0a8555f9cf7be734e9c851b19b45f65e01eb738609f19d55215f5&w=740"
-                    alt="tent-1" class="tent-1" />
-                <img src="https://img.freepik.com/free-psd/desert-landscape-with-sandstorm-generative-ai_587448-2020.jpg?t=st=1718074546~exp=1718078146~hmac=70cf2d69a8a90a44ae45904774f7698aa9a994322e722018a3bfc6fddfac679d&w=1380"
-                    alt="tent-2" class="tent-2" />
-            </div>
-            <div class="content">
-                <h4>Lorem Ipsum is simply dummy</h4>
-                <h2>Lorem Ipsum is simply dummy</h2>
-                <h3>Lorem Ipsum is simply dummy</h3>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s
-                </p>
-            </div>
+
+            <img src="https://c.stocksy.com/a/RDCI00/z9/4336865.jpg" alt="" width="" height="auto">
         </div>
-        <div class="location">
-            <span><i class="ri-map-pin-2-fill"></i></span>
-            OUR LOCATION
-        </div>
-        <div class="socials">
-            <span>
-                <a href="#"><i class="ri-facebook-fill"></i></a>
-            </span>
-            <span>
-                <a href="#"><i class="ri-instagram-line"></i></a>
-            </span>
-            <span>
-                <a href="#"><i class="ri-twitter-fill"></i></a>
-            </span>
-        </div>
+
     </div>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="main.js"></script>
-    <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const navLinks = document.getElementById("nav-links");
-        const menuBtnIcon = menuBtn.querySelector("i");
 
-        menuBtn.addEventListener("click", (e) => {
-            navLinks.classList.toggle("open");
-
-            const isOpen = navLinks.classList.contains("open");
-            menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-        });
-
-        navLinks.addEventListener("click", (e) => {
-            navLinks.classList.remove("open");
-            menuBtnIcon.setAttribute("class", "ri-menu-line");
-        });
-
-        const scrollRevealOption = {
-            distance: "50px",
-            origin: "bottom",
-            duration: 1000,
-        };
-
-        ScrollReveal().reveal(".container__left h1", {
-            ...scrollRevealOption,
-        });
-        ScrollReveal().reveal(".container__left .container__btn", {
-            ...scrollRevealOption,
-            delay: 500,
-        });
-
-        ScrollReveal().reveal(".container__right h4", {
-            ...scrollRevealOption,
-            delay: 2000,
-        });
-        ScrollReveal().reveal(".container__right h2", {
-            ...scrollRevealOption,
-            delay: 2500,
-        });
-        ScrollReveal().reveal(".container__right h3", {
-            ...scrollRevealOption,
-            delay: 3000,
-        });
-        ScrollReveal().reveal(".container__right p", {
-            ...scrollRevealOption,
-            delay: 3500,
-        });
-
-        ScrollReveal().reveal(".container__right .tent-1", {
-            duration: 1000,
-            delay: 4000,
-        });
-        ScrollReveal().reveal(".container__right .tent-2", {
-            duration: 1000,
-            delay: 4500,
-        });
-
-        ScrollReveal().reveal(".location", {
-            ...scrollRevealOption,
-            origin: "left",
-            delay: 5000,
-        });
-
-        ScrollReveal().reveal(".socials span", {
-            ...scrollRevealOption,
-            origin: "top",
-            delay: 5500,
-            interval: 500,
-        });
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </body>
 
