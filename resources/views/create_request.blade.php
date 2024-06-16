@@ -75,20 +75,27 @@
                         <h3>Address</h3>
                         <div class="row mt-3">
                             <div class="col-md-5">
-                                <label>Address</label>
-                                <input type="text" class="form-control" id="line1" placeholder="">
+                                <label>Lot</label>
+                                <input type="text" class="form-control" id="lot" placeholder="">
                             </div>
                             &ensp; &ensp;&ensp;&ensp;&ensp;
                             <div class="col-md-5">
-                                <label>Lot</label>
-                                <input type="text" class="form-control" id="line2" placeholder="">
+                                <label>Street Number</label>
+                                <input type="text" class="form-control" id="street_no" placeholder="">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-5">
+                                <label>Street name</label>
+                                <input type="text" class="form-control" id="street_name" placeholder="">
+                            </div>
+                            &ensp; &ensp;&ensp;&ensp;&ensp;
+                            <div class="col-md-5">
                                 <label>Suburb</label>
                                 <input type="text" class="form-control" id="suburb" placeholder="">
                             </div>
+                        </div>
+                        <div class="row mt-3">
                             &ensp; &ensp;&ensp;&ensp;&ensp;
                             <div class="col-md-5">
                                 <label>Postal Code</label>
