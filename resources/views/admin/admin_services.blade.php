@@ -8,11 +8,11 @@
     <section class="content">
         <div class="container rounded bg-white mt-5">
             <div class="card card-primary">
-
+                <h1>Services</h1>
             </div>
             <br>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">Add Customer</button>
-
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">Add Service</button>
+            <br>
 
 
             <!-- The Modal -->
@@ -21,19 +21,19 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="customerModalLabel">Register Customer</h5>
+                            <h5 class="modal-title" id="customerModalLabel">Add Service</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form id="customerForm" action="{{ route('create_user') }}" method="POST">
+                            <form id="customerForm" action="{{ route('add_service') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">Service Name</label>
                                     <input type="text" class="form-control" id="name" name="name" required>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="mobileno">Mobile No</label>
                                     <input type="text" class="form-control" id="mobileno" name="mobile_no" required>
                                 </div>
@@ -52,8 +52,8 @@
                                 <div class="form-group">
                                     <label for="position">Position</label>
                                     <input type="text" class="form-control" id="position" name="position" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Register</button>
+                                </div> --}}
+                                <button type="submit" class="btn btn-primary">Add Service</button>
                             </form>
                         </div>
                     </div>
@@ -63,37 +63,18 @@
 
 
 
+<br>
+            <div>
+
+                @foreach ($service as $sr)
+                    <div class="card w-75">
+                        <div class="card-body">
+                            <h1 class="card-title">{{ $sr->name }}</h1>
 
 
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead style="background-color: #EA7831; color:white;">
-                        <tr>
-                            <th>Name</th>
-                            <th>Mobile Number</th>
-                            <th>Email</th>
-                            <th>Position</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($user as $us)
-
-                       
-                        <tr>
-                            <td>{{ $us->name }}</td>
-                            <td>{{ $us->mobile_no }}</td>
-                            <td>{{ $us->email }}</td>
-                            <td>{{ $us->position }}</td>
-                            <td style="text-align:center;">
-                                <button class="btn btn-success" data-toggle="modal" data-target="#myModal"
-                                    contenteditable="false">Edit</button>
-                            </td>
-                        </tr>
-                        @endforeach
-
-                    </tbody>
-                </table>
+                        </div>
+                    </div>
+                @endforeach
 
             </div>
 
@@ -180,6 +161,30 @@
             });
         });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
+
+    <!-- SweetAlert2 Error Message -->
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

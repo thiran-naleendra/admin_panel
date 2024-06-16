@@ -12,9 +12,7 @@ use App\Http\Controllers\CallController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
-
-
-
+use App\Http\Controllers\EstimationController;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -45,6 +43,11 @@ Route::get('/shedule_call' , [CallController::class,'index'])->name('shedule_cal
 
 Route::get('/contact' , [ContactController::class,'index'])->name('contact');
 
+Route::get('/about' , [ContactController::class,'about'])->name('about');
+
+Route::get('/estimation' , [EstimationController::class,'index'])->name('estimation');
+Route::post('/save_estimation' , [EstimationController::class,'save_estimation'])->name('save_estimation');
+
 
 
 
@@ -53,7 +56,10 @@ Route::get('/contact' , [ContactController::class,'index'])->name('contact');
 // admin routs
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminEstimationController;
 use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminEmployeeController;
+use App\Http\Controllers\AdminServiceController;
 
 Route::get('/admin_login' , [AdminController::class,'index'])->name('admin_login'); 
 Route::post('/admin_login', [AdminController::class, 'admin_login']);
@@ -64,3 +70,15 @@ Route::get('/admin_home' , [AdminHomeController::class,'index'])->name('admin_ho
 Route::get('admin_signup' , [AdminController::class,'admin_signup'])->name('admin_signup'); 
 
 Route::get('admin_view_request' , [AdminController::class,'admin_view_request'])->name('admin_view_request'); 
+
+Route::get('estimation_view' , [AdminEstimationController::class,'index'])->name('estimation_view'); 
+
+Route::get('employee' , [AdminEmployeeController::class,'index'])->name('employee'); 
+Route::post('create_employee' , [AdminEmployeeController::class,'create_employee'])->name('create_employee'); 
+
+
+Route::get('service' , [AdminServiceController::class,'index'])->name('service'); 
+Route::post('add_service' , [AdminServiceController::class,'add_service'])->name('add_service'); 
+
+
+

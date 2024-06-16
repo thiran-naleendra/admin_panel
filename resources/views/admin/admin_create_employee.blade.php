@@ -8,10 +8,10 @@
     <section class="content">
         <div class="container rounded bg-white mt-5">
             <div class="card card-primary">
-
+                <h1>Create employee</h1>
             </div>
             <br>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">Add Customer</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">Add Employee</button>
 
 
 
@@ -21,13 +21,13 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="customerModalLabel">Register Customer</h5>
+                            <h5 class="modal-title" id="customerModalLabel">Register Employee</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form id="customerForm" action="{{ route('create_user') }}" method="POST">
+                            <form id="customerForm" action="{{ route('create_employee') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">Name</label>
@@ -53,7 +53,7 @@
                                     <label for="position">Position</label>
                                     <input type="text" class="form-control" id="position" name="position" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Register</button>
+                                <button type="submit" class="btn btn-primary">Create Employee</button>
                             </form>
                         </div>
                     </div>
@@ -61,7 +61,29 @@
             </div>
 
 
-
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            @if(session('success'))
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: '{{ session('success') }}',
+                        confirmButtonText: 'OK'
+                    });
+                </script>
+            @endif
+        
+            <!-- SweetAlert2 Error Message -->
+            @if(session('error'))
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '{{ session('error') }}',
+                        confirmButtonText: 'OK'
+                    });
+                </script>
+            @endif
 
 
 
@@ -77,14 +99,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($user as $us)
+                        @foreach ($employee as $em)
 
                        
                         <tr>
-                            <td>{{ $us->name }}</td>
-                            <td>{{ $us->mobile_no }}</td>
-                            <td>{{ $us->email }}</td>
-                            <td>{{ $us->position }}</td>
+                            <td>{{ $em->name }}</td>
+                            <td>{{ $em->mobile_no }}</td>
+                            <td>{{ $em->email }}</td>
+                            <td>{{ $em->position }}</td>
                             <td style="text-align:center;">
                                 <button class="btn btn-success" data-toggle="modal" data-target="#myModal"
                                     contenteditable="false">Edit</button>

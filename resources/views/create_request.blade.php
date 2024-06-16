@@ -70,17 +70,17 @@
                 style="font-size: 24px;  color: #EA7831;">Make Request</label>
             <div class="card card-primary">
                 
-                <form>
+                <form action="" >
                     <div class="card-body">
                         <h3>Address</h3>
                         <div class="row mt-3">
                             <div class="col-md-5">
-                                <label>Line 1</label>
+                                <label>Address</label>
                                 <input type="text" class="form-control" id="line1" placeholder="">
                             </div>
                             &ensp; &ensp;&ensp;&ensp;&ensp;
                             <div class="col-md-5">
-                                <label>Line 2</label>
+                                <label>Lot</label>
                                 <input type="text" class="form-control" id="line2" placeholder="">
                             </div>
                         </div>
