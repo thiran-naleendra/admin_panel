@@ -87,8 +87,8 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-5">
-                                <label>Street Number</label>
-                                <input type="text" class="form-control" id="street_no" placeholder="">
+                                <label>Suburb</label>
+                                <input type="text" class="form-control" id="suburb" name="suburb" placeholder="">
                             </div>
                             &ensp; &ensp;&ensp;&ensp;&ensp;
                             <div class="col-md-5">
