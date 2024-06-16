@@ -136,7 +136,7 @@
 
 
                                         <div >
-                                            <table class="table table-hover">
+                                            <table class="table table-hover" id="example">
                                                 <thead
                                                     style="background-color: #EA7831; color: white; ">
                                                     <tr>
