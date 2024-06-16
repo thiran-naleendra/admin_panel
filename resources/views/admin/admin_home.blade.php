@@ -150,46 +150,24 @@
                                                     </tr> 
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ( $jobs as $jb )
+                                                        
+                                                   
                                                     <tr style="">
-                                                        <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
+                                                        <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->id}}</td>
                                                         <td style="color: rgb(0, 0, 0);">
                                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="auto" viewBox="0 0 24 24">
                                                                 <path fill="black" d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M15.293,16.707L11,12.414V6h2v5.586l3.707,3.707L15.293,16.707z"></path>
-                                                            </svg>&ensp;Ongoing
+                                                            </svg>&ensp;{{$jb->status}}
                                                         </td>
                                                         
-                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">Sri Lanka</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
-                                                        <td style="border-radius: 0 0px 0px 0; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">2024-01-03</td>
-                                                        <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px;"><a href="{{ route('admin_view_request') }}"><i class="fa fa-eye" style="font-size:24px"></i></a></td>
+                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->street_name}}</td>
+                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->site_visit_date}}</td>
+                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->report_due_date}}</td>
+                                                        <td style="border-radius: 0 0px 0px 0; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->site_visit_date}}</td>
+                                                        <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px;"><a href="{{ route('edit_jobs', $jb->id) }}"><i class="fa fa-eye" style="font-size:24px"></i></a></td>
                                                     </tr>
-                                                    <tr style="background-color: rgb(243, 243, 243);">
-                                                        <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style="color: green;">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="auto" viewBox="0 0 24 24">
-                                                                <path fill="green" d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M15.293,16.707L11,12.414V6h2v5.586l3.707,3.707L15.293,16.707z"></path>
-                                                            </svg>&ensp;Completed
-                                                        </td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px;">Sri Lanka</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style=" padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px;"><a href=""><i class="fa fa-eye" style="font-size:24px"></a></td>
-                                                    </tr>
-                                                    <tr style="">
-                                                        <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style="color: rgb(255, 0, 0);">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="auto" viewBox="0 0 24 24">
-                                                                <path fill="black" d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M15.293,16.707L11,12.414V6h2v5.586l3.707,3.707L15.293,16.707z"></path>
-                                                            </svg>&ensp;Confirmed
-                                                        </td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px;">Sri Lanka</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style=" padding-top: 10px; padding-bottom: 10px;">2024-01-03</td>
-                                                        <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px;"><a href=""><i class="fa fa-eye" style="font-size:24px"></a></td>
-                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
