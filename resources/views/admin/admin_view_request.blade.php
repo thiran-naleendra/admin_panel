@@ -42,43 +42,47 @@
         .tabcontent {
             display: none;
         }
-
-        
     </style>
     <br>
     <section class="content">
         <br><br>
-        <label class="badge"style="font-size: 24px;  color: #EA7831;">Job ID - 99999</label>
+        <label class="badge"style="font-size: 24px;  color: #EA7831;">{{ $jobs->id }}</label>
         <div class="container rounded bg-white mt-5">
             <div class="card ">
 
-                <form>
+                <form action="{{ route('jobs_update', $jobs->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    
                     <div class="card-body">
                         <h4>Job Details</h4>
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <label>Job Type</label>
-                                <input type="text" class="form-control" id="line1" placeholder="">
+                                <input type="text" class="form-control" id="line1" placeholder=""
+                                    value="{{ $jobs->id }}">
                             </div>
                             <div class="col-md-6">
                                 <label>Job Category</label>
-                                <input type="text" class="form-control" id="line2" placeholder="">
+                                <input type="text" class="form-control" id="line2" placeholder=""
+                                    value="{{ $jobs->id }}">
                             </div>
                         </div>
                         <h4>Site Visit Date</h4>
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <label>Reference</label>
-                                <input type="text" class="form-control" id="line1" placeholder="">
+                                <input type="text" class="form-control" id="line1"
+                                    placeholder=""value="{{ $jobs->reference }}">
                             </div>
                             <div class="col-md-6">
                                 <label>discription</label>
-                                <input type="text" class="form-control" id="line2" placeholder="">
+                                <input type="text" class="form-control" 
+                                    placeholder=""value="{{ $jobs->description }}" name="description" id="description">
                             </div>
                         </div>
                     </div>
 
-                    
+
 
                     <div class="card-body">
                         <h4>Additional Information</h4>
@@ -135,7 +139,7 @@
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio" id="house_on_site1"
-                                        name="house_on_site" >
+                                        name="house_on_site">
                                     <label for="house_on_site1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
@@ -143,7 +147,7 @@
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio" id="house_on_site2"
                                         name="house_on_site" checked>
-                                    <label for="house_on_site2" class="custom-control-label" >N</label>
+                                    <label for="house_on_site2" class="custom-control-label">N</label>
                                 </div>
                             </div>
 
@@ -157,9 +161,10 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input custom-radio"  type="radio" id="locked_gates2" name="locked_gates" checked>
+                                    <input class="custom-control-input custom-radio" type="radio" id="locked_gates2"
+                                        name="locked_gates" checked>
 
-                                    <label for="locked_gates2" class="custom-control-label" >N</label>
+                                    <label for="locked_gates2" class="custom-control-label">N</label>
                                 </div>
                             </div>
                         </div>
@@ -174,53 +179,39 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="sub_un_con2" 
+                                    <input class="custom-control-input" type="radio" id="sub_un_con2"
                                         name="sub_un_con" checked>
-                                    <label for="sub_un_con2" class="custom-control-label" >N</label>
+                                    <label for="sub_un_con2" class="custom-control-label">N</label>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {{-- <div class="card-body">
-                    <h4>Upload Documents</h4>
-                    <div class="row mt-3">
-                        <label for="exampleInputFile">File input</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+
+
+
+
+                    <div class="card-body">
+                        <h4>Update Status</h4>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label>Update Status</label>
+                                <select class="form-control" aria-label="Default select example">
+                                    <option selected>Update Status</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
+                            <div class="col-md-6">
+                                <label>Visit Date</label>
+                                <input type="date" class="form-control" id="datepicker">
                             </div>
                         </div>
-                    </div>                    
-                </div>                     --}}
 
 
 
-                <div class="card-body">
-                    <h4>Update Status</h4>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <label>Update Status</label>
-                            <select class="form-control" aria-label="Default select example">
-                                <option selected>Update Status</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Visit Date</label>
-                            <input type="date" class="form-control" id="datepicker">
-                        </div>
                     </div>
-                    
-
-                   
-                </div>
 
 
 
@@ -241,11 +232,13 @@
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <label>Suburb</label>
-                                <input type="text" class="form-control" id="line1" placeholder="">
+                                <input type="text" class="form-control" id="line1" placeholder=""
+                                    value="{{ $jobs->suburb }}">
                             </div>
                             <div class="col-md-6">
                                 <label>Postal Code</label>
-                                <input type="text" class="form-control" id="line2" placeholder="">
+                                <input type="text" class="form-control" id="line2" placeholder=""
+                                    value="{{ $jobs->postal_code }}">
                             </div>
                         </div>
                     </div>
@@ -255,18 +248,21 @@
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <label>Email</label>
-                                <input type="text" class="form-control" id="line1" placeholder="">
+                                <input type="text" class="form-control" id="line1" placeholder=""
+                                    value="{{ $jobs->email }}">
                             </div>
                             <div class="col-md-6">
                                 <label>Mobile Number</label>
-                                <input type="text" class="form-control" id="line2" placeholder="">
+                                <input type="text" class="form-control" id="line2" placeholder=""
+                                    value="{{ $jobs->mobile_no }}">
                             </div>
                         </div>
 
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <label>Name</label>
-                                <input type="text" class="form-control" id="line1" placeholder="">
+                                <input type="text" class="form-control" id="line1" placeholder=""
+                                    value="{{ $jobs->name }}">
                             </div>
 
                         </div>
@@ -277,7 +273,8 @@
                         <div class="row mt-3">
                             <div class="col-md-6">
 
-                                <input type="file" class="form-control" id="line1" placeholder="">
+                                <input type="file" class="form-control" id="line1"
+                                    placeholder="{{ $jobs->image }}">
                             </div>
 
                         </div>
@@ -286,9 +283,10 @@
                     </div>
 
                     <div class="card-footer d-flex justify-content-end">
-                        <button type="submit" class="btn" style="background-color: #001f3f; color: white;">Update</button>
+                        <button type="submit" class="btn"
+                            style="background-color: #001f3f; color: white;">Update</button>
                     </div>
-                    
+
                 </form>
             </div>
         </div>

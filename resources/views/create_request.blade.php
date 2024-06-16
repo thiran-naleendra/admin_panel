@@ -70,105 +70,105 @@
                 style="font-size: 24px;  color: #EA7831;">Make Request</label>
             <div class="card card-primary">
                 
-                <form action="" >
+                <form action="{{ route('create_req') }}" method="POST">
+                    @csrf
                     <div class="card-body">
                         <h3>Address</h3>
                         <div class="row mt-3">
                             <div class="col-md-5">
                                 <label>Address</label>
-                                <input type="text" class="form-control" id="line1" placeholder="">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="">
                             </div>
                             &ensp; &ensp;&ensp;&ensp;&ensp;
                             <div class="col-md-5">
                                 <label>Lot</label>
-                                <input type="text" class="form-control" id="line2" placeholder="">
+                                <input type="text" class="form-control" id="lot" name="lot" placeholder="">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-5">
                                 <label>Suburb</label>
-                                <input type="text" class="form-control" id="suburb" placeholder="">
+                                <input type="text" class="form-control" id="suburb" name="suburb" placeholder="">
                             </div>
                             &ensp; &ensp;&ensp;&ensp;&ensp;
                             <div class="col-md-5">
                                 <label>Postal Code</label>
-                                <input type="text" class="form-control" id="postal_code" placeholder="">
+                                <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="">
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="card-body">
                         <h3>Contact Details</h3>
                         <div class="row mt-3">
                             <div class="col-md-5">
                                 <label>Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="">
                             </div>
                             &ensp; &ensp;&ensp;&ensp;&ensp;
                             <div class="col-md-5">
                                 <label>Phone Number</label>
-                                <input type="text" class="form-control" id="phone_no" placeholder="">
+                                <input type="text" class="form-control" id="phone_no" name="phone_no" placeholder="">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-5">
                                 <label>Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="">
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="card-body">
                         <div class="row mt-3">
                             <div class="col-md-6 form-group">
                                 <label>Select Request Type</label>
-                                <select class="custom-select form-control-border" id="job" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="job" name="job" placeholder="Select Job">
                                     @foreach ($request_types as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3 soil_test" id="soil_test_div">
                             <div class="col-md-6 form-group">
                                 <label>Select Sub Category</label>
-                                <select class="custom-select form-control-border" id="soil_test" placeholder="Soil Test">
+                                <select class="custom-select form-control-border" id="soil_test" name="soil_test" placeholder="Soil Test">
                                     @foreach ($soil_test as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3" id="survey_div">
                             <div class="col-md-6 form-group">
                                 <label>Select Job Type</label>
-                                <select class="custom-select form-control-border" id="surveys" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="surveys" name="surveys" placeholder="Select Job">
                                     @foreach ($surveys as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3" id="other_jobs_div">
                             <div class="col-md-6 form-group">
                                 <label>Other Jobs</label>
-                                <select class="custom-select form-control-border" id="other_jobs" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="other_jobs" name="other_jobs" placeholder="Select Job">
                                     @foreach ($other_jobs as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-
+                
                         <div id="feature_survey_div">
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <label>Select Feature Survey</label>
-                                    <select class="custom-select form-control-border" id="feature_surveys"
-                                        placeholder="Select Job">
+                                    <select class="custom-select form-control-border" id="feature_surveys" name="feature_surveys" placeholder="Select Job">
                                         @foreach ($feature_surveys as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
@@ -176,40 +176,36 @@
                                 </div>
                                 <div class="col-md-2"></div>
                                 <div class="col-md-4">
-                                    <input class="custom-control-input" type="checkbox" id="customCheckbox1"
-                                        value="option1">
+                                    <input class="custom-control-input" type="checkbox" id="customCheckbox1" name="customCheckbox1" value="option1">
                                     <label for="customCheckbox1" class="custom-control-label">Required AHD</label>
                                 </div>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3" id="ahd_ffl_div">
                             <div class="col-md-6 form-group">
                                 <label>Select AHD - FFL indicator level to Plumbing riser</label>
-                                <select class="custom-select form-control-border" id="ahd_ffl" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="ahd_ffl" name="ahd_ffl" placeholder="Select Job">
                                     @foreach ($ahd_ffl as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-
                     </div>
-
+                
                     <div class="card-body" id="demolished_test_div">
                         <div class="row mt-3">
                             <div class="col-md-2"><label>FOOTING PROBE</label></div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="footing_probe1"
-                                        name="footing_probe">
+                                    <input class="custom-control-input" type="radio" id="footing_probe1" name="footing_probe" value="Y">
                                     <label for="footing_probe1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="footing_probe2"
-                                        name="footing_probe" checked>
+                                    <input class="custom-control-input" type="radio" id="footing_probe2" name="footing_probe" value="N" checked>
                                     <label for="footing_probe2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -218,30 +214,27 @@
                             <div class="col-md-2"><label>WIND RATING</label></div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="wind_rating1"
-                                        name="wind_rating">
+                                    <input class="custom-control-input" type="radio" id="wind_rating1" name="wind_rating" value="Y">
                                     <label for="wind_rating1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="wind_rating2"
-                                        name="wind_rating" checked>
+                                    <input class="custom-control-input" type="radio" id="wind_rating2" name="wind_rating" value="N" checked>
                                     <label for="wind_rating2" class="custom-control-label">N</label>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-2"><label>BAL</label></div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="bal1" name="bal">
+                                    <input class="custom-control-input" type="radio" id="bal1" name="bal" value="Y">
                                     <label for="bal1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="bal2" name="bal"
-                                        checked>
+                                    <input class="custom-control-input" type="radio" id="bal2" name="bal" value="N" checked>
                                     <label for="bal2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -250,31 +243,27 @@
                             <div class="col-md-2"><label>EXISTING HOUSE ON SITE</label></div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="house_on_site1"
-                                        name="house_on_site">
+                                    <input class="custom-control-input" type="radio" id="house_on_site1" name="house_on_site" value="Y">
                                     <label for="house_on_site1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="house_on_site2"
-                                        name="house_on_site" checked>
+                                    <input class="custom-control-input" type="radio" id="house_on_site2" name="house_on_site" value="N" checked>
                                     <label for="house_on_site2" class="custom-control-label">N</label>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-2"><label>LOCKED GATES</label></div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="locked_gates1"
-                                        name="locked_gates">
+                                    <input class="custom-control-input" type="radio" id="locked_gates1" name="locked_gates" value="Y">
                                     <label for="locked_gates1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="locked_gates2"
-                                        name="locked_gates" checked>
+                                    <input class="custom-control-input" type="radio" id="locked_gates2" name="locked_gates" value="N" checked>
                                     <label for="locked_gates2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -283,31 +272,29 @@
                             <div class="col-md-2"><label>SUBDIVISION UNDER CONSTRUCTION</label></div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="sub_un_con1"
-                                        name="sub_un_con">
+                                    <input class="custom-control-input" type="radio" id="sub_un_con1" name="sub_un_con" value="Y">
                                     <label for="sub_un_con1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio" id="sub_un_con2"
-                                        name="sub_un_con" checked>
+                                    <input class="custom-control-input" type="radio" id="sub_un_con2" name="sub_un_con" value="N" checked>
                                     <label for="sub_un_con2" class="custom-control-label">N</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="card-body">
                         <div class="form-group">
                             <label></label>
-                            <textarea class="form-control" rows="3" placeholder="Description"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Description" id="description" name="description"></textarea>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
                             <label>Reference</label>
-                            <input type="text" class="form-control" id="reference" placeholder="">
+                            <input type="text" class="form-control" id="reference" name="reference" placeholder="">
                         </div>
                     </div>
                     <div class="card-body">
@@ -316,10 +303,8 @@
                             <label for="exampleInputFile">File input</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile"
-                                        onchange="updateFileName()">
-                                    <label class="custom-file-label" for="exampleInputFile" id="fileLabel">Choose
-                                        file</label>
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="exampleInputFile" onchange="updateFileName()">
+                                    <label class="custom-file-label" for="exampleInputFile" id="fileLabel">Choose file</label>
                                 </div>
                                 <script>
                                     function updateFileName() {
@@ -329,13 +314,12 @@
                                         label.innerHTML = fileName;
                                     }
                                 </script>
-
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg" style="background-color:  #262D59; color: white;">Submit</button>
-
+                    <button type="submit" class="btn btn-primary btn-lg" style="background-color: #262D59; color: white;">Submit</button>
                 </form>
+                
             </div>
         </div>
         <script>
