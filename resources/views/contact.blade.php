@@ -386,8 +386,8 @@
             </div>
         </div>
         <ul class="nav__links" id="nav-links">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Service</a></li>
+            <li><a href="{{ route('about') }}">About</a></li>
+            <li><a href="{{ route('estimation') }}">Service</a></li>
             <li><a href="{{ route('estimation') }}">Estimate</a></li>
             <li><a href="{{ route('contact') }}">Contact Us</a></li>
             <li><button class="nav-button" onclick="location.href='{{ route('login') }}'">Job Operation</button></li>

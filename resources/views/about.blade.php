@@ -386,7 +386,7 @@
             </div>
         </div>
         <ul class="nav__links" id="nav-links">
-            <li><a href="#">About</a></li>
+            <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="#">Service</a></li>
             <li><a href="{{ route('estimation') }}">Estimate</a></li>
             <li><a href="{{ route('contact') }}">Contact Us</a></li>
