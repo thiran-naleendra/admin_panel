@@ -7,8 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 
     <title>GEO Technical</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -152,8 +151,6 @@
             display: grid;
             gap: 2rem;
         }
-
-
 
         @keyframes show {
             0% {
@@ -369,7 +366,159 @@
             }
 
             .nav-button:hover {
-                background-color: #E3A02C;
+                background-color:  #E3A02C;
+            }
+
+            /* footer */
+
+            .footer {
+                background-color: #192a36;
+                color: #ffffff;
+                padding: 2rem 0;
+                font-family: "Montserrat", sans-serif;
+            }
+
+            .footer-container {
+                display: flex;
+                justify-content: space-between;
+                max-width: var(--max-width);
+                margin: auto;
+                padding: 0 1rem; 
+            }
+
+            .footer-left {
+                display: flex;
+                flex-direction: column;
+                max-width: 300px;
+                margin-right: auto; 
+                padding-left: 1rem; 
+            }
+
+            .footer-logo-container {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+
+            .footer-logo {
+                max-width: 28px;
+                margin-right: 1rem;
+            }
+
+            .footer-logo-container h1 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            .footer-left p {
+                font-size: 0.875rem;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .footer-right {
+                display: flex;
+                justify-content: space-between;
+                flex: 1;
+                margin-left: 18rem; 
+            }
+
+            .footer-column {
+                margin-left: 1rem; 
+            }
+
+            .footer-column ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-column ul li {
+                margin-bottom: 0.5rem;
+                font-size: 0.875rem;
+            }
+
+            .footer-column ul li a {
+                color: #ffffff;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            .footer-column ul li a:hover {
+                color: #E3A02C;
+            }
+
+            .footer-column ul li a i {
+                font-size: 1.25rem;
+                vertical-align: middle;
+            }
+
+            .footer-column.social {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .footer-column.social .social-title {
+                margin-bottom: 0.5rem; 
+            }
+
+            .footer-column.social .social-icons {
+                display: flex;
+                gap: 1rem; 
+            }
+
+            .footer-column.social .social-icons a {
+                color: #ffffff;
+                background-color: #192a36; 
+                border-radius: 50%; 
+                padding: 10px; 
+                display: inline-flex; 
+                align-items: center;
+                justify-content: center;
+                width: 40px; 
+                height: 40px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .footer-column.social .social-icons a:hover {
+                background-color: #E3A02C; 
+                color: #ffffff; 
+            }
+
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid #ffffff;
+                padding-top: 1rem;
+                padding-left: 6rem;
+                padding-right: 4rem;
+                margin-top: 1rem;
+                font-size: 0.875rem;
+            }
+
+            .footer-bottom .links {
+                display: flex;
+                gap: 1rem; 
+            }
+
+            .footer-bottom .links a {
+                color: #ffffff;
+                text-decoration: none;
+                margin-right: 1rem; 
+                transition: 0.3s;
+            }
+
+            .footer-bottom .links a:hover {
+                color: #E3A02C;
+            }
+
+            .footer-bottom p {
+                margin: 0;
             }
         }
     </style>
@@ -388,7 +537,7 @@
         <ul class="nav__links" id="nav-links">
             <li><a href="#">About</a></li>
             <li><a href="#">Service</a></li>
-            <li><a href="{{ route('estimation') }}">Estimate</a></li>
+            <li><a href="#">Estimate</a></li>
             <li><a href="{{ route('contact') }}">Contact Us</a></li>
             <li><button class="nav-button" onclick="location.href='{{ route('login') }}'">Job Operation</button></li>
             <li><button class="nav-button" onclick="location.href='{{ route('admin_login') }}'">Admin</button></li>
@@ -447,45 +596,91 @@
         <div class="container__left">
             <form>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">First Name</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Last Name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Last Name</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
-                    </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">First Name</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Last Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Last Name</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
+                  </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputAddress">Email</label>
-                    <input type="email" class="form-control" id="inputAddress" placeholder="Email">
+                  <label for="inputAddress">Email</label>
+                  <input type="email" class="form-control" id="inputAddress" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <label for="inputAddress2">Your Messege</label>
-                    <textarea type="text" class="form-control" id="inputAddress2" placeholder="" rows="4" cols="50"></textarea>
+                  <label for="inputAddress2">Your Messege</label>
+                  <textarea type="text" class="form-control" id="inputAddress2" placeholder="" rows="4" cols="50"></textarea>
                 </div>
-
-
+                
+                
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+              </form>
         </div>
         <div class="container__right">
-
-            <img src="https://c.stocksy.com/a/RDCI00/z9/4336865.jpg" alt="" width="" height="auto">
+            
+            <img src="https://c.stocksy.com/a/RDCI00/z9/4336865.jpg" alt="" width="1000px" height="auto">
         </div>
-
+        
     </div>
 
+    <!-- footer -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <div class="footer-logo-container">
+                <img src="image/Asset_5.png" alt="Melbourne Geotechnical Logo" class="footer-logo">
+                <h1>Melbourne Geotechnical</h1>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in mauris ut tellus ultrices eleifend. Proin nec leo nec risus.</p>
+        </div>
+        <div class="footer-right">
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Get An Estimate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Contacts</a></li>
+                    <li>+1 601-201-5580</li>
+                    <li><a href="mailto:sampleemail">sampleemail</a></li>
+                    <li>Sample Address</li>
+                    <li><a href="#">Driving directions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column social">
+    <div class="social-title">Social</div>
+    <div class="social-icons">
+        <a href="#"><i class="ri-facebook-fill"></i></a>
+        <a href="#"><i class="ri-twitter-fill"></i></a>
+        <a href="#"><i class="ri-linkedin-fill"></i></a>
+        <a href="#"><i class="ri-instagram-fill"></i></a>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="links">
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms of use</a>
+        </div>
+        <p>© 2022 All Rights Reserved.</p>
+    </div>
+</footer>
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
