@@ -30,7 +30,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="" class="nav-link">
+        <a href="{{ route('service') }}" class="nav-link">
           <i class="nav-icon far fa-image"></i>
           <p>
            Services
@@ -39,7 +39,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="" class="nav-link">
+        <a href="{{ route('employee') }}" class="nav-link">
           <i class="nav-icon far fa-image"></i>
           <p>
            Employees
