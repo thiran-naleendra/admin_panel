@@ -58,6 +58,8 @@ Route::post('/save_estimation' , [EstimationController::class,'save_estimation']
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminEstimationController;
 use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminEmployeeController;
+use App\Http\Controllers\AdminServiceController;
 
 Route::get('/admin_login' , [AdminController::class,'index'])->name('admin_login'); 
 Route::post('/admin_login', [AdminController::class, 'admin_login']);
@@ -70,5 +72,13 @@ Route::get('admin_signup' , [AdminController::class,'admin_signup'])->name('admi
 Route::get('admin_view_request' , [AdminController::class,'admin_view_request'])->name('admin_view_request'); 
 
 Route::get('estimation_view' , [AdminEstimationController::class,'index'])->name('estimation_view'); 
+
+Route::get('employee' , [AdminEmployeeController::class,'index'])->name('employee'); 
+Route::post('create_employee' , [AdminEmployeeController::class,'create_employee'])->name('create_employee'); 
+
+
+Route::get('service' , [AdminServiceController::class,'index'])->name('service'); 
+Route::post('add_service' , [AdminServiceController::class,'add_service'])->name('add_service'); 
+
 
 
