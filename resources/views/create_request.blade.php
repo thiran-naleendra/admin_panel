@@ -144,7 +144,7 @@
             <div class="card card-primary mt-5">
                 <label class="badge heading-class" style="font-size: 24px;  color: #EA7831;">Make Request</label>
                 
-                <form action="{{ route('create_req') }}" method="POST">
+                <form action="{{ route('create_req') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <h3 class="inter-style">Location Details</h3>
@@ -153,8 +153,7 @@
                                 <label class="field-style">Lot</label>
                                 <input type="text" class="form-control" id="lot" name="lot" placeholder="">
                             </div>
-                            &ensp; &ensp;&ensp;&ensp;&ensp;
-                            <div class="col-md-5">
+                            <div class="col-md-5 offset-md-2">
                                 <label class="field-style">Street Number</label>
                                 <input type="text" class="form-control" id="street_no" name="street_no" placeholder="">
                             </div>
@@ -164,8 +163,7 @@
                                 <label class="field-style">Street name</label>
                                 <input type="text" class="form-control" id="street_name" name="street_name" placeholder="">
                             </div>
-                            &ensp; &ensp;&ensp;&ensp;&ensp;
-                            <div class="col-md-5">
+                            <div class="col-md-5 offset-md-2">
                                 <label class="field-style">Suburb</label>
                                 <input type="text" class="form-control" id="suburb" name="suburb" placeholder="">
                             </div>
@@ -185,8 +183,7 @@
                                 <label class="field-style">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="">
                             </div>
-                            &ensp; &ensp;&ensp;&ensp;&ensp;
-                            <div class="col-md-5">
+                            <div class="col-md-5 offset-md-2">
                                 <label class="field-style">Phone Number</label>
                                 <input type="text" class="form-control" id="phone_no" name="phone_no" placeholder="">
                             </div>
@@ -203,7 +200,7 @@
                         <div class="row mt-3">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Select Request Type</label>
-                                <select class="custom-select form-control-border" id="job" name="job" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="job" name="job">
                                     @foreach ($request_types as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -214,7 +211,7 @@
                         <div class="row mt-3 soil_test" id="soil_test_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Select Sub Category</label>
-                                <select class="custom-select form-control-border" id="soil_test" name="soil_test" placeholder="Soil Test">
+                                <select class="custom-select form-control-border" id="soil_test" name="soil_test">
                                     @foreach ($soil_test as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -225,7 +222,7 @@
                         <div class="row mt-3" id="survey_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Select Job Type</label>
-                                <select class="custom-select form-control-border" id="surveys" name="surveys" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="surveys" name="surveys">
                                     @foreach ($surveys as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -236,7 +233,7 @@
                         <div class="row mt-3" id="other_jobs_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Other Jobs</label>
-                                <select class="custom-select form-control-border" id="other_jobs" name="other_jobs" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="other_jobs" name="other_jobs">
                                     @foreach ($other_jobs as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -248,7 +245,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <label class="field-style">Select Feature Survey</label>
-                                    <select class="custom-select form-control-border" id="feature_surveys" name="feature_surveys" placeholder="Select Job">
+                                    <select class="custom-select form-control-border" id="feature_surveys" name="feature_surveys">
                                         @foreach ($feature_surveys as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
@@ -265,7 +262,7 @@
                         <div class="row mt-3" id="ahd_ffl_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Select AHD - FFL indicator level to Plumbing riser</label>
-                                <select class="custom-select form-control-border" id="ahd_ffl" name="ahd_ffl" placeholder="Select Job">
+                                <select class="custom-select form-control-border" id="ahd_ffl" name="ahd_ffl">
                                     @foreach ($ahd_ffl as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
@@ -275,32 +272,32 @@
                     </div>
                 
                     <div class="card-body" id="demolished_test_div">
-                        <h3 class="inter-style">Additional Inforamtion</h3>
+                        <h3 class="inter-style">Additional Information</h3>
                         <div class="row mt-3">
                             <div class="col-md-4"><label class="field-style">FOOTING PROBE</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe1" name="footing_probe">
+                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe1" name="footing_probe" value="Y">
                                     <label for="footing_probe1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe2" name="footing_probe" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe2" name="footing_probe" value="N" checked>
                                     <label for="footing_probe2" class="custom-control-label">N</label>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-4"><label class="field-style">BAL</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="bal1" name="bal">
+                                    <input class="custom-control-input radio-button" type="radio" id="bal1" name="bal" value="Y">
                                     <label for="bal1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="bal2" name="bal" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="bal2" name="bal" value="N" checked>
                                     <label for="bal2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -309,27 +306,27 @@
                             <div class="col-md-4"><label class="field-style">WIND RATING</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating1" name="wind_rating">
+                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating1" name="wind_rating" value="Y">
                                     <label for="wind_rating1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating2" name="wind_rating" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating2" name="wind_rating" value="N" checked>
                                     <label for="wind_rating2" class="custom-control-label">N</label>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-4"><label class="field-style">LOCKED GATES</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates1" name="locked_gates">
+                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates1" name="locked_gates" value="Y">
                                     <label for="locked_gates1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates2" name="locked_gates" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates2" name="locked_gates" value="N" checked>
                                     <label for="locked_gates2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -338,13 +335,13 @@
                             <div class="col-md-4"><label class="field-style">EXISTING HOUSE ON SITE</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site1" name="house_on_site">
+                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site1" name="house_on_site" value="Y">
                                     <label for="house_on_site1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site2" name="house_on_site" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site2" name="house_on_site" value="N" checked>
                                     <label for="house_on_site2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -353,13 +350,13 @@
                             <div class="col-md-4"><label class="field-style">SUBDIVISION UNDER CONSTRUCTION</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con1" name="sub_un_con">
+                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con1" name="sub_un_con" value="Y">
                                     <label for="sub_un_con1" class="custom-control-label">Y</label>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con2" name="sub_un_con" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con2" name="sub_un_con" value="N" checked>
                                     <label for="sub_un_con2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -368,7 +365,7 @@
                 
                     <div class="card-body">
                         <div class="form-group">
-                            <label class="field-style"></label>
+                            <label class="field-style">Description</label>
                             <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description"></textarea>
                         </div>
                     </div>
@@ -387,24 +384,14 @@
                                     <input type="file" class="custom-file-input" id="file_input" name="file_input" onchange="updateFileName()">
                                     <label class="custom-file-label field-style" for="file_input" id="fileLabel">Choose file</label>
                                 </div>
-                                <script>
-                                    function updateFileName() {
-                                        var input = document.getElementById('file_input');
-                                        var label = document.getElementById('fileLabel');
-                                        var fileName = input.files[0].name;
-                                        label.innerHTML = fileName;
-                                    }
-                                </script>
                             </div>
                         </div>
                     </div>
-                    <div style="text-align: center">
-                        <button type="button" class="btn btn-primary btn-lg btn-class" style="background-color:  #262D59; color: white;">
+                    <div class="card-body" style="text-align: center">
+                        <button type="submit" class="btn btn-primary btn-lg btn-class" style="background-color: #262D59; color: white;">
                             Submit
                         </button>
                     </div>
-
-
                 </form>
                 
             </div>

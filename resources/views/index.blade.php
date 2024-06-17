@@ -270,6 +270,10 @@
             color: var(--text-dark);
         }
 
+        .nav-logo{
+            width: 130px;
+        }
+
         @media (width > 768px) {
             nav {
                 position: static;
@@ -299,6 +303,7 @@
             .nav__links {
                 position: static;
                 padding: 0;
+                padding-left: 19rem;
                 flex-direction: row;
                 background-color: transparent;
                 transform: none;
@@ -384,16 +389,262 @@
             .nav-button:hover {
                 background-color:  #E3A02C;
             }
+
+
         }
+
+        /* footer */
+
+        .footer {
+                background-color: #192a36;
+                color: #ffffff;
+                padding: 2rem 0;
+                font-family: "Montserrat", sans-serif;
+            }
+
+            .footer-container {
+                display: flex;
+                justify-content: space-between;
+                max-width: var(--max-width);
+                margin: auto;
+                padding: 0 1rem; 
+            }
+
+            .footer-left {
+                display: flex;
+                flex-direction: column;
+                max-width: 300px;
+                margin-right: auto; 
+                padding-left: 1rem; 
+            }
+
+            .footer-logo-container {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+
+            .footer-logo {
+                max-width: 28px;
+                margin-right: 1rem;
+            }
+
+            .footer-logo-container h1 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            .footer-left p {
+                font-size: 0.875rem;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .footer-right {
+                display: flex;
+                justify-content: space-between;
+                flex: 1;
+                margin-left: 18rem; 
+            }
+
+            .footer-column {
+                margin-left: 1rem; 
+            }
+
+            .footer-column ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-column ul li {
+                margin-bottom: 0.5rem;
+                font-size: 0.875rem;
+            }
+
+            .footer-column ul li a {
+                color: #ffffff;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+
+            .footer-column ul li a:hover {
+                color: #E3A02C;
+            }
+
+            .footer-column ul li a i {
+                font-size: 1.25rem;
+                vertical-align: middle;
+            }
+
+            .footer-column.social {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .footer-column.social .social-title {
+                margin-bottom: 0.5rem; 
+            }
+
+            .footer-column.social .social-icons {
+                display: flex;
+                gap: 1rem; 
+            }
+
+            .footer-column.social .social-icons a {
+                color: #ffffff;
+                background-color: #192a36; 
+                border-radius: 50%; 
+                padding: 10px; 
+                display: inline-flex; 
+                align-items: center;
+                justify-content: center;
+                width: 40px; 
+                height: 40px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .footer-column.social .social-icons a:hover {
+                background-color: #E3A02C; 
+                color: #ffffff; 
+            }
+
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid #ffffff;
+                padding-top: 1rem;
+                padding-left: 4rem;
+                padding-right: 3rem;
+                margin-top: 1rem;
+                font-size: 0.875rem;
+            }
+
+            .footer-bottom .links {
+                display: flex;
+                gap: 1rem; 
+            }
+
+            .footer-bottom .links a {
+                color: #ffffff;
+                text-decoration: none;
+                margin-right: 1rem; 
+                transition: 0.3s;
+            }
+
+            .footer-bottom .links a:hover {
+                color: #E3A02C;
+            }
+
+            .footer-bottom p {
+                margin: 0;
+            }
+
+             /* New CSS styles */
+        :root {
+            --primary-color: #FF6600;
+            --background-color: #FFFFFF;
+            --text-color: #262D59;
+            --accent-color: #FF6600;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container-text {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            text-align: left;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            padding-bottom: 204px;
+        }
+
+        .hero-text h1 {
+            font-size: 3em;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-text p {
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .hero-text {
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .btn-primary:hover {
+    background-color: #E35500; /* Adjust the color as needed */
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: #E35500; /* Adjust the color as needed */
+}
+
     </style>
 </head>
 
 <body>
     <nav>
         <div class="nav__header">
-            <div class="nav__logo">
-                <a href="#">GEO Technical</a>
-            </div>
+            <img src="image/geo.png" alt="Melbourne Geotechnical Logo" class="nav-logo">
             <div class="nav__menu__btn" id="menu-btn">
                 <i class="ri-menu-line"></i>
             </div>
@@ -408,7 +659,7 @@
         </ul>
 
     </nav>
-    <div class="container">
+    {{-- <div class="container">
         <div class="container__left">
             <h1>Lorem Ipsum is simply dummy text</h1>
             <div class="container__btn">
@@ -447,7 +698,70 @@
                 <a href="#"><i class="ri-twitter-fill"></i></a>
             </span>
         </div>
+    </div> --}}
+
+    <!-- New content -->
+    <div class="hero">
+        <div class="container-text">
+            <div class="hero-text">
+                <h1>Empower <span>your</span> decisions with geographic insights</h1>
+                <p>Lorem ipsum dolor sit amet consectetur. Nullam lacus dictum tristique nulla amet at suspendisse felis ullamcorper. Cursus turpis tellus neque feugiat neque massa.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">Join with Us</a>
+                    <a href="#" class="btn-secondary">Get an Estimate</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo-container">
+                    <img src="image/Asset_5.png" alt="Melbourne Geotechnical Logo" class="footer-logo">
+                    <h1>Melbourne Geotechnical</h1>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in mauris ut tellus ultrices eleifend. Proin nec leo nec risus.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Get An Estimate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Contacts</a></li>
+                        <li>+1 601-201-5580</li>
+                        <li><a href="mailto:sampleemail">sampleemail</a></li>
+                        <li>Sample Address</li>
+                        <li><a href="#">Driving directions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column social">
+        <div class="social-title">Social</div>
+        <div class="social-icons">
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-twitter-fill"></i></a>
+            <a href="#"><i class="ri-linkedin-fill"></i></a>
+            <a href="#"><i class="ri-instagram-fill"></i></a>
+        </div>
+        </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="links">
+                <a href="#">Privacy policy</a>
+                <a href="#">Terms of use</a>
+            </div>
+            <p>© 2022 All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="main.js"></script>
