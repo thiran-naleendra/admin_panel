@@ -142,6 +142,11 @@
         .status-In-progress { color: #1FB2F2; text-align: left;}
         .status-Completed { color: #319F43; text-align: left;}
         .alignments { text-align: left; }
+
+        .scrollable-table {
+            overflow-x: auto;
+            max-height: 500px; /* Adjust the max-height as per your requirement */
+        }
     </style>
     <br>
     <section class="content">
@@ -183,6 +188,7 @@
                 </div>
             </div>
             <div>
+                <div class="scrollable-table">
                 <ul class="responsive-table">
                     <li class="table-header">
                         <div class="col col-1 alignments">Job Id</div>
@@ -224,6 +230,7 @@
                     </li>
                     @endforeach
                 </ul>
+                </div>
             </div>
         </div>
 
