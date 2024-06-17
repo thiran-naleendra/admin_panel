@@ -3,18 +3,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 
-
-
     <section class="content">
         <div class="container rounded bg-white mt-5">
             <div class="card card-primary">
 
             </div>
+            
+            <style>
+                .icon-gap {
+                    margin-right: 5px;
+                }
+            </style>
+            
+            <div class="text-right">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">
+                    <i class="fa fa-plus-circle icon-gap" aria-hidden="true"></i>Add Customer
+                </button>
+            </div>
+            
             <br>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">Add Customer</button>
-
-
-
             <!-- The Modal -->
             <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel"
                 aria-hidden="true">
@@ -59,11 +66,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
 
             <div class="table-responsive">
                 <table class="table table-hover">

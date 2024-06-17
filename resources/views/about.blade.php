@@ -574,7 +574,7 @@
         </div>
         <div class="container__right">
 
-            <img src="https://c.stocksy.com/a/RDCI00/z9/4336865.jpg" alt="" width="" height="auto">
+            <img src="" alt="" width="100" height="auto">
         </div>
 
     </div>
