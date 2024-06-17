@@ -59,26 +59,30 @@
         .dt-info {
             margin-left: 2em !important;
         }
+
+        .heading-class{
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.85rem;
+            text-align: left;
+            color: #EA7831;
+            margin-bottom: -3rem;
+        }
     </style>
     <br>
     <section class="content">
-        
-
-
         <div class="container rounded bg-white mt-6">
-            <br>
-            <div class="container rounded  mt-5">
-                <div class="card card-primary">
+            <div class="mt-5">
+                <div>
                     <div class="card-body">
-                       
+                        <div class="heading-class">Jobs</div>                  
                         <div class="position-relative" style="height: 50px;">
                             <a href="{{ route('create_request') }}" class="btn btn-warning d-flex align-items-center justify-content-center position-absolute end-0" style="width: 20%; background-color:#262D59; color:white; top: 10px; right: 10px; height: 50px; border: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
                                 <i class="fa fa-plus-circle" aria-hidden="true" style="margin-right: 8px;"></i>
                                 <strong>Add New</strong>
                             </a>
                         </div>
-                        
-                       
                         <br>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
@@ -118,9 +122,9 @@
             
             <div class="page-content page-container" id="page-content">
                 <div class="padding">
-                    <div class="row container d-flex justify-content-center">
+                    <div class="row d-flex justify-content-center">
                         <div class="col-lg-12 grid-margin stretch-card">
-                            <div class="card">
+                            <div>
                                 <div class="card-body">
 
                                     <div class="table-responsive" style="border-radius: 8px;">

@@ -67,6 +67,7 @@
             font-size: 1rem;
             font-weight: 700 !important;
             font-family: 'Inter', sans-serif;
+            margin-bottom: 1rem;
         }
 
         .form-control:focus {
@@ -256,7 +257,7 @@
                                 </div>
                                 <div class="col-md-2"></div>
                                 <div class="col-md-4">
-                                    <input class="custom-control-input" type="checkbox" id="required_ahd" value="1">
+                                    <input class="custom-control-input" type="checkbox" id="required_ahd" name="required_ahd" value="1">
                                     <label for="required_ahd" class="custom-control-label">Required AHD</label>
                                 </div>
                             </div>
@@ -384,7 +385,7 @@
                             <label class="field-style" for="file_input">File input</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="file_input" onchange="updateFileName()">
+                                    <input type="file" class="custom-file-input" id="file_input" name="file_input" onchange="updateFileName()">
                                     <label class="custom-file-label field-style" for="file_input" id="fileLabel">Choose file</label>
                                 </div>
                                 <script>

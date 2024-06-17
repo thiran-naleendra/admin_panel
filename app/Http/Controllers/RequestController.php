@@ -34,10 +34,12 @@ class RequestController extends Controller
     {
         // Validate the incoming request
         $request->validate([
-            'address' => 'required',
             'lot' => 'required',
+            'street_no' => 'required',
+            'street_name' => 'required',
             'suburb' => 'required',
             'postal_code' => 'nullable',
+            'email' => 'required',
             'phone_no' => 'required',
             'name' => 'required',
             'job' => 'required',
@@ -45,26 +47,28 @@ class RequestController extends Controller
             'surveys' => 'required',
             'other_jobs' => 'required',
             'feature_surveys' => 'required',
-            'customCheckbox1' => 'required',
-            'ahd_ffl' => 'required',
-            'footing_probe' => 'required',
-            'wind_rating' => 'required',
-            'bal' => 'required',
-            'house_on_site' => 'required',
-            'locked_gates' => 'required',
-            'sub_un_con' => 'required',
-            'description' => 'required',
-            'reference' => 'required',
-            'exampleInputFile' => 'required',
+            'required_ahd' => 'nullable',
+            'ahd_ffl' => 'nullable',
+            'footing_probe' => 'nullable',
+            'bal' => 'nullable',
+            'wind_rating' => 'nullable',
+            'locked_gates' => 'nullable',
+            'house_on_site' => 'nullable',
+            'sub_un_con' => 'nullable',
+            'description' => 'nullable',
+            'reference' => 'nullable',
+            'file_input' => 'nullable',
         ]);
 
         try {
             // Create a new request in the database
             RequestModel::create([
-                'address' => $request->input('address'),
                 'lot' => $request->input('lot'),
+                'street_no' => $request->input('street_no'),
+                'street_name' => $request->input('street_name'),
                 'suburb' => $request->input('suburb'),
                 'postal_code' => $request->input('postal_code'),
+                'email' => $request->input('email'),
                 'phone_no' => $request->input('phone_no'),
                 'name' => $request->input('name'),
                 'job' => $request->input('job'),
@@ -72,21 +76,21 @@ class RequestController extends Controller
                 'surveys' => $request->input('surveys'),
                 'other_jobs' => $request->input('other_jobs'),
                 'feature_surveys' => $request->input('feature_surveys'),
-                'customCheckbox1' => $request->input('customCheckbox1'),
+                'required_ahd' => $request->input('required_ahd'),
                 'ahd_ffl' => $request->input('ahd_ffl'),
                 'footing_probe' => $request->input('footing_probe'),
-                'wind_rating' => $request->input('wind_rating'),
                 'bal' => $request->input('bal'),
-                'house_on_site' => $request->input('house_on_site'),
+                'wind_rating' => $request->input('wind_rating'),
                 'locked_gates' => $request->input('locked_gates'),
+                'house_on_site' => $request->input('house_on_site'),
                 'sub_un_con' => $request->input('sub_un_con'),
                 'description' => $request->input('description'),
                 'reference' => $request->input('reference'),
-                'exampleInputFile' => $request->input('exampleInputFile'),
+                'file_input' => $request->input('file_input'),
             ]);
 
             // Return back with success message
-            return back()->with('success', 'Successfully registered user!');
+            return back()->with('success', 'Request created successfully');
         } catch (\Exception $e) {
             // Handle any errors that may occur during the creation process
             return back()->with('error', 'There was an error processing your request: ' . $e->getMessage());
