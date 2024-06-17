@@ -31,9 +31,19 @@
             cursor: pointer;
         }
 
-        img {
+        .container__right img {
             display: flex;
-            width: 100%;
+            width: 338px;
+        }
+
+        .page_topic h2{
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .page_topic p {
+            color: #666;
+            margin-bottom: 40px;
         }
 
         a {
@@ -125,19 +135,19 @@
         }
 
         .container__left h1 {
-            margin-bottom: 2rem;
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 4.5rem;
-            color: var(--text-dark);
+               /* margin-bottom: 2rem; */
+                font-size: 2.5rem;
+                font-weight: 700;
+                /* line-height: 4.5rem; */
+                color: var(--text-dark);
         }
 
         .container__left .btn {
-            padding: 1rem 2rem;
+            padding: 1rem 12rem;
             letter-spacing: 2px;
             color: var(--white);
             background-color: var(--text-dark);
-            border-radius: 5rem;
+            /* border-radius: 5rem; */
         }
 
         .container__left .btn:hover {
@@ -254,10 +264,14 @@
             color: var(--text-dark);
         }
 
+        .nav-logo{
+            width: 130px;
+        }
+
         @media (width > 768px) {
             nav {
                 position: static;
-                padding: 2rem 1rem;
+                padding: 10px;
                 max-width: var(--max-width);
                 margin-inline: auto;
                 display: flex;
@@ -283,6 +297,7 @@
             .nav__links {
                 position: static;
                 padding: 0;
+                padding-left: 19rem;
                 flex-direction: row;
                 background-color: transparent;
                 transform: none;
@@ -309,7 +324,8 @@
             .container {
                 grid-template-columns: 2fr 3fr;
                 align-items: center;
-                padding: 2rem 0;
+                padding: 4px;
+                padding-left: 192px;
             }
 
             .container__left {
@@ -369,9 +385,12 @@
                 background-color:  #E3A02C;
             }
 
-            /* footer */
+           
+        }
 
-            .footer {
+         /* footer */
+
+         .footer {
                 background-color: #192a36;
                 color: #ffffff;
                 padding: 2rem 0;
@@ -495,8 +514,8 @@
                 align-items: center;
                 border-top: 1px solid #ffffff;
                 padding-top: 1rem;
-                padding-left: 6rem;
-                padding-right: 4rem;
+                padding-left: 4rem;
+                padding-right: 3rem;
                 margin-top: 1rem;
                 font-size: 0.875rem;
             }
@@ -520,16 +539,13 @@
             .footer-bottom p {
                 margin: 0;
             }
-        }
     </style>
 </head>
 
 <body>
     <nav>
         <div class="nav__header">
-            <div class="nav__logo">
-                <a href="#">GEO Technical</a>
-            </div>
+            <img src="image/geo.png" alt="Melbourne Geotechnical Logo" class="nav-logo">
             <div class="nav__menu__btn" id="menu-btn">
                 <i class="ri-menu-line"></i>
             </div>
@@ -594,6 +610,10 @@
     </div> --}}
     <div class="container">
         <div class="container__left">
+            <div class="page_topic">
+                <h1>Contact us</h1>
+                <p>Subheading for description or instructions</p>
+            </div>
             <form>
                 <div class="form-row">
                   <div class="form-group col-md-6">
@@ -626,56 +646,53 @@
     </div>
 
     <!-- footer -->
-
     <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-left">
-            <div class="footer-logo-container">
-                <img src="image/Asset_5.png" alt="Melbourne Geotechnical Logo" class="footer-logo">
-                <h1>Melbourne Geotechnical</h1>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo-container">
+                    <img src="image/Asset_5.png" alt="Melbourne Geotechnical Logo" class="footer-logo">
+                    <h1>Melbourne Geotechnical</h1>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in mauris ut tellus ultrices eleifend. Proin nec leo nec risus.</p>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in mauris ut tellus ultrices eleifend. Proin nec leo nec risus.</p>
+            <div class="footer-right">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Get An Estimate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Contacts</a></li>
+                        <li>+1 601-201-5580</li>
+                        <li><a href="mailto:sampleemail">sampleemail</a></li>
+                        <li>Sample Address</li>
+                        <li><a href="#">Driving directions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column social">
+        <div class="social-title">Social</div>
+        <div class="social-icons">
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-twitter-fill"></i></a>
+            <a href="#"><i class="ri-linkedin-fill"></i></a>
+            <a href="#"><i class="ri-instagram-fill"></i></a>
         </div>
-        <div class="footer-right">
-            <div class="footer-column">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Get An Estimate</a></li>
-                </ul>
+        </div>
             </div>
-            <div class="footer-column">
-                <ul>
-                    <li><a href="#">Contacts</a></li>
-                    <li>+1 601-201-5580</li>
-                    <li><a href="mailto:sampleemail">sampleemail</a></li>
-                    <li>Sample Address</li>
-                    <li><a href="#">Driving directions</a></li>
-                </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="links">
+                <a href="#">Privacy policy</a>
+                <a href="#">Terms of use</a>
             </div>
-            <div class="footer-column social">
-    <div class="social-title">Social</div>
-    <div class="social-icons">
-        <a href="#"><i class="ri-facebook-fill"></i></a>
-        <a href="#"><i class="ri-twitter-fill"></i></a>
-        <a href="#"><i class="ri-linkedin-fill"></i></a>
-        <a href="#"><i class="ri-instagram-fill"></i></a>
-    </div>
-</div>
-
-
+            <p>© 2022 All Rights Reserved.</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="links">
-            <a href="#">Privacy policy</a>
-            <a href="#">Terms of use</a>
-        </div>
-        <p>© 2022 All Rights Reserved.</p>
-    </div>
-</footer>
+    </footer>
 
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
