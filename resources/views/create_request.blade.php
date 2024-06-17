@@ -79,9 +79,8 @@
             margin-top: -3rem;
         }        
 
-        /* class="container rounded bg-white mt-5" */
         .heading-class {
-            font-family: Inter, sans-serif; /* Always provide a fallback font */
+            font-family: 'Inter', sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 2.25rem;
@@ -149,28 +148,26 @@
                     @csrf
                     <div class="card-body">
                         <h3 class="inter-style">Location Details</h3>
-                        <div class="row mt-3">
-                            <div class="col-md-5">
+                        <div class="row mt-3 justify-content-evenly">
+                            <div class="col-md-4">
                                 <label class="field-style">Lot</label>
                                 <input type="text" class="form-control" id="lot" name="lot" placeholder="">
                             </div>
-                            <div class="col-md-5 offset-md-2">
+                            <div class="col-md-4">
                                 <label class="field-style">Street Number</label>
                                 <input type="text" class="form-control" id="street_no" name="street_no" placeholder="">
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <label class="field-style">Street name</label>
                                 <input type="text" class="form-control" id="street_name" name="street_name" placeholder="">
                             </div>
-                            <div class="col-md-5 offset-md-2">
+                        </div>
+                        <div class="row mt-3 justify-content-evenly">
+                            <div class="col-md-4">
                                 <label class="field-style">Suburb</label>
                                 <input type="text" class="form-control" id="suburb" name="suburb" placeholder="">
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <label class="field-style">Postal Code</label>
                                 <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="">
                             </div>
@@ -179,18 +176,16 @@
                 
                     <div class="card-body">
                         <h3 class="inter-style">Contact Details</h3>
-                        <div class="row mt-3">
-                            <div class="col-md-5">
+                        <div class="row mt-3 justify-content-evenly">
+                            <div class="col-md-4">
                                 <label class="field-style">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="">
                             </div>
-                            <div class="col-md-5 offset-md-2">
+                            <div class="col-md-4">
                                 <label class="field-style">Phone Number</label>
                                 <input type="text" class="form-control" id="phone_no" name="phone_no" placeholder="">
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <label class="field-style">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="">
                             </div>
@@ -409,11 +404,22 @@
                 const featureSurveyDiv = document.getElementById('feature_survey_div');
                 const ahdFflDiv = document.getElementById('ahd_ffl_div');
 
+                function resetAndHide(selectElement, divElement) {
+                    selectElement.selectedIndex = 0;
+                    divElement.style.display = 'none';
+                }
                 jobSelect.addEventListener('change', function() {
+                    resetAndHide(soilTestSelect, soilTestDiv);
+                    resetAndHide(surveysSelect, surveyDiv);
+                    resetAndHide(otherJobsSelect, otherJobsDiv);
+                    preDemolishedDiv.style.display = 'none';
+                    featureSurveyDiv.style.display = 'none';
+                    ahdFflDiv.style.display = 'none';
                     switch (jobSelect.value) {
                         case 'ST':
                             soilTestDiv.style.display = 'block';
                             surveyDiv.style.display = 'none';
+                            otherJobsDiv.style.display = 'none';
                             break;
                         case 'SU':
                             soilTestDiv.style.display = 'none';
@@ -423,6 +429,7 @@
                             soilTestDiv.style.display = 'none';
                             surveyDiv.style.display = 'none';
                             otherJobsDiv.style.display = 'block';
+                            preDemolishedDiv.style.display = 'none';
                             break;
                         case 'IN':
                             soilTestDiv.style.display = 'none';

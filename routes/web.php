@@ -41,6 +41,8 @@ Route::post('/create_req' , [RequestController::class,'create_request'])->name('
 
 Route::get('/view_request' , [RequestController::class,'view_request'])->name('view_request');
 
+Route::get('/view_job_request-{id}' , [RequestController::class,'view_request'])->name('view_job_request');
+
 Route::get('/shedule_call' , [CallController::class,'index'])->name('shedule_call');
 
 Route::get('/contact' , [ContactController::class,'index'])->name('contact');

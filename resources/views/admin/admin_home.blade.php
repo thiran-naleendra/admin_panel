@@ -59,143 +59,171 @@
         .dt-info {
             margin-left: 2em !important;
         }
+        
+        .responsive-table {
+            margin-left: -2em;
+            margin-right: 1.25em;
+            li {
+                border-radius: 4px;
+                padding: 25px 30px;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 25px;
+            }
+            .table-header {
+                background-color: #EA7831;
+                font-size: 14px;
+                letter-spacing: 0.03em;
+                color: white;
+                text-align: center;
+                font-weight: 500;
+                line-height: 16.94px;
+                font-family: 'Inter', sans-serif;
+            }
+            .table-row {
+                background-color: #ffffff;
+                box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .col-1 {
+                flex-basis: 10%;
+            }
+            .col-2 {
+                flex-basis: 40%;
+            }
+            .col-3 {
+                flex-basis: 25%;
+            }
+            .col-4 {
+                flex-basis: 25%;
+            }
+            
+            @media all and (max-width: 767px) {
+                .table-header {
+                display: none;
+                }
+                .table-row{
+                
+                }
+                li {
+                display: block;
+                }
+                .col {
+                
+                flex-basis: 100%;
+                
+                }
+                .col {
+                display: flex;
+                padding: 10px 0;
+                    &:before {
+                        color: #6C7A89;
+                        padding-right: 10px;
+                        content: attr(data-label);
+                        flex-basis: 50%;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        .heading-class{
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.85rem;
+            text-align: left;
+            color: #EA7831;
+            margin-bottom: 3rem;
+        }
+        .status-Ongoing { color: #262D59; text-align: left;}
+        .status-Confirmed { color: #F18866; text-align: left;}
+        .status-Hold { color: #EB35C3; text-align: left;}
+        .status-In-progress { color: #1FB2F2; text-align: left;}
+        .status-Completed { color: #319F43; text-align: left;}
+        .alignments { text-align: left; }
     </style>
     <br>
     <section class="content">
-
-
-
         <div class="container rounded bg-white mt-6">
-            <br>
-            <div class="container rounded  mt-5">
-                <div class="card card-primary">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <label class="badge"
-                            style="font-size: 24px;  color: #EA7831;">Jobs</label>
-                            {{-- <button type="button" class="btn btn-primary" style="font-size: 20px;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="20" height="auto" fill="currentColor"
-                                    class="bi bi-plus" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                                </svg>Add New</button> --}}
-                        </div>
-                        <br>
-                        <div>
-                            <div class="input-group mb-4">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" style="border-radius: 8px 0 0 8px;"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input type="text" class="form-control col-lg-12" placeholder="Search Job Id.." style="border-radius:0 8px 8px 0;">
-                                
-                            </div>
+            <div class="mt-1">
+                <div class="card-body">
+                    <div class="heading-class">Jobs</div>
+                    <div class="input-group-prepend">                            
+                        <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                                
-                                <div class="input-group mb-2">
-
-                                    &ensp;
-                                    <select class="form-control " aria-label="Default select example" style="border-radius: 8px;">
-                                        <option selected>All Status</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    &ensp;
-                                    <select class="form-control" aria-label="Default select example" style="border-radius: 8px;">
-                                        <option selected>Job Type</option>
-                                        <option value="1">Survey</option>
-                                        <option value="2">Soil Test</option>
-                                        <option value="3">Footing Probe</option>
-                                    </select>
-                                    &ensp;
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="date" class="form-control" id="datepicker" style="border-radius: 8px;">
-                                        </div>
-                                        <label for="inputEmail4" style="padding-top: 8px;">To</label>
-                                        <div class="col">
-                                            <input type="date" class="form-control" id="datepicker" style="border-radius: 8px;">
-                                        </div>
-                                    </div>
+                                <span class="input-group-text" style="border-radius: 8px 0 0 8px;"><i class="nav-icon fas fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search Job Id.." style="border-radius:0 8px 8px 0;">
+                            &ensp;
+                            <select class="form-control " aria-label="Default select example" style="border-radius: 8px;">
+                                @foreach($statuses as $value => $label)
+                                    <option value="{{ $value }}">{{ $label }}</option>
+                                @endforeach
+                            </select>
+                            &ensp;
+                            <select class="form-control" aria-label="Default select example" style="border-radius: 8px;">
+                                <option selected>Job Type</option>
+                                <option value="1">Survey</option>
+                                <option value="2">Soil Test</option>
+                                <option value="3">Footing Probe</option>
+                            </select>
+                            &ensp;
+                            <div class="row">
+                                <div class="col">
+                                    <input type="date" class="form-control" id="datepicker" style="border-radius: 8px;">
+                                </div>
+                                <label for="inputEmail4" style="padding-top: 8px;">To</label>
+                                <div class="col">
+                                    <input type="date" class="form-control" id="datepicker" style="border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-            <div class="page-content page-container" id="page-content">
-                <div class="padding">
-                    <div class="row container d-flex justify-content-center">
-                        <div class="col-lg-12 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-
-                                    <div class="table-responsive" style="border-radius: 10px;">
-
-
-                                        <div >
-                                            <table class="table table-hover" id="example">
-                                                <thead
-                                                    style="background-color: #EA7831; color: white; ">
-                                                    <tr>
-                                                        <th style="padding-bottom: 20px; ">Job ID</th>
-                                                        <th style="padding-bottom: 20px;">Status</th>
-                                                        <th style="padding-bottom: 20px;">Address</th>
-                                                        <th style="padding-bottom: 20px;">Schedule Date</th>
-                                                        <th style="padding-bottom: 20px;">Visit Date</th>
-                                                        <th style="padding-bottom: 20px;">Report ETA</th>
-                                                        <th style="padding-bottom: 20px;">Action</th>
-                                                    </tr> 
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ( $jobs as $jb )
-                                                        
-                                                   
-                                                    <tr style="">
-                                                        <td style="border-radius: 10px 0 0 10px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->id}}</td>
-                                                        <td style="color: rgb(0, 0, 0);">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="auto" viewBox="0 0 24 24">
-                                                                <path fill="black" d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M15.293,16.707L11,12.414V6h2v5.586l3.707,3.707L15.293,16.707z"></path>
-                                                            </svg>&ensp;{{$jb->status}}
-                                                        </td>
-                                                        
-                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->street_name}}</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->site_visit_date}}</td>
-                                                        <td style="padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->report_due_date}}</td>
-                                                        <td style="border-radius: 0 0px 0px 0; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;">{{$jb->site_visit_date}}</td>
-                                                        <td style="border-radius: 0 10px 10px 0; padding-top: 10px; padding-bottom: 10px;"><a href="{{ route('edit_jobs', $jb->id) }}"><i class="fa fa-eye" style="font-size:24px"></i></a></td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <span>Show 1 to 10 of 20 results</span>
-                                        <nav aria-label="Page navigation example" class="d-flex justify-content-end">
-                                            <ul class="pagination">
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                        style="color: #262D59;">Previous</a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                        style="color: #262D59;">1</a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                        style="color: #262D59;">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                        style="color: #262D59;">.....</a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                        style="color: #262D59;">8</a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                        style="color: #262D59;">9</a></li>
-                                                <li class="page-item"><a class="page-link" href="#"
-                                                        style="color: #262D59;">Next</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
+            <div>
+                <ul class="responsive-table">
+                    <li class="table-header">
+                        <div class="col col-1 alignments">Job Id</div>
+                        <div class="col col-2 alignments">Status</div>
+                        <div class="col col-2 alignments">Address</div>
+                        <div class="col col-2">Schedule Date</div>
+                        <div class="col col-2">Visit Date</div>
+                        <div class="col col-2">Report ETA</div>
+                        <div class="col col-1"></div>
+                    </li>
+                    @foreach ( $jobs as $jb )  
+                    <li class="table-row">
+                        <div class="col col-1 alignments" data-label="Job Id">{{$jb->id}}</div>
+                        <div class="col col-2 status-{{ $jb->status }}" data-label="Status">
+                            @switch($jb->status)
+                                @case('Ongoing')
+                                    <i class="fas fa-spinner"></i>
+                                    @break
+                                @case('Confirmed')
+                                    <i class="fas fa-check-circle"></i>
+                                    @break
+                                @case('Hold')
+                                    <i class="fas fa-pause-circle"></i>
+                                    @break
+                                @case('In-progress')
+                                    <i class="fas fa-hourglass-half"></i>
+                                    @break
+                                @case('Completed')
+                                    <i class="fas fa-check-double"></i>
+                                    @break
+                            @endswitch
+                            &ensp;{{ $jb->status }}
                         </div>
-                    </div>
-                </div>
+                        <div class="col col-2 alignments" data-label="Address">{{$jb->street_name}}</div>
+                        <div class="col col-2" data-label="Schedule Date">{{$jb->site_visit_date}}</div>
+                        <div class="col col-2" data-label="Visit Date">{{$jb->report_due_date}}</div>
+                        <div class="col col-2" data-label="Report ETA">{{$jb->site_visit_date}}</div>
+                        <div class="col col-1"><a href="{{ route('edit_jobs', ['id' => $jb->id]) }}"><i class="fas fa-caret-right"></i></a></div>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
 

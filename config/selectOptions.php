@@ -15,7 +15,6 @@ return [
         'PRDT' => 'Pre Demolished Test',
         'PODT' => 'Post Demolished Test',
         'FP' => 'Footing Prob',
-        'OJ' => 'Other Jobs',
         // Add more options as needed
     ],
     'surveys' => [
@@ -42,6 +41,15 @@ return [
         'J1' => 'Job 1',
         'J2' => 'Job 2',
         'J3' => 'Job 3',
+        // Add more options as needed
+    ],
+    'status' => [
+        '' => 'Select a option',
+        'Ongoing' => 'Ongoing',
+        'Confirmed' => 'Confirmed',
+        'Hold' => 'Hold',
+        'In-progress' => 'In-progress',
+        'Completed' => 'Completed',
         // Add more options as needed
     ],
     // Add more select fields as needed
