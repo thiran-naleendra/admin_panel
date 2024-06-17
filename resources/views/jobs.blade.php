@@ -194,8 +194,7 @@
                         </select>
                         &ensp;
                         <div class="row">
-                            <div class="col">
-                               
+                            <div class="col">                               
                                 <input type="date" class="form-control" id="datepicker" style="border-radius: 8px;">
                             </div>
                             <label for="inputEmail4">To</label>

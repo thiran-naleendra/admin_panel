@@ -15,7 +15,6 @@ return [
         'PRDT' => 'Pre Demolished Test',
         'PODT' => 'Post Demolished Test',
         'FP' => 'Footing Prob',
-        'OJ' => 'Other Jobs',
         // Add more options as needed
     ],
     'surveys' => [
