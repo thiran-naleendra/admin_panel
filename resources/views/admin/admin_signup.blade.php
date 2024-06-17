@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 
     <section class="content">
         <div class="container rounded bg-white mt-5">
@@ -13,10 +13,115 @@
                 .icon-gap {
                     margin-right: 5px;
                 }
+
+                .editIcon {
+        cursor: pointer; /* Change cursor to pointer on hover */
+    }
+    
+    .editIcon:hover {
+        color: blue; /* Change icon color on hover */
+    }
+                .deleteTcon {
+        cursor: pointer; /* Change cursor to pointer on hover */
+    }
+    
+    .deleteTcon:hover {
+        color: rgb(237, 33, 33); /* Change icon color on hover */
+    }
+
+                .responsive-table {
+            margin-left: -2em;
+            margin-right: 1.25em;
+            li {
+                border-radius: 4px;
+                padding: 25px 30px;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 25px;
+            }
+            .table-header {
+                background-color: #EA7831;
+                font-size: 14px;
+                letter-spacing: 0.03em;
+                color: white;
+                text-align: center;
+                font-weight: 500;
+                line-height: 16.94px;
+                font-family: 'Inter', sans-serif;
+            }
+            .table-row {
+                background-color: #ffffff;
+                box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .col-1 {
+                flex-basis: 10%;
+            }
+            .col-2 {
+                flex-basis: 40%;
+            }
+            .col-3 {
+                flex-basis: 25%;
+            }
+            .col-4 {
+                flex-basis: 25%;
+            }
+            
+            @media all and (max-width: 767px) {
+                .table-header {
+                display: none;
+                }
+                .table-row{
+                
+                }
+                li {
+                display: block;
+                }
+                .col {
+                
+                flex-basis: 100%;
+                
+                }
+                .col {
+                display: flex;
+                padding: 10px 0;
+                    &:before {
+                        color: #6C7A89;
+                        padding-right: 10px;
+                        content: attr(data-label);
+                        flex-basis: 50%;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        .btn-model {
+        background-color: #262D59; /* Blue color */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-model:hover {
+        background-color: #0056b3; /* Darker blue color */
+    }
+
+    .icon-gap {
+        margin-right: 5px; /* Adjust the gap between icon and text */
+    }
             </style>
             
             <div class="text-right">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">
+                <button type="button" class="btn-model" data-toggle="modal" data-target="#customerModal">
                     <i class="fa fa-plus-circle icon-gap" aria-hidden="true"></i>Add Customer
                 </button>
             </div>
@@ -66,52 +171,43 @@
                     </div>
                 </div>
             </div>
-
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead style="background-color: #EA7831; color:white;">
-                        <tr>
-                            <th>Name</th>
-                            <th>Mobile Number</th>
-                            <th>Email</th>
-                            <th>Position</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($user as $us)
-
-                       
-                        <tr>
-                            <td>{{ $us->name }}</td>
-                            <td>{{ $us->mobile_no }}</td>
-                            <td>{{ $us->email }}</td>
-                            <td>{{ $us->position }}</td>
-                            <td style="text-align:center;">
-                                <button class="btn btn-success" data-toggle="modal" data-target="#myModal"
-                                    contenteditable="false">Edit</button>
-                            </td>
-                        </tr>
-                        @endforeach
-
-                    </tbody>
-                </table>
-
+            <div>
+                <ul class="responsive-table">
+                    @foreach ($user as $us)
+                    <li class="table-row">
+                        <div class="col col-1 alignments" data-label="Job Id">{{ $us->name }}</div>
+                        <div class="col col-2 alignments" data-label="Address">{{ $us->mobile_no }}</div>
+                        <div class="col col-2" data-label="Schedule Date">{{ $us->email }}</div>
+                        <div class="col col-2" data-label="Visit Date">{{ $us->position }}</div>
+                        <div class="col col-1">
+                            <i class="fas fa-pencil-alt editIcon"  data-name="{{ $us->name }}" data-mobile="{{ $us->mobile_no }}" data-email="{{ $us->email }}" data-position="{{ $us->position }}"></i>
+                        </div>                        
+                        <div class="col col-1">
+                            <i class="fas fa-trash deleteTcon"></i>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
 
         </div>
     </section>
 
+    <!-- Your custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const editButtons = document.querySelectorAll('.btn-success');
-
-            editButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault();
-
+            const editIcons = document.querySelectorAll('.editIcon');
+    
+            editIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const name = this.getAttribute('data-name');
+                    const mobile = this.getAttribute('data-mobile');
+                    const email = this.getAttribute('data-email');
+                    const position = this.getAttribute('data-position');
+    
                     Swal.fire({
-                        title: 'Create Customer',
+                        title: 'Edit Customer',
                         html: `
                             <style>
                                 .swal2-container .swal2-html-container {
@@ -121,18 +217,18 @@
                                     width: 100%;
                                 }
                             </style>
-                            <form id="create-customer-form" class="row g-3">
+                            <form id="edit-customer-form" class="row g-3">
                                 <div class="col-md-6">
                                     <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control" id="name" value="${name}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="mobileNumber" class="form-label">Mobile Number</label>
-                                    <input type="text" class="form-control" id="mobileNumber">
+                                    <input type="text" class="form-control" id="mobileNumber" value="${mobile}">
                                 </div>
                                 <div class="col-12">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email">
+                                    <input type="email" class="form-control" id="email" value="${email}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="password" class="form-label">Password</label>
@@ -140,28 +236,23 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="position" class="form-label">Position</label>
-                                    <input type="text" class="form-control" id="position">
+                                    <input type="text" class="form-control" id="position" value="${position}">
                                 </div>
                                 <div class="col-md-6">
                                     <br>
                                 </div>
                             </form>
                         `,
-                        showCancelButton: false,
-                        confirmButtonText: 'Create Customer',
+                        showCancelButton: true,
+                        confirmButtonText: 'Update Customer',
                         preConfirm: () => {
                             const name = Swal.getPopup().querySelector('#name').value;
-                            const mobileNumber = Swal.getPopup().querySelector(
-                                '#mobileNumber').value;
+                            const mobileNumber = Swal.getPopup().querySelector('#mobileNumber').value;
                             const email = Swal.getPopup().querySelector('#email').value;
-                            const password = Swal.getPopup().querySelector('#password')
-                                .value;
-                            const position = Swal.getPopup().querySelector('#position')
-                                .value;
-                            if (!name || !mobileNumber || !email || !password || !
-                                position) {
-                                Swal.showValidationMessage(
-                                    'Please fill out all fields');
+                            const password = Swal.getPopup().querySelector('#password').value;
+                            const position = Swal.getPopup().querySelector('#position').value;
+                            if (!name || !mobileNumber || !email || !password || !position) {
+                                Swal.showValidationMessage('Please fill out all fields');
                                 return false;
                             }
                             return {
@@ -176,13 +267,12 @@
                         if (result.isConfirmed) {
                             // Handle the form submission here
                             console.log('Form data:', result.value);
+                            // You can submit the form via AJAX or directly update your backend
                         }
                     });
                 });
             });
         });
     </script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 @endsection
