@@ -14,6 +14,6 @@ class RequestModel extends Model
         'id','lot', 'street_no', 'street_name', 'suburb', 'postal_code', 
         'email', 'mobile_no', 'name', 'description', 'reference', 'image', 
         'status', 'site_visit_date', 'report_due_date', 'created_at', 'created_by', 
-        'updated_at', 'updated_by'
+        'updated_at', 'updated_by',
     ];
 }
