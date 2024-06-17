@@ -79,9 +79,8 @@
             margin-top: -3rem;
         }        
 
-        /* class="container rounded bg-white mt-5" */
         .heading-class {
-            font-family: Inter, sans-serif; /* Always provide a fallback font */
+            font-family: 'Inter', sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 2.25rem;

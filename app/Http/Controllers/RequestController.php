@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RequestModel;
 use Illuminate\Http\Request;
+use App\Models\Jobs;
 
 class RequestController extends Controller
 {
@@ -18,7 +19,7 @@ class RequestController extends Controller
         $other_jobs = config('selectOptions.other_jobs');
         return view('create_request', compact('request_types', 'soil_test', 'surveys', 'feature_surveys', 'ahd_ffl', 'other_jobs'));
     }
-    public function view_request()
+    public function view_request($id)
     {
         // Retrieve select options from the configuration file
         $request_types = config('selectOptions.request_types');
@@ -27,7 +28,8 @@ class RequestController extends Controller
         $feature_surveys = config('selectOptions.feature_surveys');
         $ahd_ffl = config('selectOptions.ahd_ffl');
         $other_jobs = config('selectOptions.other_jobs');
-        return view('view_request', compact('request_types', 'soil_test', 'surveys', 'feature_surveys', 'ahd_ffl', 'other_jobs'));
+        $jobs = Jobs::find($id);
+        return view('view_request', compact('request_types', 'soil_test', 'surveys', 'feature_surveys', 'ahd_ffl', 'other_jobs', 'jobs'));
     }
 
     public function create_request(Request $request)

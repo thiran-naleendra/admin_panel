@@ -44,5 +44,14 @@ return [
         'J3' => 'Job 3',
         // Add more options as needed
     ],
+    'status' => [
+        '' => 'Select a option',
+        'Ongoing' => 'Ongoing',
+        'Confirmed' => 'Confirmed',
+        'Hold' => 'Hold',
+        'In-progress' => 'In-progress',
+        'Completed' => 'Completed',
+        // Add more options as needed
+    ],
     // Add more select fields as needed
 ];
