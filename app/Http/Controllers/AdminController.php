@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jobs;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth; // Move this line here
 use Illuminate\Http\Request;
@@ -43,8 +44,24 @@ class AdminController extends Controller
         return redirect('/landing'); // Redirect to the login page or any other desired page
     }
 
-    public function admin_view_request()
+    public function admin_view_request($id)
+    {   
+        $jobs = Jobs::find($id);
+        return view('admin.admin_view_request', compact('jobs'));
+    }
+
+    public function update(Request $request, $id)
     {
-        return view('admin.admin_view_request');
+        $request->validate([
+            
+            'description' => 'required',
+            
+            // Add other validation rules as needed
+        ]);
+
+        $job = Jobs::findOrFail($id);
+        $job->update($request->all());
+
+        return redirect()->route('jobs.index')->with('success', 'Job updated successfully');
     }
 }

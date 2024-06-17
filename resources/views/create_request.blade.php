@@ -144,7 +144,8 @@
             <div class="card card-primary mt-5">
                 <label class="badge heading-class" style="font-size: 24px;  color: #EA7831;">Make Request</label>
                 
-                <form action="" >
+                <form action="{{ route('create_req') }}" method="POST">
+                    @csrf
                     <div class="card-body">
                         <h3 class="inter-style">Location Details</h3>
                         <div class="row mt-3">
@@ -176,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="card-body">
                         <h3 class="inter-style">Contact Details</h3>
                         <div class="row mt-3">
@@ -197,7 +198,7 @@
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="card-body">
                         <div class="row mt-3">
                             <div class="col-md-6 form-group">
@@ -209,7 +210,7 @@
                                 </select>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3 soil_test" id="soil_test_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Select Sub Category</label>
@@ -220,7 +221,7 @@
                                 </select>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3" id="survey_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Select Job Type</label>
@@ -231,7 +232,7 @@
                                 </select>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3" id="other_jobs_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Other Jobs</label>
@@ -242,7 +243,7 @@
                                 </select>
                             </div>
                         </div>
-
+                
                         <div id="feature_survey_div">
                             <div class="row mt-3">
                                 <div class="col-md-6">
@@ -260,7 +261,7 @@
                                 </div>
                             </div>
                         </div>
-
+                
                         <div class="row mt-3" id="ahd_ffl_div">
                             <div class="col-md-6 form-group">
                                 <label class="field-style">Select AHD - FFL indicator level to Plumbing riser</label>
@@ -271,9 +272,8 @@
                                 </select>
                             </div>
                         </div>
-
                     </div>
-
+                
                     <div class="card-body" id="demolished_test_div">
                         <h3 class="inter-style">Additional Inforamtion</h3>
                         <div class="row mt-3">
@@ -365,7 +365,7 @@
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="card-body">
                         <div class="form-group">
                             <label class="field-style"></label>
@@ -395,7 +395,6 @@
                                         label.innerHTML = fileName;
                                     }
                                 </script>
-
                             </div>
                         </div>
                     </div>
@@ -407,6 +406,7 @@
 
 
                 </form>
+                
             </div>
         </div>
         <script>
