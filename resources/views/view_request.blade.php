@@ -113,378 +113,219 @@
             cursor: pointer;
         }
 
-        #soil_test_div {
-            display: none;
-        }
-
-        #survey_div {
-            display: none;
-        }
-
-        #other_jobs_div {
-            display: none;
-        }
-
-        #demolished_test_div {
-            display: none;
-        }
-
-        #feature_survey_div {
-            display: none;
-        }
-
-        #ahd_ffl_div {
-            display: none;
-        }
-
     </style>
     <br>
     <section class="content">
-        <div>
-            <div class="card card-primary mt-5">
-                <label class="badge heading-class" style="font-size: 24px;  color: #EA7831;">View Request</label>
-                
-                <form action="{{ route('create_req') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="card-body">
-                        <h3 class="inter-style">Location Details</h3>
-                        <div class="row mt-3 justify-content-evenly">
-                            <div class="col-md-4">
-                                <label class="field-style">Lot</label>
-                                <div>{{ $jobs -> lot }}</div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="field-style">Street Number</label>
-                                <div>{{ $jobs -> street_no }}</div>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="field-style">Street name</label>
-                                <div>{{ $jobs -> street_name }}</div>
+        <div class="card card-primary mt-5">
+            <label class="badge heading-class" style="font-size: 24px;  color: #EA7831;">View Request</label>
+            
+            <form>
+                @csrf
+                <div class="card-body">
+                    <h3 class="inter-style">Location Details</h3>
+                    <div class="row mt-3 justify-content-evenly">
+                        <div class="col-md-4">
+                            <label class="field-style">Lot</label>
+                            <div>{{ $jobs -> lot }}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="field-style">Street Number</label>
+                            <div>{{ $jobs -> street_no }}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="field-style">Street name</label>
+                            <div>{{ $jobs -> street_name }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 justify-content-evenly">
+                        <div class="col-md-4">
+                            <label class="field-style">Suburb</label>
+                            <div>{{ $jobs -> suburb }}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="field-style">Postal Code</label>
+                            <div>{{ $jobs -> postal_code }}</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card-body">
+                    <h3 class="inter-style">Contact Details</h3>
+                    <div class="row mt-3 justify-content-evenly">
+                        <div class="col-md-4">
+                            <label class="field-style">Email</label>
+                            <div>{{ $jobs -> email }}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="field-style">Mobile Number</label>
+                            <div>{{ $jobs -> mobile_no }}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="field-style">Name</label>
+                            <div>{{ $jobs -> name }}</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card-body">
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <label class="field-style">Request Type</label>
+                            <div>{{ $request_types[$jobs -> job] }}</div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label class="field-style">Sub Category</label>
+                            <div>{{ $soil_test[$jobs -> soil_test] }}</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="field-style">Job Type</label>
+                            <div>{{ $surveys[$jobs -> surveys] }}</div>
+                        </div>
+                    </div>
+            
+                    <div class="row mt-3" id="survey_div">
+                        <div class="col-md-4">
+                            <label class="field-style">Other Jobs</label>
+                            <div>{{ $other_jobs[$jobs -> other_jobs] }}</div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" id="survey_div">
+                        <div class="col-md-4">
+                            <label class="field-style">Feature Survey</label>
+                            <div>{{ $feature_surveys[$jobs -> feature_surveys] }}</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <input class="custom-control-input" type="checkbox" id="required_ahd" name="required_ahd" value="{{$jobs -> required_ahd}}">
+                            <label for="required_ahd" class="custom-control-label">Required AHD</label>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="field-style">AHD - FFL indicator level to Plumbing riser</label>
+                            <div>{{ $ahd_ffl[$jobs -> ahd_ffl] }}</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card-body" id="demolished_test_div">
+                    <h3 class="inter-style">Additional Information</h3>
+                    <div class="row mt-3">
+                        <div class="col-md-4"><label class="field-style">FOOTING PROBE</label></div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="footing_probe1" name="footing_probe" value="Y">
+                                <label for="footing_probe1" class="custom-control-label">Y</label>
                             </div>
                         </div>
-                        <div class="row mt-3 justify-content-evenly">
-                            <div class="col-md-4">
-                                <label class="field-style">Suburb</label>
-                                <div>{{ $jobs -> suburb }}</div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="footing_probe2" name="footing_probe" value="N" checked>
+                                <label for="footing_probe2" class="custom-control-label">N</label>
                             </div>
-                            <div class="col-md-4">
-                                <label class="field-style">Postal Code</label>
-                                <div>{{ $jobs -> postal_code }}</div>
+                        </div>
+            
+                        <div class="col-md-4"><label class="field-style">BAL</label></div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="bal1" name="bal" value="Y">
+                                <label for="bal1" class="custom-control-label">Y</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="bal2" name="bal" value="N" checked>
+                                <label for="bal2" class="custom-control-label">N</label>
                             </div>
                         </div>
                     </div>
-                
-                    <div class="card-body">
-                        <h3 class="inter-style">Contact Details</h3>
-                        <div class="row mt-3 justify-content-evenly">
-                            <div class="col-md-4">
-                                <label class="field-style">Email</label>
-                                <div>{{ $jobs -> email }}</div>
+                    <div class="row mt-3">
+                        <div class="col-md-4"><label class="field-style">WIND RATING</label></div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="wind_rating1" name="wind_rating" value="Y">
+                                <label for="wind_rating1" class="custom-control-label">Y</label>
                             </div>
-                            <div class="col-md-4">
-                                <label class="field-style">Phone Number</label>
-                                <div>{{ $jobs -> phone_no }}</div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="wind_rating2" name="wind_rating" value="N" checked>
+                                <label for="wind_rating2" class="custom-control-label">N</label>
                             </div>
-                            <div class="col-md-4">
-                                <label class="field-style">Name</label>
-                                <div>{{ $jobs -> name }}</div>
+                        </div>
+            
+                        <div class="col-md-4"><label class="field-style">LOCKED GATES</label></div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="locked_gates1" name="locked_gates" value="Y">
+                                <label for="locked_gates1" class="custom-control-label">Y</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="locked_gates2" name="locked_gates" value="N" checked>
+                                <label for="locked_gates2" class="custom-control-label">N</label>
                             </div>
                         </div>
                     </div>
-                
-                    <div class="card-body">
-                        <div class="row mt-3">
-                            <div class="col-md-6 form-group">
-                                <label class="field-style">Request Type</label>
-                                <div>{{ $request_types[$jobs -> job] }}</div>
+                    <div class="row mt-3">
+                        <div class="col-md-4"><label class="field-style">EXISTING HOUSE ON SITE</label></div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="house_on_site1" name="house_on_site" value="Y">
+                                <label for="house_on_site1" class="custom-control-label">Y</label>
                             </div>
                         </div>
-                
-                        <div class="row mt-3 soil_test" id="soil_test_div">
-                            <div class="col-md-6 form-group">
-                                <label class="field-style">Select Sub Category</label>
-                                <select class="custom-select form-control-border" id="soil_test" name="soil_test">
-                                    @foreach ($soil_test as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                
-                        <div class="row mt-3" id="survey_div">
-                            <div class="col-md-6 form-group">
-                                <label class="field-style">Select Job Type</label>
-                                <select class="custom-select form-control-border" id="surveys" name="surveys">
-                                    @foreach ($surveys as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                
-                        <div class="row mt-3" id="other_jobs_div">
-                            <div class="col-md-6 form-group">
-                                <label class="field-style">Other Jobs</label>
-                                <select class="custom-select form-control-border" id="other_jobs" name="other_jobs">
-                                    @foreach ($other_jobs as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                
-                        <div id="feature_survey_div">
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <label class="field-style">Select Feature Survey</label>
-                                    <select class="custom-select form-control-border" id="feature_surveys" name="feature_surveys">
-                                        @foreach ($feature_surveys as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-md-2"></div>
-                                <div class="col-md-4">
-                                    <input class="custom-control-input" type="checkbox" id="required_ahd" name="required_ahd" value="1">
-                                    <label for="required_ahd" class="custom-control-label">Required AHD</label>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="row mt-3" id="ahd_ffl_div">
-                            <div class="col-md-6 form-group">
-                                <label class="field-style">Select AHD - FFL indicator level to Plumbing riser</label>
-                                <select class="custom-select form-control-border" id="ahd_ffl" name="ahd_ffl">
-                                    @foreach ($ahd_ffl as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
-                                    @endforeach
-                                </select>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="house_on_site2" name="house_on_site" value="N" checked>
+                                <label for="house_on_site2" class="custom-control-label">N</label>
                             </div>
                         </div>
                     </div>
-                
-                    <div class="card-body" id="demolished_test_div">
-                        <h3 class="inter-style">Additional Information</h3>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><label class="field-style">FOOTING PROBE</label></div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe1" name="footing_probe" value="Y">
-                                    <label for="footing_probe1" class="custom-control-label">Y</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe2" name="footing_probe" value="N" checked>
-                                    <label for="footing_probe2" class="custom-control-label">N</label>
-                                </div>
-                            </div>
-                
-                            <div class="col-md-4"><label class="field-style">BAL</label></div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="bal1" name="bal" value="Y">
-                                    <label for="bal1" class="custom-control-label">Y</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="bal2" name="bal" value="N" checked>
-                                    <label for="bal2" class="custom-control-label">N</label>
-                                </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4"><label class="field-style">SUBDIVISION UNDER CONSTRUCTION</label></div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="sub_un_con1" name="sub_un_con" value="Y">
+                                <label for="sub_un_con1" class="custom-control-label">Y</label>
                             </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><label class="field-style">WIND RATING</label></div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating1" name="wind_rating" value="Y">
-                                    <label for="wind_rating1" class="custom-control-label">Y</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating2" name="wind_rating" value="N" checked>
-                                    <label for="wind_rating2" class="custom-control-label">N</label>
-                                </div>
-                            </div>
-                
-                            <div class="col-md-4"><label class="field-style">LOCKED GATES</label></div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates1" name="locked_gates" value="Y">
-                                    <label for="locked_gates1" class="custom-control-label">Y</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates2" name="locked_gates" value="N" checked>
-                                    <label for="locked_gates2" class="custom-control-label">N</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><label class="field-style">EXISTING HOUSE ON SITE</label></div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site1" name="house_on_site" value="Y">
-                                    <label for="house_on_site1" class="custom-control-label">Y</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site2" name="house_on_site" value="N" checked>
-                                    <label for="house_on_site2" class="custom-control-label">N</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><label class="field-style">SUBDIVISION UNDER CONSTRUCTION</label></div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con1" name="sub_un_con" value="Y">
-                                    <label for="sub_un_con1" class="custom-control-label">Y</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con2" name="sub_un_con" value="N" checked>
-                                    <label for="sub_un_con2" class="custom-control-label">N</label>
-                                </div>
+                        <div class="col-md-1">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input radio-button" type="radio" id="sub_un_con2" name="sub_un_con" value="N" checked>
+                                <label for="sub_un_con2" class="custom-control-label">N</label>
                             </div>
                         </div>
                     </div>
-                
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label class="field-style">Description</label>
-                            <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description"></textarea>
-                        </div>
+                </div>
+            
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="field-style">Description</label>
+                        <div>{{ $jobs -> description }}</div>
                     </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label class="field-style">Reference</label>
-                            <input type="text" class="form-control" id="reference" name="reference" placeholder="">
-                        </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="field-style">Reference</label>
+                        <div>{{ $jobs -> reference }}</div>
                     </div>
-                    <div class="card-body">
-                        <h3 class="inter-style">Upload Documents</h3>
-                        <div class="row mt-3">
-                            <label class="field-style" for="file_input">File input</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="file_input" name="file_input" onchange="updateFileName()">
-                                    <label class="custom-file-label field-style" for="file_input" id="fileLabel">Choose file</label>
-                                </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="inter-style">Upload Documents</h3>
+                    <div class="row mt-3">
+                        <label class="field-style" for="file_input">File input</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="file_input" name="file_input" onchange="updateFileName()">
+                                <label class="custom-file-label field-style" for="file_input" id="fileLabel">Choose file</label>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body" style="text-align: center">
-                        <button type="submit" class="btn btn-primary btn-lg btn-class" style="background-color: #262D59; color: white;">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-                
-            </div>
+                </div>
+            </form>                
         </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const jobSelect = document.getElementById('job');
-                const soilTestSelect = document.getElementById('soil_test');
-                const surveysSelect = document.getElementById('surveys');
-                const soilTestDiv = document.getElementById('soil_test_div');
-                const surveyDiv = document.getElementById('survey_div');
-                const otherJobsDiv = document.getElementById('other_jobs_div');
-                const preDemolishedDiv = document.getElementById('demolished_test_div');
-                const featureSurveyDiv = document.getElementById('feature_survey_div');
-                const ahdFflDiv = document.getElementById('ahd_ffl_div');
-
-                function resetAndHide(selectElement, divElement) {
-                    selectElement.selectedIndex = 0;
-                    divElement.style.display = 'none';
-                }
-                jobSelect.addEventListener('change', function() {
-                    resetAndHide(soilTestSelect, soilTestDiv);
-                    resetAndHide(surveysSelect, surveyDiv);
-                    resetAndHide(otherJobsSelect, otherJobsDiv);
-                    preDemolishedDiv.style.display = 'none';
-                    featureSurveyDiv.style.display = 'none';
-                    ahdFflDiv.style.display = 'none';
-                    switch (jobSelect.value) {
-                        case 'ST':
-                            soilTestDiv.style.display = 'block';
-                            surveyDiv.style.display = 'none';
-                            otherJobsDiv.style.display = 'none';
-                            break;
-                        case 'SU':
-                            soilTestDiv.style.display = 'none';
-                            surveyDiv.style.display = 'block';
-                            break;
-                        case 'OJ':
-                            soilTestDiv.style.display = 'none';
-                            surveyDiv.style.display = 'none';
-                            otherJobsDiv.style.display = 'block';
-                            preDemolishedDiv.style.display = 'none';
-                            break;
-                        case 'IN':
-                            soilTestDiv.style.display = 'none';
-                            surveyDiv.style.display = 'none';
-                            otherJobsDiv.style.display = 'none';
-                            break;
-                        default:
-                            soilTestDiv.style.display = 'none';
-                            surveyDiv.style.display = 'none';
-                            otherJobsDiv.style.display = 'none';
-                            ahdFflDiv.style.display = 'none';
-                            break;
-                    }
-                });
-
-                soilTestSelect.addEventListener('change', function() {
-                    switch (soilTestSelect.value) {
-                        case 'PRDT':
-                        case 'PODT':
-                            preDemolishedDiv.style.display = 'block';
-                            break;
-                        case 'FP':
-                            preDemolishedDiv.style.display = 'none';
-                            break;
-                        case 'OJ':
-                            preDemolishedDiv.style.display = 'none';
-                            break;
-                        default:
-                            preDemolishedDiv.style.display = 'none';
-                            ahdFflDiv.style.display = 'none';
-                            break;
-                    }
-                });
-
-                surveysSelect.addEventListener('change', function() {
-                    switch (surveysSelect.value) {
-                        case 'FS':
-                            featureSurveyDiv.style.display = 'block';
-                            otherJobsDiv.style.display = 'none';
-                            ahdFflDiv.style.display = 'none';
-                            break;
-                        case 'AHD':
-                            featureSurveyDiv.style.display = 'none';
-                            otherJobsDiv.style.display = 'none';
-                            ahdFflDiv.style.display = 'block';
-                            break;
-                        case 'RE':
-                            featureSurveyDiv.style.display = 'none';
-                            otherJobsDiv.style.display = 'none';
-                            ahdFflDiv.style.display = 'none';
-                            break;
-                        default:
-                            featureSurveyDiv.style.display = 'none';
-                            otherJobsDiv.style.display = 'none';
-                            ahdFflDiv.style.display = 'none';
-                            break;
-                    }
-                });
-            });
-        </script>
     </section>
 @endsection

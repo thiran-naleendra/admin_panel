@@ -182,8 +182,8 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="">
                             </div>
                             <div class="col-md-4">
-                                <label class="field-style">Phone Number</label>
-                                <input type="text" class="form-control" id="phone_no" name="phone_no" placeholder="">
+                                <label class="field-style">Mobile Number</label>
+                                <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="">
                             </div>
                             <div class="col-md-4">
                                 <label class="field-style">Name</label>
@@ -279,7 +279,7 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe2" name="footing_probe" value="N" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="footing_probe2" name="footing_probe" value="N">
                                     <label for="footing_probe2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -293,7 +293,7 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="bal2" name="bal" value="N" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="bal2" name="bal" value="N">
                                     <label for="bal2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -322,7 +322,7 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates2" name="locked_gates" value="N" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="locked_gates2" name="locked_gates" value="N">
                                     <label for="locked_gates2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -337,7 +337,7 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site2" name="house_on_site" value="N" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="house_on_site2" name="house_on_site" value="N">
                                     <label for="house_on_site2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -352,7 +352,7 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con2" name="sub_un_con" value="N" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="sub_un_con2" name="sub_un_con" value="N">
                                     <label for="sub_un_con2" class="custom-control-label">N</label>
                                 </div>
                             </div>
@@ -404,17 +404,17 @@
                 const featureSurveyDiv = document.getElementById('feature_survey_div');
                 const ahdFflDiv = document.getElementById('ahd_ffl_div');
 
-                function resetAndHide(selectElement, divElement) {
-                    selectElement.selectedIndex = 0;
-                    divElement.style.display = 'none';
-                }
+                // function resetAndHide(selectElement, divElement) {
+                //     selectElement.selectedIndex = 0;
+                //     // divElement.style.display = 'none';
+                // }
                 jobSelect.addEventListener('change', function() {
-                    resetAndHide(soilTestSelect, soilTestDiv);
-                    resetAndHide(surveysSelect, surveyDiv);
-                    resetAndHide(otherJobsSelect, otherJobsDiv);
-                    preDemolishedDiv.style.display = 'none';
-                    featureSurveyDiv.style.display = 'none';
-                    ahdFflDiv.style.display = 'none';
+                    // resetAndHide(surveysSelect, soilTestDiv);
+                    // resetAndHide(surveysSelect, surveyDiv);
+                    // resetAndHide(otherJobsSelect, otherJobsDiv);
+                    // preDemolishedDiv.style.display = 'none';
+                    // featureSurveyDiv.style.display = 'none';
+                    // ahdFflDiv.style.display = 'none';
                     switch (jobSelect.value) {
                         case 'ST':
                             soilTestDiv.style.display = 'block';
