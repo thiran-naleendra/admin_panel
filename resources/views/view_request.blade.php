@@ -195,12 +195,8 @@
                     <div class="card-body">
                         <div class="row mt-3">
                             <div class="col-md-6 form-group">
-                                <label class="field-style">Select Request Type</label>
-                                <select class="custom-select form-control-border" id="job" name="job">
-                                    @foreach ($request_types as $key => $value)
-                                        <option value="{{ $key }}">{{ $value }}</option>
-                                    @endforeach
-                                </select>
+                                <label class="field-style">Request Type</label>
+                                <div>{{ $request_types[$jobs -> job] }}</div>
                             </div>
                         </div>
                 
