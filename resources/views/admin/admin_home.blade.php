@@ -65,10 +65,16 @@
             margin-right: 1.25em;
             li {
                 border-radius: 4px;
-                padding: 25px 30px;
+                padding: 12px 25px;
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 25px;
+                margin-bottom: 13px;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            li:hover {
+                background-color: #f5f5f5; /* Change to your desired hover background color */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
             }
             .table-header {
                 background-color: #EA7831;
@@ -129,12 +135,12 @@
 
         .heading-class{
             font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.85rem;
-            text-align: left;
-            color: #EA7831;
-            margin-bottom: 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 0rem;
+    text-align: left;
+    color: #262d59;
+    margin-bottom: 3rem;
         }
         .status-Ongoing { color: #262D59; text-align: left;}
         .status-Confirmed { color: #F18866; text-align: left;}

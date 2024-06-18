@@ -2,19 +2,152 @@
 @section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
+    <style>
+        .heading-class{
+                    font-family: 'Inter', sans-serif;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    line-height: 0rem;
+                    text-align: left;
+                    color: #262d59;
+                    margin-bottom: 3rem;
+        }
 
+        .icon-gap {
+                margin-right: 5px;
+            }
+
+        .btn-model {
+                background-color: #262D59; /* Blue color */
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 5px 19px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .btn-model:hover {
+                background-color: #0056b3; /* Darker blue color */
+            }
+
+            .add-service{
+                background-color: #262D59; /* Blue color */
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 5px 19px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .add-service:hover {
+                background-color: #0056b3; /* Darker blue color */
+            }
+
+            .deleteTcon:hover {
+                color: rgb(237, 33, 33); /* Change icon color on hover */
+            }
+
+            .responsive-table {
+                margin-left: -2em;
+                margin-right: 1.25em;
+                li {
+                    border-radius: 13px;
+                    padding: 12px 25px;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 13px;
+                    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                }
+
+                    li:hover {
+                        background-color: #f5f5f5; /* Change to your desired hover background color */
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+                    }
+                    .table-header {
+                        background-color: #EA7831;
+                        font-size: 14px;
+                        letter-spacing: 0.03em;
+                        color: white;
+                        text-align: center;
+                        font-weight: 500;
+                        line-height: 16.94px;
+                        font-family: 'Inter', sans-serif;
+                    }
+                    .table-row {
+                        background-color: #ffffff;
+                        box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+                        text-align: center;
+                    }
+                    .col-1 {
+                        flex-basis: 10%;
+                    }
+                    .col-2 {
+                        flex-basis: 40%;
+                    }
+                    .col-3 {
+                        flex-basis: 25%;
+                    }
+                    .col-4 {
+                        flex-basis: 25%;
+                    }
+                    
+                    @media all and (max-width: 767px) {
+                        .table-header {
+                        display: none;
+                        }
+                        .table-row{
+                        
+                        }
+                        li {
+                        display: block;
+                        }
+                        .col {
+                        
+                        flex-basis: 100%;
+                        
+                        }
+                        .col {
+                        display: flex;
+                        padding: 10px 0;
+                            &:before {
+                                color: #6C7A89;
+                                padding-right: 10px;
+                                content: attr(data-label);
+                                flex-basis: 50%;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+
+                .scrollable-table {
+            overflow-x: auto;
+            max-height: 500px; /* Adjust the max-height as per your requirement */
+        }
+    </style>
 
 
     <section class="content">
         <div class="container rounded bg-white mt-5">
-            <div class="card card-primary">
-                <h1>Services</h1>
+            <div class="heading-class">Our Services</div>
+            <div class="text-right">
+                <button type="button" class="btn-model" data-toggle="modal" data-target="#customerModal">
+                    <i class="fa fa-plus-circle icon-gap" aria-hidden="true"></i>Add New
+                </button>
             </div>
             <br>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#customerModal">Add Service</button>
-            <br>
-
-
             <!-- The Modal -->
             <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel"
                 aria-hidden="true">
@@ -53,31 +186,29 @@
                                     <label for="position">Position</label>
                                     <input type="text" class="form-control" id="position" name="position" required>
                                 </div> --}}
-                                <button type="submit" class="btn btn-primary">Add Service</button>
+                                <div class="text-right">
+                                <button type="submit" class="add-service">Add Service</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-
-
-<br>
             <div>
-
-                @foreach ($service as $sr)
-                    <div class="card w-75">
-                        <div class="card-body">
-                            <h1 class="card-title">{{ $sr->name }}</h1>
-
-
+                <div class="scrollable-table">
+                <ul class="responsive-table">
+                    @foreach ($service as $sr)
+                    <li class="table-row">
+                        <div class="col col-1 alignments" data-label="Job Id">{{ $sr->name }}</div>                        
+                        <div class="col col-1">
+                            <i class="fas fa-trash deleteTcon"></i>
                         </div>
-                    </div>
-                @endforeach
-
+                    </li>
+                    @endforeach
+                </ul>
+                </div>
             </div>
-
         </div>
     </section>
 

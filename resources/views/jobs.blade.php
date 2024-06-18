@@ -92,11 +92,18 @@
             margin-right: 1.25em;
             li {
                 border-radius: 4px;
-                padding: 25px 30px;
+                padding: 12px 25px;
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 25px;
+                margin-bottom: 13px;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
             }
+
+            li:hover {
+                background-color: #f5f5f5; /* Change to your desired hover background color */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            }
+
             .table-header {
                 background-color: #262D59;
                 font-size: 14px;
@@ -109,7 +116,7 @@
             }
             .table-row {
                 background-color: #ffffff;
-                box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+                box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.1);
                 text-align: center;
             }
             .col-1 {
@@ -160,6 +167,11 @@
         .status-In-progress { color: #1FB2F2; text-align: left;}
         .status-Completed { color: #319F43; text-align: left;}
         .alignments { text-align: left; }
+
+        .scrollable-table {
+            overflow-x: auto;
+            max-height: 500px; /* Adjust the max-height as per your requirement */
+        }
     </style>
     <br>
     <section class="content">
@@ -205,6 +217,7 @@
                     </div>
                 </div>
             </div>
+            <div class="scrollable-table">
             <div>
                 <ul class="responsive-table">
                     <li class="table-header">
@@ -249,7 +262,7 @@
                     @endforeach
                 </ul>
             </div>
+            </div>
         </div>
-
     </section>
 @endsection
