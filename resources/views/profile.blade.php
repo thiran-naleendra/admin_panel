@@ -2,12 +2,12 @@
 @section('content')
     <style>
         body {
-            background: #BA68C8;
+            background: #262D59;
         }
 
         .form-control:focus {
             box-shadow: none;
-            border-color: #BA68C8;
+            border-color: #262D59;
         }
 
         .content {
@@ -15,33 +15,56 @@
         }
 
         .profile-button {
-            background: #BA68C8;
+            background: #262D59;
             box-shadow: none;
             border: none;
         }
 
         .profile-button:hover {
-            background: #682773;
+            background: #262D59;
         }
 
         .profile-button:focus {
-            background: #682773;
+            background: #262D59;
             box-shadow: none;
         }
 
         .profile-button:active {
-            background: #682773;
+            background: #262D59;
             box-shadow: none;
         }
 
         .back:hover {
-            color: #682773;
+            color: #262D59;
             cursor: pointer;
         }
 
         .tabcontent {
             display: none;
         }
+
+        .icon-gap {
+                margin-right: 5px;
+            }
+
+            .btn-model {
+                background-color: #262D59; /* Blue color */
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 5px 19px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .btn-model:hover {
+                background-color: #0056b3; /* Darker blue color */
+            }
     </style>
     <br>
     <section class="content">
@@ -59,10 +82,10 @@
                 <div class="col-md-8">
                     <div class="p-3 py-5">
                         <div class="tab d-flex justify-content-between align-items-center mb-3">
-                            <button class="btn btn-primary tablinks" onclick="openCity(event, 'view')">View Profile</button>
-                            <button class="btn btn-primary tablinks" onclick="openCity(event, 'edit')">Edit Profile</button>
+                            {{-- <button class="btn btn-primary tablinks" onclick="openCity(event, 'view')">View Profile</button> --}}
+                            <button class="btn-model" data-toggle="modal" data-target="#editProfileModal"><i class="fas fa-pencil-alt icon-gap"></i>Edit Profile</button>
                         </div>
-                        <div id="view" class="tabcontent">
+                        <div id="view" class="tabcontent" style="display: block;">
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Name</label></div>
                                 <div class="col-md-9">{{ Auth::user()->name }}</div>
@@ -84,7 +107,23 @@
                                 <div class="col-md-9"></div>
                             </div>
                         </div>
-                        <div id="edit" class="tabcontent">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="edit" class="tabcontent" style="display: block;">
                             <div class="row mt-3">
                                 <div class="col-md-3"><label>Name</label></div>
                                 <div class="col-md-9">
@@ -123,6 +162,7 @@
                 </div>
             </div>
         </div>
+
         <script>
             function openCity(evt, cityName) {
                 var i, tabcontent, tablinks;

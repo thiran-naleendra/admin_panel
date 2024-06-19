@@ -283,7 +283,7 @@
                                     <label for="footing_probe2" class="custom-control-label">N</label>
                                 </div>
                             </div>
-                
+                    
                             <div class="col-md-4"><label class="field-style">BAL</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
@@ -308,11 +308,11 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
-                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating2" name="wind_rating" value="N" checked>
+                                    <input class="custom-control-input radio-button" type="radio" id="wind_rating2" name="wind_rating" value="N">
                                     <label for="wind_rating2" class="custom-control-label">N</label>
                                 </div>
                             </div>
-                
+                    
                             <div class="col-md-4"><label class="field-style">LOCKED GATES</label></div>
                             <div class="col-md-1">
                                 <div class="custom-control custom-radio">
@@ -358,6 +358,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 
                     <div class="card-body">
                         <div class="form-group">
@@ -392,6 +393,22 @@
                 
             </div>
         </div>
+        <script>
+            document.querySelectorAll('.radio-button').forEach(radio => {
+                radio.addEventListener('click', function() {
+                    if (this.checked) {
+                        if (this.getAttribute('data-clicked') === 'true') {
+                            this.checked = false;
+                            this.setAttribute('data-clicked', 'false');
+                        } else {
+                            this.setAttribute('data-clicked', 'true');
+                        }
+                    } else {
+                        this.setAttribute('data-clicked', 'false');
+                    }
+                });
+            });
+        </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const jobSelect = document.getElementById('job');

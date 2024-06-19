@@ -172,6 +172,41 @@
             overflow-x: auto;
             max-height: 500px; /* Adjust the max-height as per your requirement */
         }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+        justify-content: flex-end; 
+        margin-top: 10px; 
+        }
+
+        .pagination button {
+            background-color: #ffffff;
+            border: 1px solid #262D59;
+            padding: 8px 16px;
+            margin: 0 4px;
+            cursor: pointer;
+            color: #262D59;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-left: 5px;
+        }
+
+        .pagination button:hover {
+            background-color: #262D59;
+            color: #ffffff;
+        }
+
+        .pagination button.disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .pagination button.active {
+            background-color: #262D59;
+            color: #ffffff;
+        }
     </style>
     <br>
     <section class="content">
@@ -219,7 +254,7 @@
             </div>
             <div class="scrollable-table">
             <div>
-                <ul class="responsive-table">
+                <ul class="responsive-table"  id="jobTable">
                     <li class="table-header">
                         <div class="col col-1 alignments">Job Id</div>
                         <div class="col col-2 alignments">Status</div>
@@ -263,6 +298,103 @@
                 </ul>
             </div>
             </div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be generated here by JavaScript -->
+            </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const rowsPerPage = 2;
+            const table = document.getElementById('jobTable');
+            const pagination = document.getElementById('pagination');
+            let currentPage = 1;
+            const rows = table.querySelectorAll('.table-row');
+            const totalPages = Math.ceil(rows.length / rowsPerPage);
+    
+            function displayRows(page) {
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+    
+                rows.forEach((row, index) => {
+                    row.style.display = index >= start && index < end ? 'flex' : 'none';
+                });
+            }
+    
+            function createPagination() {
+                pagination.innerHTML = '';
+    
+                // Previous button
+                const prevButton = document.createElement('button');
+                prevButton.textContent = '❮';
+                prevButton.classList.add('page-button');
+                prevButton.addEventListener('click', function () {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        displayRows(currentPage);
+                        updatePaginationButtons();
+                    }
+                });
+                pagination.appendChild(prevButton);
+    
+                // First page button
+                const firstButton = document.createElement('button');
+                firstButton.textContent = '1';
+                firstButton.classList.add('page-button');
+                firstButton.addEventListener('click', function () {
+                    currentPage = 1;
+                    displayRows(currentPage);
+                    updatePaginationButtons();
+                });
+                pagination.appendChild(firstButton);
+    
+                // ... (ellipsis) for indication of more pages
+                if (totalPages > 2) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    pagination.appendChild(ellipsis);
+                }
+    
+                // Last page button
+                if (totalPages > 1) {
+                    const lastButton = document.createElement('button');
+                    lastButton.textContent = totalPages;
+                    lastButton.classList.add('page-button');
+                    lastButton.addEventListener('click', function () {
+                        currentPage = totalPages;
+                        displayRows(currentPage);
+                        updatePaginationButtons();
+                    });
+                    pagination.appendChild(lastButton);
+                }
+    
+                // Next button
+                const nextButton = document.createElement('button');
+                nextButton.textContent = '❯';
+                nextButton.classList.add('page-button');
+                nextButton.addEventListener('click', function () {
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        displayRows(currentPage);
+                        updatePaginationButtons();
+                    }
+                });
+                pagination.appendChild(nextButton);
+            }
+    
+            function updatePaginationButtons() {
+                const buttons = document.querySelectorAll('.page-button');
+                buttons.forEach(button => {
+                    button.classList.remove('active');
+                    if (parseInt(button.textContent) === currentPage) {
+                        button.classList.add('active');
+                    }
+                });
+            }
+    
+            displayRows(currentPage);
+            createPagination();
+        });
+    </script>
 @endsection

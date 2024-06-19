@@ -5,9 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-
     <title>GEO Technical</title>
-
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -44,6 +42,7 @@
         body {
             font-family: "Montserrat", sans-serif;
         }
+        
 
         nav {
             position: fixed;
@@ -628,15 +627,15 @@
         }
 
         .btn-primary:hover {
-    background-color: #E35500; /* Adjust the color as needed */
-    color: var(--white);
-}
+        background-color: #E35500; /* Adjust the color as needed */
+        color: var(--white);
+        }
 
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-color: #E35500; /* Adjust the color as needed */
-}
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: #E35500; /* Adjust the color as needed */
+        }
 
     </style>
 </head>
@@ -659,46 +658,6 @@
         </ul>
 
     </nav>
-    {{-- <div class="container">
-        <div class="container__left">
-            <h1>Lorem Ipsum is simply dummy text</h1>
-            <div class="container__btn">
-                <button class="btn">Lorem Ipsum </button>
-            </div>
-        </div>
-        <div class="container__right">
-            <div class="images">
-                <img src="https://img.freepik.com/free-photo/sand-dry-desert_1204-406.jpg?t=st=1718074477~exp=1718078077~hmac=e38a78b287d0a8555f9cf7be734e9c851b19b45f65e01eb738609f19d55215f5&w=740"
-                    alt="tent-1" class="tent-1" />
-                <img src="https://img.freepik.com/free-psd/desert-landscape-with-sandstorm-generative-ai_587448-2020.jpg?t=st=1718074546~exp=1718078146~hmac=70cf2d69a8a90a44ae45904774f7698aa9a994322e722018a3bfc6fddfac679d&w=1380"
-                    alt="tent-2" class="tent-2" />
-            </div>
-            <div class="content">
-                <h4>Lorem Ipsum is simply dummy</h4>
-                <h2>Lorem Ipsum is simply dummy</h2>
-                <h3>Lorem Ipsum is simply dummy</h3>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s
-                </p>
-            </div>
-        </div>
-        <div class="location">
-            <span><i class="ri-map-pin-2-fill"></i></span>
-            OUR LOCATION
-        </div>
-        <div class="socials">
-            <span>
-                <a href="#"><i class="ri-facebook-fill"></i></a>
-            </span>
-            <span>
-                <a href="#"><i class="ri-instagram-line"></i></a>
-            </span>
-            <span>
-                <a href="#"><i class="ri-twitter-fill"></i></a>
-            </span>
-        </div>
-    </div> --}}
 
     <!-- New content -->
     <div class="hero">
