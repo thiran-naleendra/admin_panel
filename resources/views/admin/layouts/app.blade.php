@@ -31,6 +31,33 @@
     <!-- @stack('third_party_stylesheets')
 
     @stack('page_css') -->
+
+
+    <style>
+        .profile-background{
+            color: azure;
+            background-color: #262D59;
+        }
+
+        .btn-profile {
+                background-color: #262D59; /* Blue color */
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 5px 19px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            .btn-profile:hover {
+                background-color: #0056b3; /* Darker blue color */
+            }
+    </style>
 </head>
 
 
@@ -121,7 +148,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <!-- User image -->
-                        <li class="user-header bg-primary">
+                        <li class="user-header profile-background">
                             <img src="{{ url('image/profile.png') }}" class="img-circle elevation-2"
                                 alt="User Image">
                             <p>
@@ -131,11 +158,10 @@
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <a href="" class="btn btn-default btn-flat">Profile</a>
-                            <a href="{{ route('admin_logout') }}" class="btn btn-default btn-flat float-right"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <button class="btn-profile" >Profile</button>
+                            <button  class="btn-profile" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Logout
-                            </a>
+                            </button>
                             <form id="logout-form" action="{{ route('admin_logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>

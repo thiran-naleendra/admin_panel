@@ -4,7 +4,7 @@
 
       <li class="nav-item">
         <a href="{{ route('admin_home') }}" class="nav-link">
-          <i class="nav-icon far fa-image"></i>
+          <i class="nav-icon fas fa-file"></i>
           <p>
            Job List
           </p>
@@ -13,7 +13,7 @@
 
       <li class="nav-item">
         <a href="" class="nav-link">
-          <i class="nav-icon far fa-image"></i>
+          <i class="nav-icon fas fa-calendar-check"></i>
           <p>
            Meeting Request
           </p>
@@ -22,7 +22,7 @@
 
       <li class="nav-item">
         <a href="{{ route('admin_signup') }}" class="nav-link">
-          <i class="nav-icon far fa-image"></i>
+          <i class="nav-icon fas fa-users"></i>
           <p>
            Customers
           </p>
@@ -31,7 +31,7 @@
 
       <li class="nav-item">
         <a href="{{ route('service') }}" class="nav-link">
-          <i class="nav-icon far fa-image"></i>
+          <i class="nav-icon fas fa-wrench"></i>
           <p>
            Services
           </p>
@@ -40,7 +40,7 @@
 
       <li class="nav-item">
         <a href="{{ route('employee') }}" class="nav-link">
-          <i class="nav-icon far fa-image"></i>
+          <i class="nav-icon fas fa-user-tie"></i>
           <p>
            Employees
           </p>
@@ -49,7 +49,7 @@
 
       <li class="nav-item">
         <a href="{{ route('estimation_view') }}" class="nav-link">
-          <i class="nav-icon far fa-image"></i>
+          <i class="nav-icon fas fa-chart-line"></i>
           <p>
            Estimations
           </p>
